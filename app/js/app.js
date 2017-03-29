@@ -1,4 +1,4 @@
-var projectTrainingApp = angular.module('projectTraining', ['ngRoute','ngResource', 'ngCookies']);
+var projectTrainingApp = angular.module('projectTraining', ['ngRoute','ngResource']);
 
 projectTrainingApp.config(['$routeProvider',
   function($routeProvider) {
@@ -8,7 +8,7 @@ projectTrainingApp.config(['$routeProvider',
       }).
       when('/search', {
         templateUrl: 'partials/search.html',
-        controller: 'SearchCtrl'  
+        controller: 'SearchCtrl'
       }).
       otherwise({
         redirectTo: '/home'
