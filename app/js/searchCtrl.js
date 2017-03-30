@@ -1,12 +1,12 @@
-projectTrainingApp.controller('SearchCtrl', ['$scope', function($scope,Workout) {
+projectTrainingApp.controller('SearchCtrl', function ($scope,Workout) {
 
-  var query = '145';
+  $scope.greeting = 'Hej Hej';
 
   $scope.search = function(){
-    console.log('test');
-    Workout.ExerciseSearch.get({query : query}, function(data){
+    Workout.ExerciseSearch.get(function(data){
+      console.log(data);
 
     });
-  }
+  };
 
-}]);
+});
