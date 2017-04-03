@@ -1,15 +1,18 @@
 {
-  "name": "angular-seed",
-  "description": "A starter project for AngularJS",
+  "name": "dinner-planner",
+  "description": "A starter project for Interaction Programming course Lab5",
   "version": "0.0.0",
-  "homepage": "https://github.com/angular/angular-seed",
+  "homepage": "https://github.com/kth-csc-iprog/dinnerplanner-html",
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "angular": "~1.5.0",
-    "angular-route": "~1.5.0",
-    "angular-loader": "~1.5.0",
-    "angular-mocks": "~1.5.0",
-    "html5-boilerplate": "^5.3.0"
+    "angular": "1.6.x",
+    "angular-mocks": "1.6.x",
+    "jquery": "~2.1.1",
+    "bootstrap": "~3.x",
+    "angular-route": "1.6.x",
+    "angular-resource": "1.6.x",
+    "angular-animate": "1.6.x",
+    "angular-cookies": "1.6.x"
   }
 }
