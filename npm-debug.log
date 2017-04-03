@@ -2,38 +2,44 @@
 1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
 1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
 1 verbose cli   'start' ]
-2 info using npm@3.10.10
-3 info using node@v6.10.0
+2 info using npm@4.1.2
+3 info using node@v7.6.0
 4 verbose run-script [ 'prestart', 'start', 'poststart' ]
 5 info lifecycle dinner-planner@0.0.0~prestart: dinner-planner@0.0.0
 6 verbose lifecycle dinner-planner@0.0.0~prestart: unsafe-perm in lifecycle true
-7 verbose lifecycle dinner-planner@0.0.0~prestart: PATH: C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;C:\Users\Lucas\Documents\GitHub\projectTraining\node_modules\.bin;C:\Users\Lucas\AppData\Local\GitHub\PortableGit_f02737a78695063deace08e96d5042710d3e32db\cmd;C:\Users\Lucas\AppData\Local\GitHub\PortableGit_f02737a78695063deace08e96d5042710d3e32db\usr\bin;C:\Users\Lucas\AppData\Local\GitHub\PortableGit_f02737a78695063deace08e96d5042710d3e32db\usr\share\git-tfs;C:\Users\Lucas\AppData\Local\Apps\2.0\JK5DM5BK.8AV\LNL67KAM.CHL\gith..tion_317444273a93ac29_0003.0003_5794af8169eeff14;C:\Users\Lucas\AppData\Local\GitHub\lfs-amd64_1.5.5;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Skype\Phone\;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Users\Lucas\AppData\Local\GitHub\PortableGit_f02737a78695063deace08e96d5042710d3e32db\cmd;C:\Program Files\nodejs\;C:\Users\Lucas\AppData\Local\Microsoft\WindowsApps;C:\Users\Lucas\AppData\Local\atom\bin;C:\Users\Lucas\AppData\Roaming\npm;C:\Program Files (x86)\MSBuild\14.0\bin\;C:\Program Files (x86)\Microsoft SDKs\Windows\v8.1A\bin\NETFX 4.5.1 Tools\x64
-8 verbose lifecycle dinner-planner@0.0.0~prestart: CWD: C:\Users\Lucas\Documents\GitHub\projectTraining
+7 verbose lifecycle dinner-planner@0.0.0~prestart: PATH: C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;C:\Users\Mawnz\OneDrive\KTH\Interaktionsprogrammering och den dynamiska webben\Project\projectTraining\node_modules\.bin;C:\Users\Mawnz\AppData\Roaming\npm;C:\Program Files\nodejs\;C:\Perl64\site\bin;C:\Perl64\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\AMD\ATI.ACE\Core-Static;C:\Program Files\MATLAB\R2015b\runtime\win64;C:\Program Files\MATLAB\R2015b\bin;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files\Git\cmd;C:\Program Files (x86)\Bitvise SSH Client;C:\Program Files (x86)\CMake\bin;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\Skype\Phone\;C:\Users\Mawnz\Anaconda3;C:\Users\Mawnz\Anaconda3\Scripts;C:\Users\Mawnz\Anaconda3\Library\bin;C:\Users\Mawnz\AppData\Local\Programs\Python\Python35-32\Scripts\;C:\Users\Mawnz\AppData\Local\Programs\Python\Python35-32\;C:\Program Files\Java\jdk1.8.0_31\bin;C:\Users\Mawnz\IrisTK;C:\Users\Mawnz\AppData\Local\Microsoft\WindowsApps;C:\Users\Mawnz\AppData\Roaming\npm
+8 verbose lifecycle dinner-planner@0.0.0~prestart: CWD: C:\Users\Mawnz\OneDrive\KTH\Interaktionsprogrammering och den dynamiska webben\Project\projectTraining
 9 silly lifecycle dinner-planner@0.0.0~prestart: Args: [ '/d /s /c', 'npm install' ]
-10 silly lifecycle dinner-planner@0.0.0~prestart: Returned: code: 0  signal: null
-11 info lifecycle dinner-planner@0.0.0~start: dinner-planner@0.0.0
-12 verbose lifecycle dinner-planner@0.0.0~start: unsafe-perm in lifecycle true
-13 verbose lifecycle dinner-planner@0.0.0~start: PATH: C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;C:\Users\Lucas\Documents\GitHub\projectTraining\node_modules\.bin;C:\Users\Lucas\AppData\Local\GitHub\PortableGit_f02737a78695063deace08e96d5042710d3e32db\cmd;C:\Users\Lucas\AppData\Local\GitHub\PortableGit_f02737a78695063deace08e96d5042710d3e32db\usr\bin;C:\Users\Lucas\AppData\Local\GitHub\PortableGit_f02737a78695063deace08e96d5042710d3e32db\usr\share\git-tfs;C:\Users\Lucas\AppData\Local\Apps\2.0\JK5DM5BK.8AV\LNL67KAM.CHL\gith..tion_317444273a93ac29_0003.0003_5794af8169eeff14;C:\Users\Lucas\AppData\Local\GitHub\lfs-amd64_1.5.5;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Skype\Phone\;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Users\Lucas\AppData\Local\GitHub\PortableGit_f02737a78695063deace08e96d5042710d3e32db\cmd;C:\Program Files\nodejs\;C:\Users\Lucas\AppData\Local\Microsoft\WindowsApps;C:\Users\Lucas\AppData\Local\atom\bin;C:\Users\Lucas\AppData\Roaming\npm;C:\Program Files (x86)\MSBuild\14.0\bin\;C:\Program Files (x86)\Microsoft SDKs\Windows\v8.1A\bin\NETFX 4.5.1 Tools\x64
-14 verbose lifecycle dinner-planner@0.0.0~start: CWD: C:\Users\Lucas\Documents\GitHub\projectTraining
-15 silly lifecycle dinner-planner@0.0.0~start: Args: [ '/d /s /c', 'http-server app/ -a 0.0.0.0 -p 8000' ]
-16 verbose stack Error: kill ENOSYS
-16 verbose stack     at exports._errnoException (util.js:1022:11)
-16 verbose stack     at process.kill (internal/process.js:172:13)
-16 verbose stack     at process.listener (C:\Program Files\nodejs\node_modules\npm\node_modules\npmlog\node_modules\gauge\node_modules\signal-exit\index.js:86:15)
-16 verbose stack     at emitNone (events.js:91:20)
-16 verbose stack     at process.emit (events.js:185:7)
-16 verbose stack     at processEmit (C:\Program Files\nodejs\node_modules\npm\node_modules\npmlog\node_modules\gauge\node_modules\signal-exit\index.js:146:32)
-16 verbose stack     at processEmit (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\node_modules\npmlog\node_modules\gauge\node_modules\signal-exit\index.js:146:32)
-16 verbose stack     at Signal.wrap.onsignal (internal/process.js:199:44)
-17 verbose cwd C:\Users\Lucas\Documents\GitHub\projectTraining
-18 error Windows_NT 10.0.14393
-19 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "start"
-20 error node v6.10.0
-21 error npm  v3.10.10
-22 error code ENOSYS
-23 error errno ENOSYS
-24 error syscall kill
-25 error kill ENOSYS
-26 error If you need help, you may report this error at:
-26 error     <https://github.com/npm/npm/issues>
-27 verbose exit [ 1, true ]
+10 silly lifecycle dinner-planner@0.0.0~prestart: Returned: code: 1  signal: null
+11 info lifecycle dinner-planner@0.0.0~prestart: Failed to exec prestart script
+12 verbose stack Error: dinner-planner@0.0.0 prestart: `npm install`
+12 verbose stack Exit status 1
+12 verbose stack     at EventEmitter.<anonymous> (C:\Program Files\nodejs\node_modules\npm\lib\utils\lifecycle.js:279:16)
+12 verbose stack     at emitTwo (events.js:106:13)
+12 verbose stack     at EventEmitter.emit (events.js:192:7)
+12 verbose stack     at ChildProcess.<anonymous> (C:\Program Files\nodejs\node_modules\npm\lib\utils\spawn.js:40:14)
+12 verbose stack     at emitTwo (events.js:106:13)
+12 verbose stack     at ChildProcess.emit (events.js:192:7)
+12 verbose stack     at maybeClose (internal/child_process.js:890:16)
+12 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+13 verbose pkgid dinner-planner@0.0.0
+14 verbose cwd C:\Users\Mawnz\OneDrive\KTH\Interaktionsprogrammering och den dynamiska webben\Project\projectTraining
+15 error Windows_NT 10.0.14393
+16 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "start"
+17 error node v7.6.0
+18 error npm  v4.1.2
+19 error code ELIFECYCLE
+20 error dinner-planner@0.0.0 prestart: `npm install`
+20 error Exit status 1
+21 error Failed at the dinner-planner@0.0.0 prestart script 'npm install'.
+21 error Make sure you have the latest version of node.js and npm installed.
+21 error If you do, this is most likely a problem with the dinner-planner package,
+21 error not with npm itself.
+21 error Tell the author that this fails on your system:
+21 error     npm install
+21 error You can get information on how to open an issue for this project with:
+21 error     npm bugs dinner-planner
+21 error Or if that isn't available, you can get their info via:
+21 error     npm owner ls dinner-planner
+21 error There is likely additional logging output above.
+22 verbose exit [ 1, true ]
