@@ -1,0 +1,5 @@
+https://material.io/icons/
+
+https://material.io/guidelines/style/color.html#color-color-palette
+
+https://material.angularjs.org/latest/

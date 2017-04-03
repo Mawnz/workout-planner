@@ -1,0 +1,27 @@
+.fullSize{
+	height:100vh;
+	width:100vw;
+}
+
+.max{
+	height:100%;
+	width:100%;
+}
+
+.workoutMenu{
+	max-height: 100%;
+	min-height: 80%;
+}
+
+html, body, div, md-content{
+    overflow-x: hidden;
+}
+
+
+.fabSpeedDialdemoBasicUsage .lock-size {
+  min-width: 300px;
+  min-height: 300px;
+  width: 300px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto; }

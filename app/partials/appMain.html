@@ -1,0 +1,81 @@
+<div ng-controller="NavbarCtrl">
+    <section layout="row">
+
+        <md-sidenav
+            class="md-sidenav-left"
+            md-component-id="left"
+            md-is-locked-open="$mdMedia('gt-md')"
+            md-whiteframe="4">
+
+          <md-toolbar ng-controller="LeftCtrl" layout = "row" layout-align = "space-between stretch">
+            <!--Header of left navbar-->
+            <div>
+                <h1 class="md-toolbar-tools">Your workout</h1>
+            </div>
+            <div >
+                <md-button ng-click="close()" class="md-primary" hide-gt-md>
+                    <md-icon style = "color:#9FA8DA" md-font-set="material-icons"> close </md-icon>
+                </md-button>
+            </div>
+          </md-toolbar>
+          <md-content layout-padding ng-controller="LeftCtrl">
+            <!-- Content of navbar goes here-->
+            You have not workout :(
+
+          </md-content>
+
+        </md-sidenav>
+
+        <md-content flex layout-padding>
+            <div layout = "row" layout-align = "space-between">
+                <div flex-sm-md = "10">
+                    <md-button ng-click="toggleLeft()"
+                    class="md-primary" hide-gt-md>
+                        <md-icon md-font-set="material-icons"> menu </md-icon>
+                    </md-button>
+                </div>
+                <div flex-gt-md = "30" flex-sm-md = "80" layout >
+                <!--Here all the good shit will be i think-->
+                  But nobody came...<br> Kek nice meme
+                </div>
+                <div flex-sm-md = "10">
+                    <md-button ng-click="toggleRight()"
+                    ng-hide="isOpenRight()"
+                    class="md-primary">
+                        <md-icon md-font-set="material-icons"> filter_list </md-icon>
+                    </md-button>
+                </div>
+            </div>
+        </md-content>
+
+        <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
+
+          <md-toolbar class="md-theme-light">
+            <h1 class="md-toolbar-tools">Filters</h1>
+          </md-toolbar>
+          <md-content ng-controller="RightCtrl" layout-padding>
+            <div layout = "column">
+              <div>
+                <form>
+                  <md-input-container>
+                    <label for="testInput">Text search</label>
+                    <input type="text" id="testInput"
+                           ng-model="data" md-autofocus>
+                  </md-input-container>
+                </form>
+              </div>
+              <div layout>
+                <md-slider ng-model="str" min="1" max="5" aria-label = "str">
+                </md-slider>
+              </div>
+            </div>
+            <div flex = "100">
+                <md-button ng-click="close()" class="md-primary">
+                  <md-icon md-font-set="material-icons"> done </md-icon>
+                </md-button>
+            </div>
+          </md-content>
+
+        </md-sidenav>
+  </section>
+</div>
