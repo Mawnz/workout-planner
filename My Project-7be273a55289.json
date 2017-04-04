@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "glass-world-163612",
+  "private_key_id": "7be273a5528997971878a873db3534826d81fa6d",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDBH+JAGYDDuCAA\nVLV2ls/v4g+ZWcGFFh8F3XyvfFsVAPGAzj4QBKXCaZo10AquXx7MmUyUlKZ0Car7\nTiP7MGUPgiHR4KgS2tANYERRq6qY2e3maotJz38UCH6SM7aq2TNXUFvTP16KjG0N\ndicWqt5p1ihu+1en/nnntLTfHmssoDpyuZ12aNPqrq/VPcBXt7GGTCO0VZZLEUTU\nvj/0Q6NGf2rlf4fCJCWTv29F+7cYUdqH0ZjbVJ3yiIDsWls8hTsQ7x2aobIWTKLH\nLZN5vKF/T3HKip8WKKVF8jINMrGTym/8Dnbg+Hw4D/JGS1bUIv7THNtoGZtbiDvG\nFDTYVS8RAgMBAAECggEAQON5nZf0D87Z0cKkhgf+LdeC7j+eKh1YpxvYPQ5HfDMo\n8eJaL/+fwkbBLbuNGzGSo6QOew3HL83fyThkFo4YJrHOszoMvukOZrAlxFstotX2\nfSjnTBGP3SdNf8ooYhdAjOHPOJdeKKcuLQu57n/S4zS1uTRyK1vxkczByQXrdL57\n+am4JeUGG1+ekbjmUvjrxUDLgj7GSlTnM+R9bnQjRawjHM/Qm/NRRZDz2OrPxCvg\nXwprhbeb4xp3Ob07maBwg36BOJ/eHfwib89dvlwyuy2WR9y7oE0NAwcXf5xgauqo\n8IzuRwp4s4/dlPKdIX3FPZbc+Qw/0XAmWw5697J+0QKBgQDekXJ4Z1Ppww2nf2Gi\nPk8AEMY4ujTLWbc14vEUIOnjQJD8l6CtOL/r9Y+8H2zhn/iH8cOQ8Lo0JAHbEZr3\nYqR57nX/W++1fxfzjpbK/apEH7owHYeDB95gpi6A8pV9mG5msgp2RSoZiiXrj0w+\nT/uaVJNI7g5IaGRkwhF2WI9lOwKBgQDeIjkgUfCMlfYEjZOqQuYIrHu5jirsmSUG\n4+aL6dcCdIXWCq+XBEzdw4yM21TWIgsNK2P8Sf3FnnX4//HgfixX/eLzeNurDI27\nrz6Ahi/VxwCdjJxj2D7cCZq9WXD6a02rIR4asn20mCTizg9NHC9/tMJGuV4LCUag\nbh8KgamIIwKBgQC3B/eSKq8oUx68exXIfeMr05+fcQoPnMT9DJdjDToqh6N0BiG9\nsiiqnDPK6jD5TzvsWBaS8FTAokfgZxcAkF9gYokpKer0YANLaRx67KaEBW9xOCeD\nywnGg4NEybnEIoHP9GSEJJbdj+1lTV/O8qmfniPNWu/l/etprOr9XxD1lwKBgBzu\nqDIlegdVoO2G4yzR+dQ3YwYQFlcquz/ifyzKEE8pjiUKz0QEM17PEYdnKe2aEYZt\nmGBL4tnSgdskuwRaarwrPVwo6bOltvAzKxjiYWieut3KarQ2fjl6psTy2VxEjaE0\ndw9TIDxddLB11lhcy3L+wC8mBbG6S5CpxzE/Ii2xAoGAd30fWj6oSzQ2WlSAHJZ4\n57Ta4p5fM/c/ScNKWNeui08HpZ2+0bZ25HjK1BBcbwkZnTh5QO2I3nfHV9ijOT2r\nqFKGJy+CM3Ssx7S/YKIuFFffEkL39iIVurxPMUm0qTA5UYd0XcGV1ha4u8K9R0D6\ncSmZ95Up/QNf1qF6o1ef4rE=\n-----END PRIVATE KEY-----\n",
+  "client_email": "mansaberg@glass-world-163612.iam.gserviceaccount.com",
+  "client_id": "115241468783490997396",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/mansaberg%40glass-world-163612.iam.gserviceaccount.com"
+}

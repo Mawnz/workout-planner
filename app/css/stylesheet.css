@@ -13,15 +13,45 @@
 	min-height: 80%;
 }
 
-html, body, div, md-content{
+html, body, md-content{
     overflow-x: hidden;
 }
 
 
-.fabSpeedDialdemoBasicUsage .lock-size {
-  min-width: 300px;
-  min-height: 300px;
-  width: 300px;
-  height: 300px;
-  margin-left: auto;
-  margin-right: auto; }
+.ysd{
+	overflow-y:hidden;
+}
+
+md-nav-bar {
+	overflow-y:hidden;
+	padding-bottom:1px;
+}
+
+.tag{
+	display:inline-block;
+	border-radius: 10px;
+	background: #EF5350;
+	color: #FFEBEE;
+	padding: 5px;
+}
+
+md-grid-list{
+	height:100%;
+}
+
+md-card-content{
+	width:100%;
+}
+
+.image{
+	max-height:100%;
+	max-width:100%;
+}
+
+@media screen and (min-width: 1280px){
+	.sidenav{
+		height: 100%;
+	}
+}
+
+

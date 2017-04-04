@@ -1,8 +1,8 @@
-<div ng-controller="NavbarCtrl">
-    <section layout="row">
+<div ng-controller="NavbarCtrl" style = "height:100%">
+    <section layout="row" layout-fill>
 
         <md-sidenav
-            class="md-sidenav-left"
+            class="md-sidenav-left sidenav"
             md-component-id="left"
             md-is-locked-open="$mdMedia('gt-md')"
             md-whiteframe="4">
@@ -12,7 +12,7 @@
             <div>
                 <h1 class="md-toolbar-tools">Your workout</h1>
             </div>
-            <div >
+            <div>
                 <md-button ng-click="close()" class="md-primary" hide-gt-md>
                     <md-icon style = "color:#9FA8DA" md-font-set="material-icons"> close </md-icon>
                 </md-button>
@@ -20,59 +20,112 @@
           </md-toolbar>
           <md-content layout-padding ng-controller="LeftCtrl">
             <!-- Content of navbar goes here-->
-            You have not workout :(
+            You have no workout :(
 
           </md-content>
 
         </md-sidenav>
 
-        <md-content flex layout-padding>
-            <div layout = "row" layout-align = "space-between">
-                <div flex-sm-md = "10">
-                    <md-button ng-click="toggleLeft()"
-                    class="md-primary" hide-gt-md>
-                        <md-icon md-font-set="material-icons"> menu </md-icon>
-                    </md-button>
-                </div>
-                <div flex-gt-md = "30" flex-sm-md = "80" layout >
-                <!--Here all the good shit will be i think-->
-                  But nobody came...<br> Kek nice meme
-                </div>
-                <div flex-sm-md = "10">
-                    <md-button ng-click="toggleRight()"
-                    ng-hide="isOpenRight()"
-                    class="md-primary">
-                        <md-icon md-font-set="material-icons"> filter_list </md-icon>
-                    </md-button>
-                </div>
-            </div>
+        <md-content flex layout-padding layout-fill style = "overflow-y: hidden">
+              <div layout layout-align = "space-between start" flex>
+                  <div >
+                      <md-button ng-click="toggleLeft()"
+                      ng-hide = "isOpenLeft()"
+                      class="md-primary" hide-gt-md>
+                          <md-icon md-font-set="material-icons"> view_list </md-icon>
+                      </md-button>
+                  </div>
+
+                  <div>
+                      <md-button ng-click="toggleRight()"
+                      ng-hide="isOpenRight()"
+                      class="md-primary" hide-gt-md>
+                          <md-icon md-font-set="material-icons"> filter_list </md-icon>
+                      </md-button>
+                  </div>
+              </div>
+              <div style = "overflow-y: auto; padding-bottom:50px; height: 100%" ng-include = "'partials/results.html'">
+                <!--The content can be found in the 'results.html file'-->
+              </div>
         </md-content>
 
-        <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
+        <md-sidenav 
+                    class="md-sidenav-right" 
+                    md-component-id="right"
+                    md-is-locked-open="$mdMedia('gt-md')"
+                    md-whiteframe="4">
 
-          <md-toolbar class="md-theme-light">
-            <h1 class="md-toolbar-tools">Filters</h1>
+          <md-toolbar ng-controller = "RightClose" class="md-theme-light" layout layout-align = "space-between stretch">
+            <div>
+              <h1 class="md-toolbar-tools">Search</h1>
+            </div>
+            <div>
+                <md-button ng-click="close()" class="md-primary" hide-gt-md>
+                    <md-icon style = "color:#9FA8DA" md-font-set="material-icons"> close </md-icon>
+                </md-button>
+            </div>
           </md-toolbar>
-          <md-content ng-controller="RightCtrl" layout-padding>
+          <md-content ng-controller="RightCtrl as ctrl" layout-padding>
             <div layout = "column">
               <div>
                 <form>
-                  <md-input-container>
-                    <label for="testInput">Text search</label>
-                    <input type="text" id="testInput"
-                           ng-model="data" md-autofocus>
+                  <md-input-container layout layout-align = "center center">
+                    <div flex = "80">
+                      <label for="testInput">Text search</label>
+                      <md-chips class = "chips" ng-model="searchQuery" name="query" readonly="readonly"
+                                md-removable="removable" md-max-chips="5" placeholder="Enter text...">
+                    </div>
+                    <div flex = "20" layout layout-align = "center center">
+                      <md-button ng-click="search()" class="md-warn md-fab md-mini">
+                        <md-icon md-font-set="material-icons"> search </md-icon>
+                      </md-button>
+                    </div>
                   </md-input-container>
                 </form>
               </div>
-              <div layout>
-                <md-slider ng-model="str" min="1" max="5" aria-label = "str">
-                </md-slider>
+              <b>Filters</b>
+              <div layout layout-align = "center center">
+                <div flex="20">
+                  Strength
+                </div>
+                <div flex = "65">
+                  <md-slider class = "md-warn" flex md-discrete ng-model="str" step="1" min="1" max="10" aria-label="strength">
+                  </md-slider>
+                </div>
+                <div flex = "15" >
+                  <md-input-container>
+                    <input flex type="number" ng-model="str" aria-label="blue" aria-controls="blue-slider">
+                  </md-input-container>
+                </div>
               </div>
-            </div>
-            <div flex = "100">
-                <md-button ng-click="close()" class="md-primary">
-                  <md-icon md-font-set="material-icons"> done </md-icon>
-                </md-button>
+              <div layout layout-align = "center center">
+                <div flex="20">
+                  Flex
+                </div>
+                <div flex = "65">
+                  <md-slider class = "md-primary" flex md-discrete ng-model="flex" step="1" min="1" max="10" aria-label="flex">
+                  </md-slider>
+                </div>
+                <div flex = "15" >
+                  <md-input-container>
+                    <input flex type="number" ng-model="flex" aria-label="blue" aria-controls="blue-slider">
+                  </md-input-container>
+                </div>
+              </div>
+              <div layout layout-align = "center center">
+                <div flex="20">
+                  Cardio
+                </div>
+                <div flex = "65">
+                  <md-slider class = "md-default" flex md-discrete ng-model="cardio" step="1" min="1" max="10" aria-label="cardio">
+                  </md-slider>
+                </div>
+                <div flex = "15" >
+                  <md-input-container>
+                    <input flex type="number" ng-model="cardio" aria-label="blue" aria-controls="blue-slider">
+                  </md-input-container>
+                </div>
+              </div>
             </div>
           </md-content>
 

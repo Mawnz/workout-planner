@@ -4,6 +4,9 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, $timeout, $mdSiden
     $scope.isOpenRight = function(){
       return $mdSidenav('right').isOpen();
     };
+    $scope.isOpenLeft = function(){
+      return $mdSidenav('left').isOpen();
+    };
 
     /**
      * Supplies a function that will continue to operate until the
@@ -62,12 +65,21 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, $timeout, $mdSiden
 .controller('RightCtrl', function ($scope, $timeout, $mdSidenav, $log) {
     //getting some of them variables that are used for the filters
     $scope.str = 1;
+    $scope.flex = 1;
+    $scope.cardio = 1;
+    //this will contain a list of queries so you can search for multiple queries getting more results
+    $scope.searchQuery = [];
 
+    //this is set to be not readonly
+    $scope.readonly = false;
+
+    $scope.search = function () {
+      //code to do search stuff goes here
+      $mdSidenav('right').close();
+    };
+})
+.controller('RightClose', function ($scope, $mdSidenav) {
     $scope.close = function () {
-      // Component lookup should always be available since we are not using `ng-if`
       $mdSidenav('right').close()
-        .then(function () {
-          console.log("close RIGHT is done");
-        });
     };
 });
