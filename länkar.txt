@@ -1,0 +1,12 @@
+https://material.io/icons/
+
+https://material.io/guidelines/style/color.html#color-color-palette
+
+https://material.angularjs.org/latest/
+
+
+client id
+202314677888-lfitpkr7mfv2nmrm61c32vk2o8bg58fo.apps.googleusercontent.com
+
+client secret
+Ev6G7WDMjLyP6_gCITU1FFwk

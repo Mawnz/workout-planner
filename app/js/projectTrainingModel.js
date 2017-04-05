@@ -1,5 +1,6 @@
 projectTrainingApp.factory('Workout',function ($resource) {
 
+<<<<<<< HEAD
   this.test = function(){
     console.log('inne i model');
   }
@@ -23,3 +24,19 @@ projectTrainingApp.factory('Workout',function ($resource) {
   return this;
 
 });
+=======
+	this.query = [];
+	this.exercises = [];
+
+	this.returnQuery = function(){
+		return query;
+	}
+
+	this.ExerciseSearch = $resource('https://wger.de/api/v2/exercise/');
+	this.ExerciseImages = $resource('https://wger.de/api/v2/exerciseimage/?is_main=True&limit=5');
+
+
+
+  return this;
+});
+>>>>>>> origin/master
