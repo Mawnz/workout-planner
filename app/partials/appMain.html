@@ -11,19 +11,24 @@
             <!--Header of left navbar-->
             <div>
                 <h1 class="md-toolbar-tools">Your workout</h1>
+
             </div>
-            <div>
-                <md-button ng-click="close()" class="md-primary" hide-gt-md>
+            <div layout layout-align = "center center">
+                <md-button ng-click="close()"  class="md-icon-button" hide-gt-md>
                     <md-icon style = "color:#9FA8DA" md-font-set="material-icons"> close </md-icon>
                 </md-button>
             </div>
           </md-toolbar>
           <md-content layout-padding ng-controller="LeftCtrl">
             <!-- Content of navbar goes here-->
-            You have no workout :(
+              <!--External file for the individual items-->
+              <div ng-include = "'partials/exerciseMenu.html'"></div>
 
           </md-content>
-
+                <!--Checkout-button that is always at the bottom of the container-->
+                <md-button  ng-href = "#!app/checkout" ng-click = "checkout()" class = "checkout md-icon-button">
+                  <md-icon md-font-set="material-icons"> print </md-icon>
+                </md-button>
         </md-sidenav>
 
         <md-content flex layout-padding layout-fill style = "overflow-y: hidden">
@@ -59,8 +64,8 @@
             <div>
               <h1 class="md-toolbar-tools">Search</h1>
             </div>
-            <div>
-                <md-button ng-click="close()" class="md-primary" hide-gt-md>
+            <div layout layout-align = "center center">
+                <md-button ng-click="close()" class="md-icon-button" hide-gt-md>
                     <md-icon style = "color:#9FA8DA" md-font-set="material-icons"> close </md-icon>
                 </md-button>
             </div>
@@ -76,7 +81,7 @@
                                 md-removable="removable" md-max-chips="5" placeholder="Enter text...">
                     </div>
                     <div flex = "20" layout layout-align = "center center">
-                      <md-button ng-click="search()" class="md-warn md-fab md-mini">
+                      <md-button ng-click="search()" class="md-icon-button md-primary">
                         <md-icon md-font-set="material-icons"> search </md-icon>
                       </md-button>
                     </div>

@@ -9,12 +9,11 @@ projectTrainingApp.config(['$routeProvider',
       when('/app', {
         templateUrl: 'partials/appMain.html'
       }).
+      when('/app/checkout', {
+        templateUrl: 'partials/checkout.html'
+      }).
       when('/about', {
         templateUrl: 'partials/about.html'
-      }).
-      when('/search', {
-        templateUrl: 'partials/search.html',
-        controller: 'SearchCtrl'  
       }).
       otherwise({
         redirectTo: '/home'

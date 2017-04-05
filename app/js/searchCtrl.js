@@ -1,4 +1,4 @@
-projectTrainingApp.controller('SearchCtrl', function ($scope,Workout, $mdDialog) {
+projectTrainingApp.controller('SearchCtrl', function ($scope,Workout, $mdDialog, $mdToast) {
   $scope.exercises = [];
   $scope.images = [];
   $scope.show = true;
@@ -12,16 +12,6 @@ projectTrainingApp.controller('SearchCtrl', function ($scope,Workout, $mdDialog)
       $scope.show = true;
       return;
     });
-    /*
-    //then get all exercises
-    Workout.ExerciseSearch.get({status : '2', language : '2', limit : "1000"}, function(data){
-      $scope.exercises = data.results;
-      console.log($scope.exercises);
-      return;
-
-    }, function(){
-      $scope.status = "There was an unexpected error";
-    });*/
   }
 
   $scope.openInfo = function(event){
@@ -34,6 +24,28 @@ projectTrainingApp.controller('SearchCtrl', function ($scope,Workout, $mdDialog)
       targetEvent : event,
       clickOutsideToClose : true
     });
+  }
+
+  $scope.addExercise = function(event){
+    addedToast();
+
+  }
+
+  function addedToast(){
+    //position of toast except for on small screens where it's always bottom
+    var pos = {
+      bottom : false,
+      top : true,
+      left : true,
+      right : false
+    };
+    var pin = angular.extend({}, pos);
+    $mdToast.show(
+      $mdToast.simple()
+        .textContent("Exercise added!")
+        .position("top")
+        .hideDelay(500)
+    );
   }
 
   function DialogController($scope, $mdDialog){

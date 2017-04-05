@@ -8,6 +8,12 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, $timeout, $mdSiden
       return $mdSidenav('left').isOpen();
     };
 
+    //Checkout function
+    $scope.checkout = function(){
+      
+    }
+
+
     /**
      * Supplies a function that will continue to operate until the
      * time is up.

@@ -12,14 +12,15 @@
 <!--Layout gets fucked somehow i dunno why. When you switch from app to home and back it fucks itself-->
 			<md-grid-list
 				md-cols-gt-md = "2"
+				md-cols-md = "3"
 				md-cols-sm = "2"
-				md-cols = "1"
-			    md-row-height-gt-md = "4:3"
-			    md-row-height-sm = "4:3"
-			    md-row-height-xs = "10:8">
+				md-cols-xs = "1"
+			    md-row-height = "4:3"
+			    md-row-height-xs = "4:3"
+			    md-gutter = "5px">
 
 				<md-grid-tile md-colspan = "1">
-					<md-card flex>
+					<md-card flex >
 						<div layout = "row" >
 							<div flex = "50" layout = "column" layout-align = "space-between">
 							<div>	       	
@@ -32,11 +33,11 @@
 						    <div>
 						        <md-card-actions layout="row" layout-align="start center">
 						          <md-card-icon-actions layout layout-align-gt-md = "start" layout-align = "center space-between">
-						            <md-button class="md-icon-button" aria-label="Favorite">
+						            <md-button ng-click = "addExercise($ev)"  class="md-icon-button" aria-label="Favorite">
 						              <md-icon md-font-set="material-icons"> add </md-icon>
 						            </md-button>
 						            <md-button ng-click = "openInfo($event)" class="md-icon-button" aria-label="Favorite">
-						              <md-icon md-font-set="material-icons"> open_in_new </md-icon>
+						              <md-icon md-font-set="material-icons"> info_outline </md-icon>
 						            </md-button>
 						          </md-card-icon-actions>
 						        </md-card-actions>
@@ -53,7 +54,7 @@
 						    </div>
 					        </div>
 					        <div layout layout-align = "center center">
-					        	<img ng-src="img/Crunches-2.png" class="md-card-image image" alt="Washed Out">
+					        	<img ng-src="img/Crunches-1.png" class="md-card-image image" alt="Washed Out">
 					        </div>
 					    </div>
 				    </md-card>
@@ -73,11 +74,11 @@
 					    <div>
 					        <md-card-actions layout="row" layout-align="start center">
 					          <md-card-icon-actions layout layout-align-gt-md = "start" layout-align = "center space-between">
-					            <md-button class="md-icon-button" aria-label="Favorite">
+					            <md-button ng-click = "addExercise($ev)" class="md-icon-button" aria-label="Favorite">
 					              <md-icon md-font-set="material-icons"> add </md-icon>
 					            </md-button>
 					            <md-button ng-click = "openInfo($event)" class="md-icon-button" aria-label="Favorite">
-					              <md-icon  md-font-set="material-icons"> open_in_new </md-icon>
+					              <md-icon  md-font-set="material-icons"> info_outline </md-icon>
 					            </md-button>
 					          </md-card-icon-actions>
 					        </md-card-actions>
@@ -113,11 +114,11 @@
 					    <div>
 					        <md-card-actions layout="row" layout-align="start center">
 					          <md-card-icon-actions layout layout-align-gt-md = "start" layout-align = "center space-between">
-					            <md-button class="md-icon-button" aria-label="Favorite">
+					            <md-button ng-click = "addExercise($ev)"  class="md-icon-button" aria-label="Favorite">
 					              <md-icon md-font-set="material-icons"> add </md-icon>
 					            </md-button>
 					            <md-button ng-click = "openInfo($event)" class="md-icon-button" aria-label="Favorite">
-					              <md-icon md-font-set="material-icons"> open_in_new </md-icon>
+					              <md-icon md-font-set="material-icons"> info_outline </md-icon>
 					            </md-button>
 					          </md-card-icon-actions>
 					        </md-card-actions>
