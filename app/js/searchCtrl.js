@@ -1,19 +1,61 @@
-projectTrainingApp.controller('SearchCtrl', function ($scope,Workout) {
+projectTrainingApp.controller('SearchCtrl', function ($scope,Workout, $mdDialog, $mdToast) {
+  $scope.exercises = [];
+  $scope.images = [];
   $scope.show = true;
-  $scope.show = false;
-  //searching for recipes by filter and type
-  $scope.search = function(query, type){
-  	$scope.status = "Searching...";
-    $scope.show = true;
-  	Workout.ExerciseSearch.get({query : query, type : type}, function(data){
-      if(data.results.length == 0){
-        $scope.status = "Sorry you're search returned no result!";
-      }else{
-        $scope.show = false;
-      }
 
-  	}, function(data){
-  		$scope.status = "There was an unexpected error";
-  	});
+  $scope.search = function(){
+    //first get all images
+    $scope.show = false;
+    Workout.ExerciseImages.get({}, function(data){
+      console.log(data.results);
+      $scope.images = data.results;
+      $scope.show = true;
+      return;
+    });
   }
+
+  $scope.openInfo = function(event){
+    console.log("you opened");
+
+    $mdDialog.show({
+      controller : DialogController,
+      templateUrl : 'partials/resultMoreInfo.html',
+      parent : angular.element(document.body),
+      targetEvent : event,
+      clickOutsideToClose : true
+    });
+  }
+
+  $scope.addExercise = function(event){
+    addedToast();
+
+  }
+
+  function addedToast(){
+    //position of toast except for on small screens where it's always bottom
+    var pos = {
+      bottom : false,
+      top : true,
+      left : true,
+      right : false
+    };
+    var pin = angular.extend({}, pos);
+    $mdToast.show(
+      $mdToast.simple()
+        .textContent("Exercise added!")
+        .position("top")
+        .hideDelay(500)
+    );
+  }
+
+  function DialogController($scope, $mdDialog){
+    $scope.hide = function(){
+      $mdDialog.hide();
+    }
+
+    $scope.cancel = function(){
+      $mdDialog.cancel();
+    }
+  };
 });
+

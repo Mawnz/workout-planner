@@ -1,0 +1,141 @@
+<div style = "overflow-x: hidden; height:100%" ng-controller = "SearchCtrl">
+<!--
+	<div>
+		<md-button ng-click = "search()">Test</md-button>
+	</div>
+	<div ng-if = "show == false">
+		<md-progress-circular md-mode="indeterminate"></md-progress-circular>
+	</div>
+-->
+<!--md-colors = "{background : 'grey-500-0.1'}"-->
+
+<!--Layout gets fucked somehow i dunno why. When you switch from app to home and back it fucks itself-->
+			<md-grid-list
+				md-cols-gt-md = "2"
+				md-cols-md = "3"
+				md-cols-sm = "2"
+				md-cols-xs = "1"
+			    md-row-height = "4:3"
+			    md-row-height-xs = "4:3"
+			    md-gutter = "5px">
+
+				<md-grid-tile md-colspan = "1">
+					<md-card flex >
+						<div layout = "row" >
+							<div flex = "50" layout = "column" layout-align = "space-between">
+							<div>	       	
+						        <md-card-title>
+						          <md-card-title-text>
+						            <span class="md-headline">Crunches</span>
+						          </md-card-title-text>
+						        </md-card-title>
+						    </div>
+						    <div>
+						        <md-card-actions layout="row" layout-align="start center">
+						          <md-card-icon-actions layout layout-align-gt-md = "start" layout-align = "center space-between">
+						            <md-button ng-click = "addExercise($ev)"  class="md-icon-button" aria-label="Favorite">
+						              <md-icon md-font-set="material-icons"> add </md-icon>
+						            </md-button>
+						            <md-button ng-click = "openInfo($event)" class="md-icon-button" aria-label="Favorite">
+						              <md-icon md-font-set="material-icons"> info_outline </md-icon>
+						            </md-button>
+						          </md-card-icon-actions>
+						        </md-card-actions>
+						    </div>
+						    <div flex>
+						        <md-card-content>
+						        	<div class = "tag" md-whiteframe = "3">
+						        		Abs
+						        	</div>
+						        	<div class = "tag" md-whiteframe = "3">
+						        		Ass
+						        	</div>
+						        </md-card-content>
+						    </div>
+					        </div>
+					        <div layout layout-align = "center center">
+					        	<img ng-src="img/Crunches-1.png" class="md-card-image image" alt="Washed Out">
+					        </div>
+					    </div>
+				    </md-card>
+				</md-grid-tile>
+
+			<md-grid-tile md-colspan = "1">
+				<md-card flex>
+					<div layout = "row">
+						<div flex = "50" layout = "column" layout-align = "space-between">
+						<div>	       	
+					        <md-card-title>
+					          <md-card-title-text>
+					            <span class="md-headline">Benchpress Dumbbells</span>
+					          </md-card-title-text>
+					        </md-card-title>
+					    </div>
+					    <div>
+					        <md-card-actions layout="row" layout-align="start center">
+					          <md-card-icon-actions layout layout-align-gt-md = "start" layout-align = "center space-between">
+					            <md-button ng-click = "addExercise($ev)" class="md-icon-button" aria-label="Favorite">
+					              <md-icon md-font-set="material-icons"> add </md-icon>
+					            </md-button>
+					            <md-button ng-click = "openInfo($event)" class="md-icon-button" aria-label="Favorite">
+					              <md-icon  md-font-set="material-icons"> info_outline </md-icon>
+					            </md-button>
+					          </md-card-icon-actions>
+					        </md-card-actions>
+					    </div>
+					    <div>
+					        <md-card-content>
+					        	<div class = "tag" md-whiteframe = "3">
+					        		Chest
+					        	</div>
+					        	<div class = "tag" md-whiteframe = "3">
+					        		Pecs
+					        	</div>
+					        </md-card-content>
+					    </div>
+				        </div>
+				        <div layout layout-align = "center center">
+				        	<img ng-src="img/Dumbbell-bench-press-1.png" class="md-card-image image" alt="Washed Out">
+				        </div>
+				    </div>
+			    </md-card>
+		    </md-grid-tile>
+		    <md-grid-tile md-colspan = "1">
+				<md-card flex>
+					<div layout = "row">
+						<div flex = "50" layout = "column" layout-align = "space-between">
+						<div>	       	
+					        <md-card-title>
+					          <md-card-title-text>
+					            <span class="md-headline">Butterfly</span>
+					          </md-card-title-text>
+					        </md-card-title>
+					    </div>
+					    <div>
+					        <md-card-actions layout="row" layout-align="start center">
+					          <md-card-icon-actions layout layout-align-gt-md = "start" layout-align = "center space-between">
+					            <md-button ng-click = "addExercise($ev)"  class="md-icon-button" aria-label="Favorite">
+					              <md-icon md-font-set="material-icons"> add </md-icon>
+					            </md-button>
+					            <md-button ng-click = "openInfo($event)" class="md-icon-button" aria-label="Favorite">
+					              <md-icon md-font-set="material-icons"> info_outline </md-icon>
+					            </md-button>
+					          </md-card-icon-actions>
+					        </md-card-actions>
+					    </div>
+					    <div>
+					        <md-card-content>
+					        	<div class = "tag" md-whiteframe = "3">
+					        		Chest
+					        	</div>
+					        </md-card-content>
+					    </div>
+				        </div>
+				        <div layout layout-align = "center center">
+				        	<img ng-src="img/Butterfly-machine-1.png" class="md-card-image image" alt="Washed Out">
+				        </div>
+				    </div>
+			    </md-card>
+			</md-grid-tile>
+		</md-grid-list>
+</div>
