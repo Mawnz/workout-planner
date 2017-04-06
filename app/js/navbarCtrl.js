@@ -1,4 +1,4 @@
-projectTrainingApp.controller('NavbarCtrl', function ($scope, $timeout, $mdSidenav, $log) {
+projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout, $mdSidenav, $log) {
     $scope.toggleLeft = buildDelayedToggler('left');
     $scope.toggleRight = buildToggler('right');
     $scope.isOpenRight = function(){
@@ -10,7 +10,7 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, $timeout, $mdSiden
 
     //Checkout function
     $scope.checkout = function(){
-      
+
     }
 
 
@@ -68,7 +68,7 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, $timeout, $mdSiden
 
     };
   })
-.controller('RightCtrl', function ($scope, $timeout, $mdSidenav, $log) {
+.controller('RightCtrl', function ($scope, Workout, $timeout, $mdSidenav, $log) {
     //getting some of them variables that are used for the filters
     $scope.str = 1;
     $scope.flex = 1;
@@ -80,6 +80,10 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, $timeout, $mdSiden
     $scope.readonly = false;
 
     $scope.search = function () {
+      console.log('denna är i navbarCtrl');
+      Workout.ExerciseSearch.get({}, function(data){
+        console.log(data.results);
+      });
       //code to do search stuff goes here
       $mdSidenav('right').close();
     };

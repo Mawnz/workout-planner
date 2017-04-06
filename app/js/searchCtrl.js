@@ -1,17 +1,4 @@
-<<<<<<< HEAD
-projectTrainingApp.controller('SearchCtrl', function ($scope,Workout) {
-
-  $scope.greeting = 'Hej Hej';
-
-  $scope.search = function(){
-    Workout.ExerciseSearch.get(function(data){
-      console.log(data);
-
-    });
-  };
-
-=======
-projectTrainingApp.controller('SearchCtrl', function ($scope,Workout, $mdDialog, $mdToast) {
+projectTrainingApp.controller('SearchCtrl', function ($scope, Workout, $mdDialog, $mdToast) {
   $scope.exercises = [];
   $scope.images = [];
   $scope.show = true;
@@ -70,6 +57,4 @@ projectTrainingApp.controller('SearchCtrl', function ($scope,Workout, $mdDialog,
       $mdDialog.cancel();
     }
   };
->>>>>>> origin/master
 });
-
