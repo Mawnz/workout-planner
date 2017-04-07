@@ -80,10 +80,7 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
     $scope.readonly = false;
 
     $scope.search = function () {
-      console.log('denna är i navbarCtrl');
-      Workout.ExerciseSearch.get({}, function(data){
-        console.log(data.results);
-      });
+
       //code to do search stuff goes here
       $mdSidenav('right').close();
     };

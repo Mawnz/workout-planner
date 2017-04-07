@@ -3,14 +3,19 @@ projectTrainingApp.controller('SearchCtrl', function ($scope, Workout, $mdDialog
   $scope.images = [];
   $scope.show = true;
 
-  $scope.search = function(){
+  $scope.search = function(searchQuery){
     //first get all images
     $scope.show = false;
-    Workout.ExerciseImages.get({}, function(data){
-      console.log(data.results);
-      $scope.images = data.results;
+    $scope.test = 'test';
+    Workout.ExerciseSearch.get({category : searchQuery}, function(data){
+      Workout.addToSearched(data.results);
+      $scope.exerId = Workout.getExerciseId()
+
+      $scope.names = Workout.getExerciseName();
+    
+      console.log($scope.names);
+      $scope.test = 'test';
       $scope.show = true;
-      return;
     });
   }
 

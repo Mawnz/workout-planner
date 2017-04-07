@@ -1,22 +1,37 @@
 projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 
-	this.query = [];
-	this.exercises = [];
+	var query = [];
+	var searchedExercises = [];
+	var searchedExercisesId = [];
+	var searchedExercisesName = []
 
 	this.returnQuery = function(){
 		return query;
 	}
 
-  // this.IdSearch = $resource('https://wger.de/api/v2/exercise/145', {}, {
-  //   get : {
-  //     headers : {
-  //       'Authorization' : 'Token 65e1cb3cf0abf215f3a19c493dc1f1a629ca86dc'
-  //     }
-  //   }
-  // });
+	this.addToSearched = function(result){
+		searchedExercises = []
+		searchedExercisesId = []
+		searchedExercisesName = []
 
-	this.ExerciseSearch = $resource('https://wger.de/api/v2/exercise/');
-	this.ExerciseImages = $resource('https://wger.de/api/v2/exerciseimage/?is_main=True&limit=5');
+		for(var i in result){
+			searchedExercises.push(result[i]);
+			searchedExercisesId.push(result[i].id);
+			searchedExercisesName.push(result[i].name);
+		}
+		console.log(searchedExercisesName);
+	}
+
+	this.getExerciseName = function(){
+		return searchedExercisesName;
+	}
+
+	this.getExerciseId = function(){
+		return searchedExercisesId;
+	}
+
+	this.ExerciseSearch = $resource('https://wger.de/api/v2/exercise/?limit=10&language=2');
+	this.ExerciseImages = $resource('https://wger.de/api/v2/exerciseimage/?is_main=True&limit=10');
 
 
 
