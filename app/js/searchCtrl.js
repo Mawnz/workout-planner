@@ -1,4 +1,4 @@
-projectTrainingApp.controller('SearchCtrl', function ($scope,Workout, $mdDialog, $mdToast) {
+projectTrainingApp.controller('SearchCtrl', function ($scope, Workout, $mdDialog, $mdToast) {
   $scope.exercises = [];
   $scope.images = [];
   $scope.show = true;
@@ -58,4 +58,3 @@ projectTrainingApp.controller('SearchCtrl', function ($scope,Workout, $mdDialog,
     }
   };
 });
-

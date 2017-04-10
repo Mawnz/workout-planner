@@ -43,6 +43,20 @@
 
 
     <!-- Custom css -->
+
+    <!-- <link rel = "stylesheet" href = "style.css"> -->
+
+  </head>
+  <body>
+
+        <div class="row headerColor">
+            <div class = "col-xs-12 fullBorder">
+                <div class = "col-xs-12">
+                    <a href = "#!/home" >
+                        <h1 id = "header" ><strong>projectTraining</strong>
+                        <small><em>Träna som fan, typ jämt liksom</em></small></h1>
+                    </a>
+
     <link rel = "stylesheet" href = "css/stylesheet.css">
 
   </head>
@@ -65,7 +79,7 @@
                 </md-nav-item>
 
             </md-nav-bar>
-            
+
             <div layout = "column" flex = "100">
                 <div ng-view flex = "90"></div>
                 <div layout layout-align = "start center" ng-controller = "DialCtrl as dial" flex = "10" ng-cloak class = "ysd">
@@ -85,6 +99,7 @@
                             </md-button>
                         </md-fab-actions>
                     </md-fab-speed-dial>
+
                 </div>
             </div>
         </md-content>
