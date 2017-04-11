@@ -3,11 +3,15 @@ projectTrainingApp.controller('SearchCtrl', function ($scope, Workout, $mdDialog
   $scope.images = [];
   $scope.show = true;
 
-  $scope.search = function(searchQuery){
+  $scope.search = function(){
     //first get all images
     $scope.show = false;
     $scope.test = 'test';
-    Workout.ExerciseSearch.get({category : searchQuery}, function(data){
+    Workout.ExerciseSearch.get({}, function(data){
+      //just an example for ng-repeat, the scope exercises is found as a variable for the ng-repeat
+      $scope.exercises = data.results;
+      
+
       Workout.addToSearched(data.results);
       $scope.exerId = Workout.getExerciseId()
 
@@ -18,6 +22,8 @@ projectTrainingApp.controller('SearchCtrl', function ($scope, Workout, $mdDialog
       $scope.show = true;
     });
   }
+
+  $scope.search();
 
   $scope.openInfo = function(event){
     console.log("you opened");

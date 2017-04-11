@@ -1,18 +1,11 @@
 <div style = "overflow-x: hidden; height:100%" ng-controller = "SearchCtrl">
-<!--
-	<div>
-		<md-button ng-click = "search()">Test</md-button>
-	</div>
+
 	<div ng-if = "show == false">
 		<md-progress-circular md-mode="indeterminate"></md-progress-circular>
 	</div>
--->
+
 <!--md-colors = "{background : 'grey-500-0.1'}"-->
 
-<!--Layout gets fucked somehow i dunno why. When you switch from app to home and back it fucks itself-->
-			<div class = "col-xs-6 col-sm-6 col-md-4 col-lg-3 dishPadding" ng-repeat = "name in names" >
-				{{name.id}}
-			</div>
 			<md-grid-list
 				md-cols-gt-md = "2"
 				md-cols-md = "3"
@@ -22,14 +15,15 @@
 			    md-row-height-xs = "4:3"
 			    md-gutter = "5px">
 
-				<md-grid-tile md-colspan = "1">
+			    <!-- Testing the ng-repeat using the same image for all! -->
+				<md-grid-tile md-colspan = "1" ng-repeat = "exercise in exercises">
 					<md-card flex >
 						<div layout = "row" >
 							<div flex = "50" layout = "column" layout-align = "space-between">
 							<div>
 						        <md-card-title>
 						          <md-card-title-text>
-						            <span class="md-headline">{{test}}</span>
+						            <span class="md-headline">{{exercise.name}}</span>
 						          </md-card-title-text>
 						        </md-card-title>
 						    </div>
@@ -47,6 +41,7 @@
 						    </div>
 						    <div flex>
 						        <md-card-content>
+						        	<!-- Will need to loop here as well to add tags i.e muscle/musclegroups-->
 						        	<div class = "tag" md-whiteframe = "3">
 						        		Abs
 						        	</div>
