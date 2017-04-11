@@ -3,7 +3,7 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 	var query = [];
 	var searchedExercises = [];
 	var searchedExercisesId = [];
-	var searchedExercisesName = []
+	var searchedExercisesImage = [];
 
 	this.returnQuery = function(){
 		return query;
@@ -12,26 +12,35 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 	this.addToSearched = function(result){
 		searchedExercises = []
 		searchedExercisesId = []
-		searchedExercisesName = []
+		searchedExercisesImage = [];
 
 		for(var i in result){
 			searchedExercises.push(result[i]);
 			searchedExercisesId.push(result[i].id);
-			searchedExercisesName.push(result[i].name);
+
+			this.ExerciseImages.get({exercise : result[i].id}, function(data){
+				for(var j in data.results){
+					searchedExercisesImage.push(data.results[j].image);
+				}				
+			});
 		}
-		console.log(searchedExercisesName);
+		console.log(searchedExercisesImage);
 	}
 
-	this.getExerciseName = function(){
-		return searchedExercisesName;
+	this.getExercises = function(){
+		return searchedExercises;
 	}
 
-	this.getExerciseId = function(){
+	this.getExercisesId = function(){
 		return searchedExercisesId;
 	}
 
+	this.getExercisesImage = function(){
+		return searchedExercisesImage;
+	}
+
 	this.ExerciseSearch = $resource('https://wger.de/api/v2/exercise/?limit=10&language=2');
-	this.ExerciseImages = $resource('https://wger.de/api/v2/exerciseimage/?is_main=True&limit=10');
+	this.ExerciseImages = $resource('https://wger.de/api/v2/exerciseimage/?is_main=True');
 
 
 

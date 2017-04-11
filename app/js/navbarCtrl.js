@@ -79,9 +79,22 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
     //this is set to be not readonly
     $scope.readonly = false;
 
-    $scope.search = function () {
+    //code to do search stuff goes here
+    $scope.search = function(searchQuery){
 
-      //code to do search stuff goes here
+
+      $scope.show = false;
+      Workout.ExerciseSearch.get({category : searchQuery}, function(data){
+        Workout.addToSearched(data.results);
+        console.log(data.results);
+        $scope.exercises = data.results;
+        console.log($scope.exercises[6].name);
+        Workout.getExerciseId
+
+
+        $scope.show = true;
+      });
+
       $mdSidenav('right').close();
     };
 })
