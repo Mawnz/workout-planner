@@ -57,6 +57,15 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
           });
       };
     }
+
+    // function for getting the images & exercies on load
+    var init = function () {
+      console.log('startar');
+      Workout.addToExerciseList();        
+    };
+    // and fire it after definition
+    init();
+
   })
 .controller('LeftCtrl', function ($scope, $timeout, $mdSidenav, $log) {
     $scope.close = function () {
@@ -102,4 +111,5 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
     $scope.close = function () {
       $mdSidenav('right').close()
     };
+
 });
