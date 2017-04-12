@@ -2,7 +2,7 @@ projectTrainingApp.controller('SearchCtrl', function ($scope, Workout, $mdDialog
   $scope.exercises = [];
   $scope.images = [];
   $scope.show = true;
-  $scope.exercise = {};
+  $scope.exercise;
 
   //setting up categories and musclegroups
   Workout.getEquipment.get({}, function(data){
@@ -56,7 +56,7 @@ projectTrainingApp.controller('SearchCtrl', function ($scope, Workout, $mdDialog
   }
   //this is the controller for the dialog window above
   function DialogController($scope, $mdDialog, id){
-    $scope.exercise = Workout.getExercise(id);
+    $scope.e = Workout.getExercise(id);
     $scope.hide = function(){
       $mdDialog.hide();
     }

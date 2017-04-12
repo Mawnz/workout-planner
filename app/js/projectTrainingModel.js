@@ -11,7 +11,7 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 
 	//returns the exercise of given id
 	this.getExercise = function(id){
-		return $.grep(this.exercises, function(e){return e.id == id});
+		return $.grep(this.exercises, function(e){return e.id == id})[0];
 	}
 
   	this.getCategories = $resource('https://wger.de/api/v2/exercisecategory/');

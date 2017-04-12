@@ -1,11 +1,11 @@
 <md-dialog aria-label = "information">
 		<div layout-gt-md = "row" layout = "column" layout-align = "space-around" layout-padding>
-			<div flex = "50" layout = "column" layout-align = "space-around">
+			<div ng-model = "exercise" flex = "50" layout = "column" layout-align = "space-around">
 				<div>	       	
-			        <span class="md-headline">{{exercise.name}}</span>
+			        <span class="md-headline">{{e.name}}</span>
 			    </div>
 		   		 <div>
-					<p class = "md-body-1">{{exercise.description}}</p>
+					<p class = "md-body-1">{{e.description}}</p>
 				</div>
 	        </div>
 	        <div layout = "column" layout-align = "center center">
