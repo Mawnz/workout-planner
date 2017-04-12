@@ -2,21 +2,22 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 
 	this.query = [];
 	this.exercises = [];
+	this.equipment = [];
+	this.categories = [];
 
 	this.returnQuery = function(){
 		return query;
 	}
 
-  // this.IdSearch = $resource('https://wger.de/api/v2/exercise/145', {}, {
-  //   get : {
-  //     headers : {
-  //       'Authorization' : 'Token 65e1cb3cf0abf215f3a19c493dc1f1a629ca86dc'
-  //     }
-  //   }
-  // });
+	//returns the exercise of given id
+	this.getExercise = function(id){
+		return $.grep(this.exercises, function(e){return e.id == id});
+	}
 
-	this.ExerciseSearch = $resource('https://wger.de/api/v2/exercise/');
-	this.ExerciseImages = $resource('https://wger.de/api/v2/exerciseimage/?is_main=True&limit=5');
+  	this.getCategories = $resource('https://wger.de/api/v2/exercisecategory/');
+  	this.getEquipment = $resource('https://wger.de/api/v2/equipment/')
+	this.ExerciseSearch = $resource('https://wger.de/api/v2/exercise/?language=2&status=2&limit=10');
+	this.ExerciseImages = $resource('https://wger.de/api/v2/exerciseimage/?is_main=True&limit=1000');
 
 
 
