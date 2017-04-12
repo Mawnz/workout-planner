@@ -20,19 +20,11 @@ projectTrainingApp.controller('SearchCtrl', function ($scope, Workout, $mdDialog
     $scope.test = 'test';
     Workout.ExerciseSearch.get({}, function(data){
       //just an example for ng-repeat, the scope exercises is found as a variable for the ng-repeat
-      $scope.exercises = data.results;
-
-
-      Workout.addToSearched(data.results);
-      $scope.exerId = Workout.getExerciseId()
-
-      $scope.names = Workout.getExerciseName();
-
-      console.log($scope.names);
+      $scope.exercises = data.results;     
       $scope.test = 'test';
       $scope.show = true;
     });
-  }
+
 
   $scope.search();
 
