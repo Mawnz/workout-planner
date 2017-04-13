@@ -8,7 +8,7 @@ projectTrainingApp.controller('SearchCtrl', function ($scope, Workout, $mdDialog
   //first get all images
   $scope.show = false;
   Workout.ExerciseImages.get({}, function(data){
-    console.log(data.results);
+    // console.log(data.results);
     $scope.images = data.results;
     $scope.show = true;
     return;
@@ -20,7 +20,7 @@ projectTrainingApp.controller('SearchCtrl', function ($scope, Workout, $mdDialog
     $scope.test = 'test';
     Workout.ExerciseSearch.get({}, function(data){
       //just an example for ng-repeat, the scope exercises is found as a variable for the ng-repeat
-      $scope.exercises = data.results;     
+      $scope.exercises = data.results;
       $scope.test = 'test';
       $scope.show = true;
     });

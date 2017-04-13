@@ -58,15 +58,31 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
       };
     }
 
-    // function for getting the images & exercies on load
+    // function for getting the images & exercies
     var init = function () {
       console.log('startar');
-      Workout.addToExerciseList();        
+      list = [];
+      Workout.ExerciseSearch.get({}, function(data){
+        Workout.addExerciseToList(data.results);
+        var exercises = Workout.getExerciseList();
+
+        for(var i in exercises){
+          var exerId = exercises[i].id;
+          Workout.ExerciseImages.get({exercise:exercises[i].id}, function(data){
+            if(data.results.length == 0){
+              Workout.removeFromList(exerId);
+            }else{
+              Workout.addImageToList(data.results[0])
+            }
+          });
+        }
+      });
     };
     // and fire it after definition
     init();
-
+       
   })
+
 .controller('LeftCtrl', function ($scope, $timeout, $mdSidenav, $log) {
     $scope.close = function () {
       // Component lookup should always be available since we are not using `ng-if`
@@ -91,21 +107,12 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
     //code to do search stuff goes here
     $scope.search = function(searchQuery){
 
-
-      $scope.show = false;
-      Workout.ExerciseSearch.get({category : searchQuery}, function(data){
-        Workout.addToSearched(data.results);
-        console.log(data.results);
-        $scope.exercises = data.results;
-        console.log($scope.exercises[6].name);
-        Workout.getExerciseId
-
-
-        $scope.show = true;
-      });
+      console.log(Workout.getExerciseList());
 
       $mdSidenav('right').close();
+
     };
+
 })
 .controller('RightClose', function ($scope, $mdSidenav) {
     $scope.close = function () {

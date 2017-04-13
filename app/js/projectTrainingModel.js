@@ -7,39 +7,40 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 		return query;
 	}
 
-	this.addToExerciseList = function(result){
-
-		this.ExerciseImages.get({}, function(data){
-			for(var i = 0; i < data.results.length; i=i+2){
-				exerciseList.push({
-					id:data.results[i].exercise,
-					image:data.results[i].image
-				});
+	this.addImageToList = function(data){
+		for(var i in exerciseList){
+			if(exerciseList[i].id = data.exercise){
+				exerciseList[i].image = data.image;
 			}
-			console.log(exerciseList);
-		});
+		}
+		return;
+	}
 
-		for(var j in exerciseList){
-			console.log(exerciseList[j]);
-			this.ExerciseSearch.get({id:exerciseList[j].id}, function(data){
-				console.log(data.results);
-				for(var k in data.results){
-					exerciseList[j].name = data.results[k].name;
-					exerciseList[j].description = data.results[k].description;
-					exerciseList[j].category = data.results[k].category;
-				}
+	this.addExerciseToList = function (data) {
+		for(var i in data){
+			exerciseList.push({
+				id:data[i].id,
+				category:data[i].category,
+				description:data[i].description,
+				name:data[i].name
 			});
 		}
+		return;
 	}
 
-
-
-	this.getExercises = function(){
-		return searchedExercises;
+	this.removeFromList = function (id){
+		for(var i in exerciseList){
+			if(exerciseList[i].id = id) index = i;
+		}
+		exerciseList.splice(index,1);
 	}
 
-	this.ExerciseSearch = $resource('https://wger.de/api/v2/exercise/?language=2&status=2&limit=1000');
-	this.ExerciseImages = $resource('https://wger.de/api/v2/exerciseimage/?ismain=True&limit=26');
+	this.getExerciseList = function(){
+		return exerciseList;
+	}
+
+	this.ExerciseSearch = $resource('https://wger.de/api/v2/exercise/?language=2&status=2&limit=100');
+	this.ExerciseImages = $resource('https://wger.de/api/v2/exerciseimage/?ismain=True');
 
   return this;
 
