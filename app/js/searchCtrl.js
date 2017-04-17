@@ -3,7 +3,7 @@ projectTrainingApp.controller('SearchCtrl', function ($scope, Workout, $mdDialog
   var images = [];
   $scope.show = true;
   $scope.exercise;
-
+  
   //setting up categories and musclegroups
   Workout.getEquipment.get({}, function(data){
     Workout.equipment = data.results;
@@ -60,7 +60,7 @@ projectTrainingApp.controller('SearchCtrl', function ($scope, Workout, $mdDialog
   }
 */
   // and fire it after definition
-  
+  $scope.show =false;
   init();
  
 

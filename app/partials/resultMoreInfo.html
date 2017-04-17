@@ -1,6 +1,6 @@
 <md-dialog aria-label = "information">
-		<div layout-gt-md = "row" layout = "column" layout-align = "space-around" layout-padding>
-			<div ng-model = "exercise" flex = "50" layout = "column" layout-align = "space-around">
+		<div layout-gt-md = "row" layout = "column"  layout-padding layout-align = "start">
+			<div  layout = "column" layout-align = "center">
 				<div>	       	
 			        <span class="md-headline">{{e.name}}</span>
 			    </div>
@@ -8,9 +8,9 @@
 					<p class = "md-body-1" ng-bind-html = "description"></p>
 				</div>
 	        </div>
-	        <div layout = "column" layout-align = "center center">
-	        	<img ng-src="img/Crunches-1.png" class="md-card-image image" alt="Washed Out">
-	        	<img ng-src="img/Crunches-2.png" class="md-card-image image" alt="Washed Out">
+	        <div layout = "column" layout-gt-md = "row" layout-align = "center center">
+	        <!-- TODO make images look gud bro-->
+	        	<img  ng-repeat = "image in e.image" ng-src= "{{image}}" class="md-card-image image3" alt="Washed Out" layout-padding>
 	        </div>
 	    </div>
 </md-dialog>

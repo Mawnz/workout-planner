@@ -1,10 +1,18 @@
 projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 
-	this.query = [];
+	var query = [];
 	var exercises = [];
 
-	this.equipment = [];
-	this.categories = [];
+	var equipment = [];
+	var categories = {
+		10 : "Abs",
+		8 : "Arms",
+		12 : "Back",
+		14 : "Calves",
+		11 : "Chest",
+		9 : "Legs",
+		13 : "Shoulders"
+	};
 
 	this.returnQuery = function(){
 		return query;
@@ -24,12 +32,14 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 
 	this.addExerciseToList = function (data) {
 		for(var i in data){
+			var cat = categories[data[i].category];
 			exercises.push({
 				id:data[i].id,
 				category:data[i].category,
 				description:data[i].description,
 				name:data[i].name,
-				image : ["img/noimg.png"]
+				image : ["img/noimg.png"],
+				category : cat
 			});
 		}
 		return;

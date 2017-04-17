@@ -56,12 +56,15 @@ md-card{
 
 .image{
 	max-height:100%;
-
 }
 
 .image2{
 	height:auto;
 	width:100%;
+}
+
+.image3{
+	display : inline-block;
 }
 
 .checkout{

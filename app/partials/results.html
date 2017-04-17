@@ -1,5 +1,5 @@
 <div style = "overflow-x: hidden; height:100%" ng-controller = "SearchCtrl">
-	<div ng-if = "show == false">
+	<div ng-if = "show == false" layout layout-fill = "vertical" layout-align = "center center">
 		<md-progress-circular md-mode="indeterminate"></md-progress-circular>
 	</div>
 
@@ -43,10 +43,7 @@
 							    </div>
 							    <div layout layout-padding>
 							        <div class = "tag" md-whiteframe = "3">
-							        	Abs
-							        </div>
-							        <div class = "tag" md-whiteframe = "3">
-							        	Ass
+							        	{{exercise.category}}
 							        </div>
 							    </div>
 					        </div>
