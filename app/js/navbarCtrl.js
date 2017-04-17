@@ -57,6 +57,8 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
           });
       };
     }
+    
+
   })
 .controller('LeftCtrl', function ($scope, $timeout, $mdSidenav, $log) {
     $scope.close = function () {

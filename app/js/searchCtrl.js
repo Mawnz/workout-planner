@@ -1,6 +1,6 @@
-projectTrainingApp.controller('SearchCtrl', function ($scope, Workout, $mdDialog, $mdToast) {
+projectTrainingApp.controller('SearchCtrl', function ($scope, Workout, $mdDialog, $mdToast, $sce) {
   $scope.exercises = [];
-  $scope.images = [];
+  var images = [];
   $scope.show = true;
   $scope.exercise;
 
@@ -13,35 +13,56 @@ projectTrainingApp.controller('SearchCtrl', function ($scope, Workout, $mdDialog
   });
   //end of setting up
 
-  $scope.search = function(){
-    //first get all images
-    $scope.show = false;
-    Workout.ExerciseImages.get({}, function(data){
-      $scope.images = data.results;
+//init exercises that will be used in application
+  var init = function () {
+    Workout.emptyList();
+    list = [];
+    Workout.ExerciseSearch.get({language : 2, status : 2, limit : 1000}, function(data){
+      Workout.addExerciseToList(data.results);
+      images();
+      //fetchImage(0, Workout.getExercises());
       return;
+    }, function(){
+      console.log("something went wrong");
     });
+  };
 
-    Workout.ExerciseSearch.get({}, function(data){
-      $scope.exercises = data.results;
-      $scope.show = true;
-      for(var i in data.results){
-        //first get the string of both what categories and equipment, muscles etc etc instead of numbers
-        var ex = {
-          "id" : data.results[i].id,
-          "name" : data.results[i].name,
-          "description" : data.results[i].description,
-          "category" : "abs",
-          "equipment" : "body"
-        }
-        Workout.exercises.push(ex);
+  var images = function(){
+    Workout.ExerciseImages.get({ismain : "True", limit : 1000}, function(data){
+      for (var i in data.results){
+        Workout.addImageToList(data.results[i]);
       }
+      $scope.exercises = Workout.getExercises();
+      $scope.show = true;
+    });
+  }
+/* old code that was too slow, RIP :( 
+  var fetchImage = function(i, exercises){
+    var exerId = exercises[i].id;
+    Workout.ExerciseImages.get({exercise:exercises[i].id}, function(data){
+      var img;
+      //so if no image is found we will add a default icon that shows that there is no image
+      if(data.results.length != 0)
+        img = data.results;
+      else{
+        img = [{exercise : exerId, image : "img/noimg.png"}];
+      }
+      Workout.addImageToList(img);
+      if(i < exercises.length-1)
+        fetchImage(i + 1, exercises);
+      else{
+        $scope.exercises = Workout.getExercises();
+        $scope.show = true;        
+      }
+
       return;
     });
-
-
   }
-  //just calls the search function, should maybe be renamed?
-  $scope.search();
+*/
+  // and fire it after definition
+  
+  init();
+ 
 
   $scope.openInfo = function(event, id){
     
@@ -57,6 +78,7 @@ projectTrainingApp.controller('SearchCtrl', function ($scope, Workout, $mdDialog
   //this is the controller for the dialog window above
   function DialogController($scope, $mdDialog, id){
     $scope.e = Workout.getExercise(id);
+    $scope.description = $sce.trustAsHtml($scope.e.description);
     $scope.hide = function(){
       $mdDialog.hide();
     }
