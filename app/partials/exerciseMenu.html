@@ -15,6 +15,13 @@
 						Abs, Ass
 					</h4>
 					</div>
+					<md-card-actions>
+						<md-card-icon-actions>
+							<md-button ng-click = "removeExercise(myExercise.id)"  class="md-icon-button" aria-label="removeExercise">
+								<md-icon md-font-set="material-icons"> clear </md-icon>
+							</md-button>
+						</md-card-icon-actions>
+					</md-card-actions>
 				</div>
 				<div flex = "50">
 					<img ng-src = "{{myExercise.image[0]}}"  class = "image2"/>

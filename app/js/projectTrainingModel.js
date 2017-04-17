@@ -25,6 +25,18 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 			}
 		}
 		console.log(this.myExerList);
+		return this.myExerList;
+	}
+
+	this.removeFromMyList = function(id){
+		for(var i in this.myExerList){
+			if(this.myExerList[i].id == id){
+				index = [i];
+				this.myExerList.splice(index,1);
+			}
+		}
+		console.log(this.myExerList);
+		return this.myExerList;
 	}
 
 	this.addImageToList = function(data){
