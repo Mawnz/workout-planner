@@ -1,24 +1,47 @@
 projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 
-	this.query = [];
-	this.exercises = [];
+	var query = [];
+	var exerciseList = [];
 
 	this.returnQuery = function(){
 		return query;
 	}
 
-  // this.IdSearch = $resource('https://wger.de/api/v2/exercise/145', {}, {
-  //   get : {
-  //     headers : {
-  //       'Authorization' : 'Token 65e1cb3cf0abf215f3a19c493dc1f1a629ca86dc'
-  //     }
-  //   }
-  // });
+	this.addImageToList = function(data){
+		for(var i in exerciseList){
+			if(exerciseList[i].id = data.exercise){
+				exerciseList[i].image = data.image;
+			}
+		}
+		return;
+	}
 
-	this.ExerciseSearch = $resource('https://wger.de/api/v2/exercise/');
-	this.ExerciseImages = $resource('https://wger.de/api/v2/exerciseimage/?is_main=True&limit=5');
+	this.addExerciseToList = function (data) {
+		for(var i in data){
+			exerciseList.push({
+				id:data[i].id,
+				category:data[i].category,
+				description:data[i].description,
+				name:data[i].name
+			});
+		}
+		return;
+	}
 
+	this.removeFromList = function (id){
+		for(var i in exerciseList){
+			if(exerciseList[i].id = id) index = i;
+		}
+		exerciseList.splice(index,1);
+	}
 
+	this.getExerciseList = function(){
+		return exerciseList;
+	}
+
+	this.ExerciseSearch = $resource('https://wger.de/api/v2/exercise/?language=2&status=2&limit=100');
+	this.ExerciseImages = $resource('https://wger.de/api/v2/exerciseimage/?ismain=True');
 
   return this;
+
 });

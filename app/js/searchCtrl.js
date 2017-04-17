@@ -4,15 +4,29 @@ projectTrainingApp.controller('SearchCtrl', function ($scope, Workout, $mdDialog
   $scope.show = true;
 
   $scope.search = function(){
+
+  //first get all images
+  $scope.show = false;
+  Workout.ExerciseImages.get({}, function(data){
+    // console.log(data.results);
+    $scope.images = data.results;
+    $scope.show = true;
+    return;
+  });
+}
+
     //first get all images
     $scope.show = false;
-    Workout.ExerciseImages.get({}, function(data){
-      console.log(data.results);
-      $scope.images = data.results;
+    $scope.test = 'test';
+    Workout.ExerciseSearch.get({}, function(data){
+      //just an example for ng-repeat, the scope exercises is found as a variable for the ng-repeat
+      $scope.exercises = data.results;
+      $scope.test = 'test';
       $scope.show = true;
-      return;
     });
-  }
+
+
+  $scope.search();
 
   $scope.openInfo = function(event){
     console.log("you opened");
