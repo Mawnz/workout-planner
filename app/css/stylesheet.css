@@ -3,6 +3,10 @@
 	width:100vw;
 }
 
+.txt{
+	font-size: 2vh;
+}
+
 .max{
 	height:100%;
 	width:100%;
@@ -52,7 +56,7 @@ md-card{
 
 .image{
 	max-height:100%;
-	max-width:100%;
+
 }
 
 .image2{
@@ -71,6 +75,11 @@ md-card{
 		height: 100%;
 	}
 
+}
+
+.responsiveIcon{
+	height:100%;
+	width:100%;
 }
 
 @media screen and (min-width: 960px){

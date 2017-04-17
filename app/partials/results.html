@@ -1,68 +1,61 @@
 <div style = "overflow-x: hidden; height:100%" ng-controller = "SearchCtrl">
-
 	<div ng-if = "show == false">
 		<md-progress-circular md-mode="indeterminate"></md-progress-circular>
 	</div>
 
 <!--md-colors = "{background : 'grey-500-0.1'}"-->
 
-
-<!--Layout gets fucked somehow i dunno why. When you switch from app to home and back it fucks itself-->
-
-
+<!--this is so gut-->
+	<div ng-if = "show == true">
 			<md-grid-list
-				md-cols-gt-md = "2"
-				md-cols-md = "3"
+				md-cols = "3"
+				md-cols-md = "2"
 				md-cols-sm = "2"
 				md-cols-xs = "1"
-			    md-row-height = "4:3"
+				md-row-height = "300px"
+			    md-row-height-md = "5:3"
 			    md-row-height-xs = "4:3"
-			    md-gutter = "5px">
+			    md-gutter = "5px"
+			    >
 
-			    <!-- Testing the ng-repeat using the same image for all! -->
 				<md-grid-tile md-colspan = "1" ng-repeat = "exercise in exercises">
-					<md-card flex >
-						<div layout = "row" >
-							<div flex = "50" layout = "column" layout-align = "space-between">
-							<div>
-						        <md-card-title>
-						          <md-card-title-text>						            
-
-						            <span class="md-headline">{{exercise.name}}</span>
-
-						          </md-card-title-text>
-						        </md-card-title>
-						    </div>
-						    <div>
-						        <md-card-actions layout="row" layout-align="start center">
-						          <md-card-icon-actions layout layout-align-gt-md = "start" layout-align = "center space-between">
-						            <md-button ng-click = "addExercise($ev)"  class="md-icon-button" aria-label="Favorite">
-						              <md-icon md-font-set="material-icons"> add </md-icon>
-						            </md-button>
-						            <md-button ng-click = "openInfo($event)" class="md-icon-button" aria-label="Favorite">
-						              <md-icon md-font-set="material-icons"> info_outline </md-icon>
-						            </md-button>
-						          </md-card-icon-actions>
-						        </md-card-actions>
-						    </div>
-						    <div flex>
-						        <md-card-content>
-						        	<!-- Will need to loop here as well to add tags i.e muscle/musclegroups-->
-						        	<div class = "tag" md-whiteframe = "3">
-						        		Abs
-						        	</div>
-						        	<div class = "tag" md-whiteframe = "3">
-						        		Ass
-						        	</div>
-						        </md-card-content>
-						    </div>
+					<md-card layout layout-fill = "vertical">
+						<div layout = "row" layout-fill = "space-between">
+							<div flex = "60" layout = "column" layout-align = "space-between">
+								<div >
+							        <md-card-title>
+							          <md-card-title-text>
+							            <span class="txt">{{exercise.name}}</span>
+							          </md-card-title-text>
+							        </md-card-title>
+							    </div>
+							    <div >
+							        <md-card-actions>
+							          <md-card-icon-actions>
+							            <md-button ng-click = "addExercise(exercise.id)"  class="md-icon-button" aria-label="addExercise">
+							              <md-icon md-font-set="material-icons"> add </md-icon>
+							            </md-button>
+							            <md-button ng-click = "openInfo($event, exercise.id)" class="md-icon-button" aria-label="openInfo">
+							              <md-icon md-font-set="material-icons"> info_outline </md-icon>
+							            </md-button>
+							          </md-card-icon-actions>
+							        </md-card-actions>
+							    </div>
+							    <div layout layout-padding>
+							        <div class = "tag" md-whiteframe = "3">
+							        	Abs
+							        </div>
+							        <div class = "tag" md-whiteframe = "3">
+							        	Ass
+							        </div>
+							    </div>
 					        </div>
-					        <div layout layout-align = "center center">
-					        	<img ng-src="img/Crunches-1.png" class="md-card-image image" alt="Washed Out">
+					        <div flex = "40" layout layout-align = "end center">
+					        	<img ng-src="{{exercise.image[0]}}" class="md-card-image image" alt="Washed Out">
 					        </div>
 					    </div>
 				    </md-card>
 				</md-grid-tile>
-
 		</md-grid-list>
+	</div>
 </div>

@@ -1,39 +1,27 @@
-<md-content>
-	<md-list flex>
-		<md-subheader class = "md-no-sticky">Your workout</md-subheader>
+<div style = "overflow-x: hidden; height:100%" ng-controller = "ExerciseMenuCtrl">
+	<md-content>
+		<md-list flex>
+			<md-subheader class = "md-no-sticky">Your workout</md-subheader>
 
-		<!--List items go here with ng-repeat, need to assign controller?-->
-		<md-list-item flex md-whiteframe = "6"  ng-click = "null">
-			<div class = "md-list-item-text" layout = "column">
-				<div>
-					<h3>Crunches</h3>
+			<!--List items go here with ng-repeat, need to assign controller?-->
+
+			<md-list-item flex md-whiteframe = "6"  ng-click = "null" ng-repeat = "myExercise in myExercises">
+				<div class = "md-list-item-text" layout = "column">
+					<div>
+						<h3>{{myExercise.name}}</h3>
+					</div>
+					<div>
+					<h4>
+						Abs, Ass
+					</h4>
+					</div>
 				</div>
-				<div>
-				<h4>
-					Abs, Ass
-				</h4>
+				<div flex = "50">
+					<img ng-src = "{{myExercise.image[0]}}"  class = "image2"/>
 				</div>
-			</div>
-			<div flex = "50">
-				<img ng-src = "img/Crunches-1.png"  class = "image2"/>
-			</div>
-		</md-list-item>
-	</md-list>
-		<md-divider></md-divider>
-		<md-list-item flex md-whiteframe = "6" ng-click = "null">
-			<div class = "md-list-item-text" layout = "column">
-				<div>
-					<h3>Butterfly</h3>
-				</div>
-				<div>
-				<h4>
-					Chest
-				</h4>
-				</div>
-			</div>
-			<div flex = "40">
-				<img ng-src = "img/Butterfly-machine-1.png" class = "image2"/>
-			</div>
-		</md-list-item>
-	</md-list>
-</md-content>
+			</md-list-item>
+		</md-list>
+			<md-divider></md-divider>
+		</md-list>
+	</md-content>
+</div>
