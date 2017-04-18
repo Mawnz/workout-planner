@@ -89,46 +89,20 @@
                 </form>
               </div>
               <b>Filters</b>
-              <div layout layout-align = "center center">
-                <div flex="20">
-                  Strength
+              <div layout layout-align = "space-between">
+                <div>
+                  Category
                 </div>
-                <div flex = "65">
-                  <md-slider class = "md-warn" flex md-discrete ng-model="str" step="1" min="1" max="10" aria-label="strength">
-                  </md-slider>
-                </div>
-                <div flex = "15" >
-                  <md-input-container>
-                    <input flex type="number" ng-model="str" aria-label="blue" aria-controls="blue-slider">
-                  </md-input-container>
-                </div>
-              </div>
-              <div layout layout-align = "center center">
-                <div flex="20">
-                  Flex
-                </div>
-                <div flex = "65">
-                  <md-slider class = "md-primary" flex md-discrete ng-model="flex" step="1" min="1" max="10" aria-label="flex">
-                  </md-slider>
-                </div>
-                <div flex = "15" >
-                  <md-input-container>
-                    <input flex type="number" ng-model="flex" aria-label="blue" aria-controls="blue-slider">
-                  </md-input-container>
-                </div>
-              </div>
-              <div layout layout-align = "center center">
-                <div flex="20">
-                  Cardio
-                </div>
-                <div flex = "65">
-                  <md-slider class = "md-default" flex md-discrete ng-model="cardio" step="1" min="1" max="10" aria-label="cardio">
-                  </md-slider>
-                </div>
-                <div flex = "15" >
-                  <md-input-container>
-                    <input flex type="number" ng-model="cardio" aria-label="blue" aria-controls="blue-slider">
-                  </md-input-container>
+                <div>
+                  <md-select ng-model="category" placeholder="Group" class="md-no-underline">
+                    <md-option value="10">Abs</md-option>
+                    <md-option value="8">Arms</md-option>
+                    <md-option value="12">Back</md-option>
+                    <md-option value="14">Calves</md-option>
+                    <md-option value="11">Chest</md-option>
+                    <md-option value="9">Legs</md-option>
+                    <md-option value="13">Shoulders</md-option>
+                  </md-select>
                 </div>
               </div>
             </div>

@@ -1,39 +1,54 @@
-<md-content>
-	<md-list flex>
+<md-content flex>
+	<md-list id = "menuList" flex style = "outline:none">
 		<md-subheader class = "md-no-sticky">Your workout</md-subheader>
-
-		<!--List items go here with ng-repeat, need to assign controller?-->
-		<md-list-item flex md-whiteframe = "6"  ng-click = "null">
-			<div class = "md-list-item-text" layout = "column">
-				<div>
-					<h3>Crunches</h3>
-				</div>
-				<div>
-				<h4>
-					Abs, Ass
-				</h4>
-				</div>
-			</div>
-			<div flex = "50">
-				<img ng-src = "img/Crunches-1.png"  class = "image2"/>
-			</div>
-		</md-list-item>
-	</md-list>
-		<md-divider></md-divider>
-		<md-list-item flex md-whiteframe = "6" ng-click = "null">
-			<div class = "md-list-item-text" layout = "column">
-				<div>
-					<h3>Butterfly</h3>
-				</div>
-				<div>
-				<h4>
-					Chest
-				</h4>
-				</div>
-			</div>
-			<div flex = "40">
-				<img ng-src = "img/Butterfly-machine-1.png" class = "image2"/>
-			</div>
-		</md-list-item>
+		<div flex ng-repeat = "myExercise in myExercises">
+			<md-list-item id = "papa">
+				<!--Front side-->
+				<form isUp = "true" id = "front" class = "flip flipFront" flex ng-click = "flip($event)">
+					<md-list-item  flex >
+						<div flex layout layout-align = "space-between space-between">
+							<div class = "md-list-item-text" layout = "column">
+								<div>
+									<p class = "txt">{{myExercise.name}}</p>
+								</div>
+								<div>
+									<h4>{{myExercise.category}}</h4>
+								</div>
+							</div>
+							<div layout layout-align = "end center">
+								<img ng-src = "{{myExercise.image[0]}}"  class = "md-avatar displayblock"/>
+							</div>
+						</div>
+						<md-button style = "position:absolute; right:0; bottom:0;" ng-click = "removeExercise(myExercise.id)"  class="md-icon-button" aria-label="removeExercise">
+							<md-icon class = "md-primary" md-font-set="material-icons"> delete </md-icon>
+						</md-button>
+					</md-list-item>
+				</form>
+				<!--Back side -->
+				<form  flex isUp = "false" id = "back" class = "flip" layout layout-align = "end center">
+					<md-list-item flex ng-click = "null">
+						<div flex layout layout-align = "space-around" class = "md-primary">
+							<md-input-container>
+								Reps
+								<md-icon class = "color" md-font-set = "material-icons"> swap_vert </md-icon>
+								<input aria-label = "reps" value = "1" ng-model = "reps" type = "number" step = "1">
+							</md-input-container>
+							<md-input-container>
+								Sets
+								<md-icon class = "color" md-font-set = "material-icons"> swap_vert </md-icon>
+								<input aria-label = "sets" value = "1" ng-model = "sets" type = "number" step = "1">
+							</md-input-container>
+						</div>
+						<md-button style = "position:absolute; right:0; bottom:0;" ng-click = "removeExercise(myExercise.id)"  class="md-icon-button" aria-label="removeExercise">
+							<md-icon class = "md-primary" md-font-set="material-icons"> delete </md-icon>
+						</md-button>
+						<md-button style = "position:absolute; left:0; bottom:0;" ng-click = "flip($event, 'back')"  class="md-icon-button" aria-label="flipCard">
+							<md-icon class = "md-primary" md-font-set="material-icons"> undo </md-icon>
+						</md-button>
+					</md-list-item>
+				</form>
+			</md-list-item>
+			<md-divider><br></md-divider>
+		</div>
 	</md-list>
 </md-content>

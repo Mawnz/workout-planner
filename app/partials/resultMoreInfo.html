@@ -1,16 +1,21 @@
-<md-dialog aria-label = "information">
-		<div layout-gt-md = "row" layout = "column"  layout-padding layout-align = "start">
-			<div  layout = "column" layout-align = "center">
+<md-dialog aria-label = "information" >
+		<div class = "overflow"  layout = "column"  layout-padding layout-align = "center space-between">
+			<div flex layout = "column" layout-align = "center">
 				<div>	       	
 			        <span class="md-headline">{{e.name}}</span>
 			    </div>
 		   		 <div>
-					<p class = "md-body-1" ng-bind-html = "description"></p>
+					<p class = "txt" ng-bind-html = "description"></p>
 				</div>
 	        </div>
-	        <div layout = "column" layout-gt-md = "row" layout-align = "center center">
+	        <div flex>
 	        <!-- TODO make images look gud bro-->
-	        	<img  ng-repeat = "image in e.image" ng-src= "{{image}}" class="md-card-image image3" alt="Washed Out" layout-padding>
+	        	<md-grid-list md-cols = "2" md-row-height = "300px" md-gutter = "5px">
+	        		<md-grid-tile md-colspan ="1" ng-repeat = "image in e.image">
+	        			<img ng-src= "{{image}}" class="md-card-image image5" alt="Washed Out" layout-padding>
+	        		</md-grid-tile>
+	        	</md-grid-list>
+
 	        </div>
 	    </div>
 </md-dialog>

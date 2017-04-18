@@ -39,6 +39,13 @@ md-nav-bar {
 	padding: 5px;
 }
 
+.removeBtn{
+
+}
+
+.color{
+	color: #EF5350;
+}
 md-grid-list{
 	height:100%;
 }
@@ -54,16 +61,38 @@ md-card{
 	min-height: 10%;
 }
 
+md-list-item{
+	outline : none;
+	height: 150px;
+	width: 300px;
+}
+
+.displayblock{
+	display:inline-block;
+}
+
 .image{
 	max-height:100%;
 }
 
 .image2{
-	height:auto;
-	width:100%;
+	max-height : 150px;
+	max-width : 50%;
 }
 
 .image3{
+	display : inline-block;
+	max-height : 200px;
+	max-width :  50%;
+}
+
+.image5{
+	max-height : 300px;
+	max-width : 100%;
+}
+
+.image4{
+	height : 100%;
 	display : inline-block;
 }
 
@@ -71,6 +100,14 @@ md-card{
 	position: absolute;
 	bottom:0;
 	right:0;
+}
+
+.overflow{
+	overflow-y : auto;
+}
+
+md-dialog{
+	min-width : 50vw;
 }
 
 @media screen and (min-width: 1280px){
@@ -91,4 +128,61 @@ md-card{
 		position:absolute;
 		left:40%;
 	}
+}
+
+.flipFront{
+	
+}
+
+.flip {
+	position:absolute;
+	left:0;
+    backface-visibility:             hidden;
+        -moz-backface-visibility:    hidden;
+        -ms-backface-visibility:     hidden;
+        -o-backface-visibility:      hidden;
+        -webkit-backface-visibility: hidden;
+    transform-origin:             50% 50% 0px;
+        -moz-transform-origin:    50% 50% 0px;
+        -ms-transform-origin:     50% 50% 0px;
+        -o-transform-origin:      50% 50% 0px;
+        -webkit-transform-origin: 50% 50% 0px;
+    transition: all 0.5s;
+        -moz-transition:    all 0.5s;
+        -ms-transition:     all 0.5s;
+        -o-transition:      all 0.5s;
+        -webkit-transition: all 0.5s;
+}
+
+#front{
+    transform:             rotateY( 0deg );
+        -moz-transform:    rotateY( 0deg );
+        -ms-transform:     rotateY( 0deg );
+        -o-transform:      rotateY( 0deg );
+        -webkit-transform: rotateY( 0deg );
+}
+
+#back{
+	background-color: #dddddd;
+    transform:             rotateY( 180deg );
+        -moz-transform:    rotateY( 180deg );
+        -ms-transform:     rotateY( 180deg );
+        -o-transform:      rotateY( 180deg );
+        -webkit-transform: rotateY( 180deg );	
+}
+
+.flip-front {    
+    transform:             rotateY( 0deg ) !important;
+        -moz-transform:    rotateY( 0deg ) !important;
+        -ms-transform:     rotateY( 0deg ) !important;
+        -o-transform:      rotateY( 0deg ) !important;
+        -webkit-transform: rotateY( 0deg ) !important;
+}
+
+.flip-back {
+    transform:             rotateY( 180deg ) !important;
+        -moz-transform:    rotateY( 180deg ) !important;
+        -ms-transform:     rotateY( 180deg ) !important;
+        -o-transform:      rotateY( 180deg ) !important;
+        -webkit-transform: rotateY( 180deg ) !important;
 }

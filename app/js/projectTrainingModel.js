@@ -1,9 +1,10 @@
 projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 
-	var query = [];
-	var exercises = [];
-
-	var equipment = [];
+	this.query = [];
+	this.exercises = [];
+	this.myExerList = [];
+	this.equipment = [];
+	this.displayExer = [];
 	var categories = {
 		10 : "Abs",
 		8 : "Arms",
@@ -14,12 +15,45 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 		13 : "Shoulders"
 	};
 
+	this.getMyWorkout = function(){
+		return this.myExerList;
+	}
+
+	this.addToMyList = function(id){
+		this.myExerList.push(this.getExercise(id));
+		return this.myExerList;
+	}
+
+
+	this.removeFromMyList = function(id){
+		var index = 0;
+		for(var i in this.myExerList){
+			if(this.myExerList[i].id == id) index = i;
+		}
+		this.myExerList.splice(index, 1);
+		return this.myExerList;
+	}
+
+	this.filterExercises = function(cat){
+		//I merged the filter exercises and add to display exercises functions
+		this.displayExer = this.getExercisesByCategory(cat);
+		return;
+	}
+
+	this.setDisplayExer = function(list){
+		this.displayExer = list;
+	}
+
+	this.getDisplayExer = function(){
+		return this.displayExer;
+	}
+
 	this.returnQuery = function(){
-		return query;
+		return this.query;
 	}
 
 	this.emptyList = function(){
-		exercises = [];
+		this.exercises = [];
 	}
 
 	this.addImageToList = function(data){
@@ -31,35 +65,36 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 	}
 
 	this.addExerciseToList = function (data) {
+		console.log(categories[10]);
 		for(var i in data){
 			var cat = categories[data[i].category];
-			exercises.push({
+			
+			this.exercises.push({
 				id:data[i].id,
-				category:data[i].category,
 				description:data[i].description,
 				name:data[i].name,
 				image : ["img/noimg.png"],
-				category : cat
+				category : cat,
+				sets : 1,
+				reps : 1
 			});
 		}
 		return;
 	}
 
-	this.removeFromList = function (id){
-		for(var i in exercises){
-			if(exercises[i].id = id) index = i;
-		}
-		exercises.splice(index,1);
-	}
-
 	this.getExercises = function(){
-		return exercises;
+		return this.exercises;
 	}
 
 	//returns the exercise of given id
 	this.getExercise = function(id){
 		//JQuery function $.grep
-		return $.grep(exercises, function(e){return e.id == id})[0];
+		return $.grep(this.exercises, function(e){return e.id == id})[0];
+	}
+
+	this.getExercisesByCategory = function(category){
+		//JQuery function $.grep that returns a list of all matches
+		return $.grep(this.exercises, function(e){return e.category == category});
 	}
 
 	//different resources to get information from the API

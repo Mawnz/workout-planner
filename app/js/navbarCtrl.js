@@ -60,7 +60,10 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
     
 
   })
-.controller('LeftCtrl', function ($scope, $timeout, $mdSidenav, $log) {
+.controller('LeftCtrl', function (Workout, $scope, $timeout, $mdSidenav, $log, $element) {
+    $scope.myExercises = Workout.getMyWorkout();
+    $scope.show = false;
+
     $scope.close = function () {
       // Component lookup should always be available since we are not using `ng-if`
       $mdSidenav('left').close()
@@ -69,23 +72,67 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
         });
 
     };
+
+    $scope.removeExercise = function(id){
+      Workout.removeFromMyList(id);
+    }
+
+
+
+
+    $scope.flip = function($event, str){
+      //console.log(this);
+      $event.preventDefault();
+      if(str == "back"){
+        var front = $($event.currentTarget).closest("#papa").find("#front");
+        var back = $($event.currentTarget).closest("#papa").find("#back");
+
+        //console.log("switching to front");     
+        front.attr("class", "flip flipFront");
+        back.attr("class", "flip");
+        //also set the variable
+        front.attr("isUp", "true");
+        back.attr("isUp", "false"); 
+      }else{
+        var allFront = $("#menuList").find(".flipFront");
+        allFront.each(function(){
+          if($(this).attr("isUp") == "false"){ 
+            var front = $(this);
+            var back = $($(this).siblings()[0]);
+            front.attr("class", "flip");
+            back.attr("class", "flip");
+            //also set the variable
+            front.attr("isUp", "true");
+            back.attr("isUp", "false"); 
+          }
+        });
+
+
+        
+        //phew
+        var front = $($event.currentTarget).closest("#papa").find("#front");
+        var back = $($event.currentTarget).closest("#papa").find("#back");
+
+       // console.log("switching to back");
+        front.attr("class", "flip flipFront flip-back");
+        back.attr("class", "flip flip-front");
+        //also set the variable
+        front.attr("isUp", "false");
+        back.attr("isUp", "true");
+      }     
+    }
+
   })
 .controller('RightCtrl', function ($scope, Workout, $timeout, $mdSidenav, $log) {
     //getting some of them variables that are used for the filters
-    $scope.str = 1;
-    $scope.flex = 1;
-    $scope.cardio = 1;
     //this will contain a list of queries so you can search for multiple queries getting more results
     $scope.searchQuery = [];
-
+    $scope.category;
     //this is set to be not readonly
     $scope.readonly = false;
 
     $scope.search = function () {
-      console.log('denna är i navbarCtrl');
-      Workout.ExerciseSearch.get({}, function(data){
-        console.log(data.results);
-      });
+      Workout.filterExercises($scope.category)
       //code to do search stuff goes here
       $mdSidenav('right').close();
     };
