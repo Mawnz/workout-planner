@@ -5,6 +5,7 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 	this.equipment = [];
 	this.categories = [];
 	this.myExerList = [];
+	this.displayExer = [];
 
 	this.returnQuery = function(){
 		return query;
@@ -26,6 +27,30 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 		}
 		console.log(this.myExerList);
 		return this.myExerList;
+	}
+
+	this.filterExercises = function(cat){
+		var filterList = [];
+		for(var i in exercises){
+			if(exercises[i].category == cat){
+				filterList.push(exercises[i]);
+			}
+		}
+		this.addToDisplayExer(filterList);
+		return;
+	}
+
+	this.addToDisplayExer = function(list){
+		this.displayExer = [];
+		for(var i in list){
+			this.displayExer.push(list[i]);
+		}
+		console.log(this.displayExer);
+		return;
+	}
+
+	this.getDisplayExer = function(){
+		return this.displayExer;
 	}
 
 	this.removeFromMyList = function(id){
@@ -60,12 +85,13 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 		return;
 	}
 
-	this.removeFromList = function (id){
-		for(var i in exercises){
-			if(exercises[i].id = id) index = i;
-		}
-		exercises.splice(index,1);
-	}
+// not using this anymore
+	// this.removeFromList = function (id){
+	// 	for(var i in exercises){
+	// 		if(exercises[i].id = id) index = i;
+	// 	}
+	// 	exercises.splice(index,1);
+	// }
 
 	this.getExercises = function(){
 		return exercises;

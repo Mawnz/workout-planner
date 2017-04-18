@@ -57,7 +57,7 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
           });
       };
     }
-    
+
 
   })
 .controller('LeftCtrl', function ($scope, $timeout, $mdSidenav, $log) {
@@ -70,26 +70,21 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
 
     };
   })
-.controller('RightCtrl', function ($scope, Workout, $timeout, $mdSidenav, $log) {
-    //getting some of them variables that are used for the filters
-    $scope.str = 1;
-    $scope.flex = 1;
-    $scope.cardio = 1;
-    //this will contain a list of queries so you can search for multiple queries getting more results
-    $scope.searchQuery = [];
+
+.controller('RightCtrl', function ($scope, Workout, $timeout, $mdSidenav, $log, $mdDialog) {
+    //getting some of them variables that are used for the filters    
 
     //this is set to be not readonly
     $scope.readonly = false;
 
-    $scope.search = function () {
-      console.log('denna är i navbarCtrl');
-      Workout.ExerciseSearch.get({}, function(data){
-        console.log(data.results);
-      });
+    $scope.search = function (category) {
+      Workout.filterExercises(category);
+
       //code to do search stuff goes here
       $mdSidenav('right').close();
     };
 })
+
 .controller('RightClose', function ($scope, $mdSidenav) {
     $scope.close = function () {
       $mdSidenav('right').close()
