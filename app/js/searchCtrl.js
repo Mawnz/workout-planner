@@ -1,8 +1,8 @@
 projectTrainingApp.controller('SearchCtrl', function ($scope, Workout, $mdDialog, $mdToast, $sce) {
   // $scope.exercises = [];
-  var images = [];
+  // var images = [];
+  $scope.exercises = Workout.getDisplayExer();
   $scope.show = true;
-  $scope.exercise;
 
   //setting up categories and musclegroups
   Workout.getEquipment.get({}, function(data){
@@ -33,7 +33,7 @@ projectTrainingApp.controller('SearchCtrl', function ($scope, Workout, $mdDialog
         Workout.addImageToList(data.results[i]);
       }
       Workout.addToDisplayExer(Workout.getExercises());
-      $scope.exercises = Workout.getDisplayExer();
+      // $scope.exercises = Workout.getDisplayExer();
       $scope.show = true;
     });
   }
@@ -43,9 +43,7 @@ projectTrainingApp.controller('SearchCtrl', function ($scope, Workout, $mdDialog
 
   //function for adding exercise to the menu
   $scope.addExercise = function(id){
-    //here the exercise is added
     Workout.addToMyList(id);
-
     //show notification that the exercise has been added
     addedToast();
   }
@@ -85,10 +83,6 @@ projectTrainingApp.controller('SearchCtrl', function ($scope, Workout, $mdDialog
     $scope.hide = function(){
       $mdDialog.hide();
     }
-
-
-
-
 
     $scope.cancel = function(){
       $mdDialog.cancel();

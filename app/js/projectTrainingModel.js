@@ -29,15 +29,38 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 		return this.myExerList;
 	}
 
-	this.filterExercises = function(cat){
+	this.filterExercises = function(cat,eq){
 		var filterList = [];
-		for(var i in exercises){
-			if(exercises[i].category == cat){
-				filterList.push(exercises[i]);
+		if(cat != null && eq != null){
+			console.log('1');
+			for(var i in exercises){
+				for(var j in exercises[i].equipment){
+					if(exercises[i].category == cat && exercises[i].equipment[j] == eq){
+						filterList.push(exercises[i]);
+					}
+				}
 			}
+		}else if(cat != null && eq == null){
+			console.log('2');
+			for(var i in exercises){
+				if(exercises[i].category == cat){
+					filterList.push(exercises[i]);
+				}
+			}
+		}else if(cat == null && eq != null){
+			console.log('3');
+			for(var i in exercises){
+				for(var j in exercises[i].equipment){
+					if(exercises[i].equipment[j] == eq){
+						filterList.push(exercises[i]);
+					}
+				}
+			}
+		}else if(cat == null && eq == null) {
+			filterList.push(exercises);
 		}
 		this.addToDisplayExer(filterList);
-		return;
+		return filterList;
 	}
 
 	this.addToDisplayExer = function(list){
@@ -45,7 +68,7 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 		for(var i in list){
 			this.displayExer.push(list[i]);
 		}
-		console.log(this.displayExer);
+		console.log(this.displayExer);		
 		return;
 	}
 
@@ -73,14 +96,16 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 	}
 
 	this.addExerciseToList = function (data) {
+		// console.log(data);
 		for(var i in data){
-			exercises.push({
-				id:data[i].id,
-				category:data[i].category,
-				description:data[i].description,
-				name:data[i].name,
-				image : ["img/noimg.png"]
-			});
+				exercises.push({
+					id:data[i].id,
+					category:data[i].category,
+					description:data[i].description,
+					equipment:data[i].equipment,
+					name:data[i].name,
+					image : ["img/noimg.png"]
+				});
 		}
 		return;
 	}

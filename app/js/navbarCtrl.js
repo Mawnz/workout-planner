@@ -72,16 +72,18 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
   })
 
 .controller('RightCtrl', function ($scope, Workout, $timeout, $mdSidenav, $log, $mdDialog) {
-    //getting some of them variables that are used for the filters    
+    //getting some of them variables that are used for the filters
 
     //this is set to be not readonly
     $scope.readonly = false;
 
-    $scope.search = function (category) {
-      Workout.filterExercises(category);
+    $scope.search = function (cat,eq) {
+      if(cat == 0){cat = null;}
+      if(eq == 0){eq = null;}
+      Workout.filterExercises(cat,eq);
 
       //code to do search stuff goes here
-      $mdSidenav('right').close();
+      // $mdSidenav('right').close();
     };
 })
 

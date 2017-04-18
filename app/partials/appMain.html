@@ -81,7 +81,7 @@
                                 md-removable="removable" md-max-chips="5" placeholder="Enter text...">
                     </div>
                     <div flex = "20" layout layout-align = "center center">
-                      <md-button ng-click="search(category)" class="md-icon-button md-primary">
+                      <md-button ng-click="search(category,equipment)" class="md-icon-button md-primary">
                         <md-icon md-font-set="material-icons"> search </md-icon>
                       </md-button>
                     </div>
@@ -96,20 +96,41 @@
                 </md-card-title>
 
                 <md-card-content>
-              <div layout="row" layout-align="space-between center">
-                <span>Muscle group</span>
-                <md-select ng-model="category" placeholder="Group" class="md-no-underline">
-                  <md-option value="10">Abs</md-option>
-                  <md-option value="8">Arms</md-option>
-                  <md-option value="12">Back</md-option>
-                  <md-option value="14">Calves</md-option>
-                  <md-option value="11">Chest</md-option>
-                  <md-option value="9">Legs</md-option>
-                  <md-option value="13">Shoulders</md-option>
-                </md-select>
-              </div>
-            </md-card-content>
-          </md-card>
+                  <div layout="row" layout-align="space-between center">
+                    <span>Muscle group</span>
+                    <md-select ng-model="category" placeholder="Group" class="md-no-underline">
+                      <md-option value="0">None</md-option>
+                      <md-option value="10">Abs</md-option>
+                      <md-option value="8">Arms</md-option>
+                      <md-option value="12">Back</md-option>
+                      <md-option value="14">Calves</md-option>
+                      <md-option value="11">Chest</md-option>
+                      <md-option value="9">Legs</md-option>
+                      <md-option value="13">Shoulders</md-option>
+                    </md-select>
+                  </div>
+                </md-card-content>
+
+                <md-card-content>
+                  <div layout="row" layout-align="space-between center">
+                    <span>Equipment</span>
+                    <md-select ng-model="equipment" placeholder="Tool" class="md-no-underline">
+                      <md-option value="0">None</md-option>
+                      <md-option value="1">Barbell</md-option>
+                      <md-option value="8">Bench</md-option>
+                      <md-option value="3">Dumbbell</md-option>
+                      <md-option value="4">Gym mat</md-option>
+                      <md-option value="9">Incline bench</md-option>
+                      <md-option value="10">Kettlebell</md-option>
+                      <md-option value="7">Body weight</md-option>
+                      <md-option value="6">Pull-up bar</md-option>
+                      <md-option value="5">Swiss ball</md-option>
+                      <md-option value="2">SZ-Bar</md-option>
+                    </md-select>
+                  </div>
+                </md-card-content>
+
+              </md-card>
             </div>
           </md-content>
 
