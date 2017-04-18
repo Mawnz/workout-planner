@@ -15,6 +15,14 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 		13 : "Shoulders"
 	};
 
+	this.setReps = function(myExercise, value){
+		$.grep(this.myExerList, function(e){return e.id == myExercise.id})[0].reps = value;
+	}
+
+	this.setSet = function(myExercise, value){
+		$.grep(this.myExerList, function(e){return e.id == myExercise.id})[0].set = value;
+	}
+
 	this.getMyWorkout = function(){
 		return this.myExerList;
 	}
@@ -75,7 +83,7 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 				name:data[i].name,
 				image : ["img/noimg.png"],
 				category : cat,
-				sets : 1,
+				set : 1,
 				reps : 1
 			});
 		}

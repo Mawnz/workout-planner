@@ -81,6 +81,7 @@ projectTrainingApp.controller('SearchCtrl', function ($scope, Workout, $mdDialog
   //this is the controller for the dialog window above
   function DialogController($scope, $mdDialog, id){
     $scope.e = Workout.getExercise(id);
+    //$sce needed to get rid of them <p> tags in the string
     $scope.description = $sce.trustAsHtml($scope.e.description);
     $scope.hide = function(){
       $mdDialog.hide();

@@ -8,10 +8,7 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
       return $mdSidenav('left').isOpen();
     };
 
-    //Checkout function
-    $scope.checkout = function(){
 
-    }
 
 
     /**
@@ -63,6 +60,8 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
 .controller('LeftCtrl', function (Workout, $scope, $timeout, $mdSidenav, $log, $element) {
     $scope.myExercises = Workout.getMyWorkout();
     $scope.show = false;
+    $scope.s = 1;
+    $scope.r = 1;
 
     $scope.close = function () {
       // Component lookup should always be available since we are not using `ng-if`
@@ -70,15 +69,19 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
         .then(function () {
           console.log("close LEFT is done");
         });
-
     };
+
+    $scope.reps = function(myExercise, value){
+      Workout.setReps(myExercise, value);
+    }
+
+    $scope.set = function(myExercise, value){
+      Workout.setSet(myExercise, value);
+    }
 
     $scope.removeExercise = function(id){
       Workout.removeFromMyList(id);
     }
-
-
-
 
     $scope.flip = function($event, str){
       //console.log(this);
@@ -106,13 +109,9 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
             back.attr("isUp", "false"); 
           }
         });
-
-
-        
         //phew
         var front = $($event.currentTarget).closest("#papa").find("#front");
         var back = $($event.currentTarget).closest("#papa").find("#back");
-
        // console.log("switching to back");
         front.attr("class", "flip flipFront flip-back");
         back.attr("class", "flip flip-front");
