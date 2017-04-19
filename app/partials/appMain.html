@@ -88,7 +88,7 @@
                                 md-removable="removable" md-max-chips="5" placeholder="Enter text...">
                     </div>
                     <div flex = "20" layout layout-align = "center center">
-                      <md-button ng-click="search()" ng-href = "#!/app/" class="md-icon-button md-primary">
+                      <md-button ng-click="search(searchQuery)" ng-href = "#!/app/" class="md-icon-button md-primary">
                         <md-icon md-font-set="material-icons"> search </md-icon>
                       </md-button>
                     </div>
@@ -96,7 +96,11 @@
                 </form>
               </div>
               <!-- <b>Filters</b> -->
+              <md-switch ng-model="data.cb2" aria-label="Switch 2" ng-change="onChange(data.cb2)" class="md-warn">
+                Switch 2 : {{ data.cb2 }}
+              </md-switch>
               <div layout layout-align = "space-between">
+
                 <div>
                   Category
                 </div>

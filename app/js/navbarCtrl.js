@@ -129,8 +129,12 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
     //this is set to be not readonly
     $scope.readonly = false;
 
-    $scope.search = function () {
+    $scope.search = function (searchQuery) {
+      Workout.ExerciseSearch.get({name : searchQuery, status : 2, language : 2}, function(data){
+        console.log(data.results);
+      });
       Workout.filterExercises($scope.category, $scope.equipment);
+
     };
 
 })

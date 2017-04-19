@@ -103,7 +103,7 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 		console.log(cookie.getObject("menu"));
 	}
 
-	this.filterExercises = function(cat, eq){
+	this.filterExercises = function(cat, eq, toogle){
 		var newList = $.grep(this.exercises, function(e){
 			return e.category == ((cat == 0) ? e.category : categories[cat]) &&
 					e.equipment == ((eq == 0) ? e.equipment : equipment[eq]);

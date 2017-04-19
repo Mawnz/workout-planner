@@ -25,6 +25,8 @@ projectTrainingApp.controller('IndexCtrl', function ($scope, Workout) {
       for (var i in data.results){
         Workout.addImageToList(data.results[i]);
       }
+      Workout.setDisplayExer(Workout.getExercises());
+      Workout.setShow(true);
 
       var catFilter = Workout.getCatFilter();
       var eqFilter = Workout.getEqFilter();
@@ -37,8 +39,7 @@ projectTrainingApp.controller('IndexCtrl', function ($scope, Workout) {
         Workout.addToMyList(myWorkoutIds[i], false)
       }
 
-      Workout.setDisplayExer(Workout.getExercises());
-      Workout.setShow(true);
+
     });
   }
 });
