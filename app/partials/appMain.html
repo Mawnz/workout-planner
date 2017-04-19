@@ -1,13 +1,12 @@
-<div ng-controller="NavbarCtrl" style = "height:100%">
+<div style = "height:100%">
     <section layout="row" layout-fill>
-
         <md-sidenav
-            class="md-sidenav-left sidenav"
+            class="md-sidenav-left"
             md-component-id="left"
             md-is-locked-open="$mdMedia('gt-md')"
             md-whiteframe="4">
 
-          <md-toolbar ng-controller="LeftCtrl" layout = "row" layout-align = "space-between stretch">
+          <md-toolbar  ng-controller="LeftCtrl" layout = "row" layout-align = "space-between stretch">
             <!--Header of left navbar-->
             <div>
                 <h1 class="md-toolbar-tools">Your workout</h1>
@@ -19,16 +18,24 @@
                 </md-button>
             </div>
           </md-toolbar>
-          <md-content layout-padding ng-controller="LeftCtrl">
-            <!-- Content of navbar goes here-->
+          <md-content style = "overflow-y:hidden" flex layout-padding ng-controller="LeftCtrl">
+            <!--The checkout toolbar-->
+            <div flex layout = "row" layout-align = "space-between" class = "header" layout-padding>
+              <div layout layout-align = "center center" class = "md-subhead">
+                 Checkout 
+              </div>
+              <div layout layout-align = "center center">
+                <!--Checkout-button that is always at the right top-->
+                  <md-button  ng-href = "#!app/checkout" ng-click = "checkout()" class = "md-icon-button">
+                    <md-icon md-font-set="material-icons"> print </md-icon>
+                  </md-button>
+              </div>
+            </div>
               <!--External file for the individual items-->
-              <div ng-include = "'partials/exerciseMenu.html'"></div>
+              <div class = "scroll" ng-include = "'partials/exerciseMenu.html'"></div>
 
           </md-content>
-                <!--Checkout-button that is always at the bottom of the container-->
-                <md-button  ng-href = "#!app/checkout" ng-click = "checkout()" class = "checkout md-icon-button">
-                  <md-icon md-font-set="material-icons"> print </md-icon>
-                </md-button>
+
         </md-sidenav>
 
         <md-content flex layout-padding layout-fill style = "overflow-y: hidden">
@@ -74,67 +81,58 @@
             <div layout = "column">
               <div>
                 <form>
-                  <!-- <md-input-container layout layout-align = "center center">
+                  <md-input-container layout layout-align = "center center">
                     <div flex = "80">
                       <label for="testInput">Text search</label>
                       <md-chips class = "chips" ng-model="searchQuery" name="query" readonly="readonly"
                                 md-removable="removable" md-max-chips="5" placeholder="Enter text...">
                     </div>
                     <div flex = "20" layout layout-align = "center center">
-                      <md-button ng-click="search(category,equipment)" ng-href = "#!/app/" class="md-icon-button md-primary">
+                      <md-button ng-click="search()" class="md-icon-button md-primary">
                         <md-icon md-font-set="material-icons"> search </md-icon>
                       </md-button>
                     </div>
-                  </md-input-container> -->
+                  </md-input-container>
                 </form>
               </div>
-              <!-- <md-card> -->
-                <md-card-title>
-                  <md-card-title-text>
-                    <span class="md-headline">Search Filters</span>
-                  </md-card-title-text>
-                </md-card-title>
-
-                <md-switch ng-model="data.cb6" aria-label="Switch 6" ng-change="onChange(data.cb6)">
-                  Switch 6 message: {{ message }}
-                </md-switch>
-
-                <md-card-content>
-                  <div layout="row" layout-align="space-between center">
-                    <span>Muscle group</span>
-                    <md-select ng-model="category" placeholder="Group" ng-change="search(category,equipment)" ng-href = "#!/app/" class="md-no-underline">
-                      <md-option value="0">None</md-option>
-                      <md-option value="10">Abs</md-option>
-                      <md-option value="8">Arms</md-option>
-                      <md-option value="12">Back</md-option>
-                      <md-option value="14">Calves</md-option>
-                      <md-option value="11">Chest</md-option>
-                      <md-option value="9">Legs</md-option>
-                      <md-option value="13">Shoulders</md-option>
-                    </md-select>
-                  </div>
-                </md-card-content>
-
-                <md-card-content>
-                  <div layout="row" layout-align="space-between center">
-                    <span>Equipment</span>
-                    <md-select ng-model="equipment" placeholder="Tool" ng-change="search(category,equipment)" ng-href = "#!/app/" class="md-no-underline">
-                      <md-option value="0">None</md-option>
-                      <md-option value="1">Barbell</md-option>
-                      <md-option value="8">Bench</md-option>
-                      <md-option value="3">Dumbbell</md-option>
-                      <md-option value="4">Gym mat</md-option>
-                      <md-option value="9">Incline bench</md-option>
-                      <md-option value="10">Kettlebell</md-option>
-                      <md-option value="7">Body weight</md-option>
-                      <md-option value="6">Pull-up bar</md-option>
-                      <md-option value="5">Swiss ball</md-option>
-                      <md-option value="2">SZ-Bar</md-option>
-                    </md-select>
-                  </div>
-                </md-card-content>
-
-              <!-- </md-card> -->
+              <b>Filters</b>
+              <div layout layout-align = "space-between">
+                <div>
+                  Category
+                </div>
+                <div>
+                  <md-select ng-change = "search()" ng-model="category" aria-label = "category" class="md-no-underline">
+                    <md-option value="0">All</md-option>
+                    <md-option value="10">Abs</md-option>
+                    <md-option value="8">Arms</md-option>
+                    <md-option value="12">Back</md-option>
+                    <md-option value="14">Calves</md-option>
+                    <md-option value="11">Chest</md-option>
+                    <md-option value="9">Legs</md-option>
+                    <md-option value="13">Shoulders</md-option>
+                  </md-select>
+                </div>
+              </div>
+              <div layout layout-align = "space-between">
+                <div>
+                  Equipment
+                </div>
+                <div>
+                  <md-select ng-change = "search()" ng-model="equipment" aria-label = "equipment" class="md-no-underline">
+                    <md-option value="0">All</md-option>
+                    <md-option value="1">Barbell</md-option>
+                    <md-option value="8">Bench</md-option>
+                    <md-option value="3">Dumbbell</md-option>
+                    <md-option value="4">Gym mat</md-option>
+                    <md-option value="9">Inclinge bench</md-option>
+                    <md-option value="10">Kettlebell</md-option>
+                    <md-option value="7">None (Bodyweight exercise)</md-option>
+                    <md-option value="6">Pull-up bar</md-option>
+                    <md-option value="5">Swiss ball</md-option>
+                    <md-option value="2">SZ-bar</md-option>
+                  </md-select>
+                </div>
+              </div>
             </div>
           </md-content>
 

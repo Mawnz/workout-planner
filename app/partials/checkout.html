@@ -1,30 +1,41 @@
-<md-content>
-	<md-toolbar class = "md-primary">
-		<div layout-padding layout = "row" layout-align = "space-between">
-	      <div>
-	      	<h2 class="md-flex">Your workout</h2>
-	      </div>
-	      <div layout layout-align = "center center">
-	      	<md-button ng-href = "#!app" class = "md-icon-button">
-	      		<md-icon md-font-set = "material-icons" > reply </md-icon>
-	      	</md-button>
-	      </div>
-	    </div>
-	</md-toolbar>
+<div class = "scroll">
+	<md-content>
+		<md-toolbar class = "md-primary">
+			<div layout-padding layout = "row" layout-align = "space-between">
+		      <div>
+		      	<h2 class="md-flex">Your workout</h2>
+		      </div>
+		      <div layout layout-align = "center center">
+		      	<md-button ng-href = "#!app" class = "md-icon-button">
+		      		<md-icon md-font-set = "material-icons" > reply </md-icon>
+		      	</md-button>
+		      </div>
+		    </div>
+		</md-toolbar>
 
-	<
-		<div layout-gt-md = "row" layout = "column" layout-align = "space-around" layout-padding>
-			<div flex = "50" layout = "column" layout-align = "space-around">
-				<div>	       	
-			        <span class="md-headline">Crunches</span>
-			    </div>
-		   		 <div>
-					<p class = "md-body-1">Lay down on your back a soft surface, the feet are on the floor. Ask a partner or use some other help (barbell, etc.) to keep them fixed, your hands are behind your head. From this position move your upper body up till your head or elbows touch your knees. Do this movement by rolling up your back.</p>
-				</div>
-	        </div>
-	        <div layout = "column" layout-align = "center center">
-	        	<img ng-src="img/Crunches-1.png" class="md-card-image image" alt="Washed Out">
-	        	<img ng-src="img/Crunches-2.png" class="md-card-image image" alt="Washed Out">
-	        </div>
-	    </div>
-</md-content>
+		<div layout = "column">
+			<div ng-repeat = "e in eMenu" layout-gt-md = "row" layout = "column" layout-align = "space-between" layout-padding>
+				<div flex = "50" layout = "column">
+					<div>	       	
+				        <span class="md-headline">{{e.name}}</span>
+				    </div>
+				    <div class = "md-subhead">
+				    	<b>
+				    		<div>{{e.reps}} reps in {{e.set}} set</div>
+				    	</b>
+				    </div>
+			   		 <div ng-bind-html = "e.description | trusted" class = "md-body-1">
+						
+					</div>
+		        </div>
+		        <div flex = "50">
+		        	<md-grid-list md-cols = "2" md-row-height = "300px" md-gutter = "5px">
+		        		<md-grid-tile md-colspan ="1" ng-repeat = "image in e.image">
+		        			<img ng-src= "{{image}}" class="md-card-image image2" alt="Washed Out" layout-padding>
+		        		</md-grid-tile>
+		        	</md-grid-list>
+		        </div>
+		    </div>
+		</div>
+	</md-content>
+</div>

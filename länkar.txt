@@ -4,6 +4,7 @@ https://material.io/guidelines/style/color.html#color-color-palette
 
 https://material.angularjs.org/latest/
 
+https://gist.github.com/jesse1981/5537330
 
 client id
 202314677888-lfitpkr7mfv2nmrm61c32vk2o8bg58fo.apps.googleusercontent.com

@@ -1,9 +1,7 @@
 <div style = "overflow-x: hidden; height:100%" ng-controller = "SearchCtrl">
-	<div ng-if = "show == false">
+	<div ng-model = "show" ng-if = "show == false" layout layout-fill = "vertical" layout-align = "center center">
 		<md-progress-circular md-mode="indeterminate"></md-progress-circular>
 	</div>
-
-<!--md-colors = "{background : 'grey-500-0.1'}"-->
 
 <!--this is so gut-->
 	<div ng-if = "show == true">
@@ -17,12 +15,12 @@
 			    md-row-height-xs = "4:3"
 			    md-gutter = "5px"
 			    >
-				{{test}}
-				<md-grid-tile md-colspan = "1" ng-repeat = "exercise in exercises">
+
+				<md-grid-tile ng-model = "exercises" md-colspan = "1" ng-repeat = "exercise in exercises track by exercise.id">
 					<md-card layout layout-fill = "vertical">
 						<div layout = "row" layout-fill = "space-between">
 							<div flex = "60" layout = "column" layout-align = "space-between">
-								<div >
+								<div >	       	
 							        <md-card-title>
 							          <md-card-title-text>
 							            <span class="txt">{{exercise.name}}</span>
@@ -33,20 +31,17 @@
 							        <md-card-actions>
 							          <md-card-icon-actions>
 							            <md-button ng-click = "addExercise(exercise.id)"  class="md-icon-button" aria-label="addExercise">
-							              <md-icon md-font-set="material-icons"> add </md-icon>
+							              <md-icon class = "color" md-font-set="material-icons"> add </md-icon>
 							            </md-button>
 							            <md-button ng-click = "openInfo($event, exercise.id)" class="md-icon-button" aria-label="openInfo">
-							              <md-icon md-font-set="material-icons"> info_outline </md-icon>
+							              <md-icon class = "color" md-font-set="material-icons"> info_outline </md-icon>
 							            </md-button>
 							          </md-card-icon-actions>
 							        </md-card-actions>
 							    </div>
 							    <div layout layout-padding>
 							        <div class = "tag" md-whiteframe = "3">
-							        	Abs
-							        </div>
-							        <div class = "tag" md-whiteframe = "3">
-							        	Ass
+							        	{{exercise.category}}
 							        </div>
 							    </div>
 					        </div>
