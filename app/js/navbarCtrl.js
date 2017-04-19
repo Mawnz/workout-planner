@@ -9,8 +9,6 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
     };
 
 
-
-
     /**
      * Supplies a function that will continue to operate until the
      * time is up.
@@ -54,7 +52,7 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
           });
       };
     }
-    
+
 
   })
 .controller('LeftCtrl', function (Workout, $scope, $timeout, $mdSidenav, $log, $element) {
@@ -90,23 +88,23 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
         var front = $($event.currentTarget).closest("#papa").find("#front");
         var back = $($event.currentTarget).closest("#papa").find("#back");
 
-        //console.log("switching to front");     
+        //console.log("switching to front");
         front.attr("class", "flip flipFront");
         back.attr("class", "flip");
         //also set the variable
         front.attr("isUp", "true");
-        back.attr("isUp", "false"); 
+        back.attr("isUp", "false");
       }else{
         var allFront = $("#menuList").find(".flipFront");
         allFront.each(function(){
-          if($(this).attr("isUp") == "false"){ 
+          if($(this).attr("isUp") == "false"){
             var front = $(this);
             var back = $($(this).siblings()[0]);
             front.attr("class", "flip");
             back.attr("class", "flip");
             //also set the variable
             front.attr("isUp", "true");
-            back.attr("isUp", "false"); 
+            back.attr("isUp", "false");
           }
         });
         //phew
@@ -118,7 +116,7 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
         //also set the variable
         front.attr("isUp", "false");
         back.attr("isUp", "true");
-      }     
+      }
     }
 
   })
@@ -131,7 +129,8 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
     $scope.images = false;
     //this is set to be not readonly
     $scope.readonly = false;
-    $scope.search = function () {
+
+    $scope.search = function () {    
       Workout.filterExercises($scope.category, $scope.equipment);
       //$route.reload();
     };

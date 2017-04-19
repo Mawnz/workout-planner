@@ -6,6 +6,12 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 	this.displayExer = [];
 	this.show = false;
 
+	// var searchFilters = ($cookies.get("filters") == undefined ? 2 : $cookies.get("filters"));
+	var catFilter = $cookies.get('catFilter');
+	var eqFilter = $cookies.get('eqFilter');
+
+
+
 	var equipment = {
 		1: "Barbell",
 		8: "Bench",
@@ -48,6 +54,14 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 		return;
 	}
 
+	this.getCatFilter = function(){
+		return catFilter;
+	}
+
+	this.getEqFilter = function(){
+		return eqFilter;
+	}
+
 	this.getMyWorkout = function(){
 		return this.myExerList;
 	}
@@ -71,11 +85,12 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 	}
 
 	this.filterExercises = function(cat, eq){
-		var newList = $.grep(this.exercises, function(e){	
+		var newList = $.grep(this.exercises, function(e){
 			return e.category == ((cat == 0) ? e.category : categories[cat]) &&
 					e.equipment == ((eq == 0) ? e.equipment : equipment[eq]);
 			});
-
+		$cookies.putObject("catFilter", parseInt(cat));
+		$cookies.putObject("eqFilter", parseInt(eq));				
 		this.setDisplayExer(newList);
 
 		return;
@@ -83,6 +98,7 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 
 	this.setDisplayExer = function(list){
 		this.displayExer = list;
+		console.log(this.displayExer);
 		return;
 	}
 

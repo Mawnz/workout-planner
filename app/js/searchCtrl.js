@@ -1,14 +1,17 @@
-projectTrainingApp.controller('SearchCtrl', function ($scope, Workout, $mdDialog, $mdToast, $sce) {
-  $scope.show = Workout.getShow();
-  $scope.exercises = Workout.getDisplayExer();
- 
-/*
-  $scope.$watchCollection('Workout', function(){
-    console.log("model updated");
-    $scope.show = Workout.getShow();
+projectTrainingApp.controller('SearchCtrl', function ($scope, Workout, $mdDialog, $mdToast, $sce, $interval) {
+
+  // $scope.show = Workout.getShow();
+  // $scope.show = true;
+  // $scope.exercises = Workout.getDisplayExer();
+
+  $interval(function(){
     $scope.exercises = Workout.getDisplayExer();
+    $scope.show = Workout.getShow();
   });
-*/
+
+
+// $scope.exercises = Workout.getDisplayExer();
+
   //function for adding exercise to the menu
   $scope.addExercise = function(id){
     //first check if it already exists in the workout
@@ -42,7 +45,7 @@ projectTrainingApp.controller('SearchCtrl', function ($scope, Workout, $mdDialog
 
   //Section for opening up additional information regarding chosen exercise
   $scope.openInfo = function(event, id){
-    
+
     $mdDialog.show({
       controller : DialogController,
       templateUrl : 'partials/resultMoreInfo.html',
