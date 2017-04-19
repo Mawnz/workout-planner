@@ -1,4 +1,4 @@
-<div class = "scroll" ng-controller = "CheckoutCtrl">
+<div class = "scroll">
 	<md-content>
 		<md-toolbar class = "md-primary">
 			<div layout-padding layout = "row" layout-align = "space-between">
@@ -24,7 +24,7 @@
 				    		<div>{{e.reps}} reps in {{e.set}} set</div>
 				    	</b>
 				    </div>
-			   		 <div ng-bind-html = "e.description" class = "md-body-1">
+			   		 <div ng-bind-html = "e.description | trusted" class = "md-body-1">
 						
 					</div>
 		        </div>

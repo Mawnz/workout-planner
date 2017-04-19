@@ -1,9 +1,11 @@
 projectTrainingApp.controller('SearchCtrl', function ($scope, Workout, $mdDialog, $mdToast, $sce) {
-  //$scope.exercises = [];
-  var images = [];
-  $scope.show = true;
-  $scope.exercise;
   
+  var init = function(){
+    Workout.setDisplayExer(Workout.getExercises());
+    $scope.exercises = Workout.getDisplayExer();
+  }
+  init();
+/*
   //setting up categories and musclegroups
   Workout.getEquipment.get({}, function(data){
     Workout.equipment = data.results;
@@ -12,9 +14,10 @@ projectTrainingApp.controller('SearchCtrl', function ($scope, Workout, $mdDialog
     Workout.categories = data.results;
   });
   //end of setting up
-
+*/
+/*
 //init exercises that will be used in application
-  var init = function () {
+  $scope.init = function () {
     Workout.emptyList();
     Workout.ExerciseSearch.get({language : 2, status : 2, limit : 1000}, function(data){
       Workout.addExerciseToList(data.results);
@@ -36,11 +39,7 @@ projectTrainingApp.controller('SearchCtrl', function ($scope, Workout, $mdDialog
       $scope.show = true;
     });
   }
-
-  // and fire it after definition
-  $scope.show =false;
-  init();
- 
+ */
   //function for adding exercise to the menu
   $scope.addExercise = function(id){
     //here the exercise is added

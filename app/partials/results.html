@@ -3,8 +3,6 @@
 		<md-progress-circular md-mode="indeterminate"></md-progress-circular>
 	</div>
 
-<!--md-colors = "{background : 'grey-500-0.1'}"-->
-
 <!--this is so gut-->
 	<div ng-if = "show == true">
 			<md-grid-list
@@ -18,7 +16,7 @@
 			    md-gutter = "5px"
 			    >
 
-				<md-grid-tile md-colspan = "1" ng-repeat = "exercise in exercises">
+				<md-grid-tile md-colspan = "1" ng-repeat = "exercise in exercises track by exercise.id">
 					<md-card layout layout-fill = "vertical">
 						<div layout = "row" layout-fill = "space-between">
 							<div flex = "60" layout = "column" layout-align = "space-between">
