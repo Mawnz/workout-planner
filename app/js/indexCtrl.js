@@ -16,6 +16,9 @@ projectTrainingApp.controller('IndexCtrl', function ($scope, Workout) {
       images();
       return;
     }, function(){
+      //not really working m8 but we're only making one call when you load the page so
+      Workout.setMessage("Error getting data, check your Internet connection!");
+      Workout.setShow(false);
       console.log("something went wrong");
     });
   };
@@ -28,12 +31,20 @@ projectTrainingApp.controller('IndexCtrl', function ($scope, Workout) {
       //set up myWorkout
       var myWorkoutIds = Workout.getMyCookieWorkout(); 
       for(var i in myWorkoutIds){
-        console.log(myWorkoutIds[i]);
         Workout.addToMyList(myWorkoutIds[i], false)
       }
 
-      Workout.setDisplayExer(Workout.getExercises());
+      //Workout.setDisplayExer(Workout.getExercises());
+      //filters the items based on whats in the cookie for the used, nothing? Good then all is displayed
+      Workout.filterExercises(Workout.getCatFilter(), Workout.getEqFilter());
+
       Workout.setShow(true);
+    
+    }, function(data){
+      //not really working m8 but we're only making one call when you load the page so
+      Workout.setMessage("Error getting data, check your Internet connection!");
+      Workout.setShow(false);
+      console.log("something went wrong");
     });
   }
 });

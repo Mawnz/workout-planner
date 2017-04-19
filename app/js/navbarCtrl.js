@@ -67,6 +67,14 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
         });
     };
 
+    $scope.getReps = function(myExercise){
+      return parseInt(Workout.getReps(myExercise));
+    }
+
+    $scope.getSet = function(myExercise){
+      return parseInt(Workout.getSet(myExercise));
+    }
+
     $scope.reps = function(myExercise, value){
       Workout.setReps(myExercise, value);
     }
@@ -122,8 +130,9 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
     //getting some of them variables that are used for the filters
     //this will contain a list of queries so you can search for multiple queries getting more results
     $scope.searchQuery = [];
-    $scope.category = 0;
-    $scope.equipment = 0;
+    $scope.category = Workout.getCatFilter();
+    $scope.equipment = Workout.getEqFilter();
+    //not used, was meant to be a toggler so you could show all that had images as well
     $scope.images = false;
     //this is set to be not readonly
     $scope.readonly = false;

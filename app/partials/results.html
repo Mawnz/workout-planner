@@ -2,6 +2,9 @@
 	<div ng-model = "show" ng-if = "show == false" layout layout-fill = "vertical" layout-align = "center center">
 		<md-progress-circular md-mode="indeterminate"></md-progress-circular>
 	</div>
+	<div ng-model = "showError" ng-if = "showError == true" layout layout-fill = "vertical" layout-align = "center center" class = "md-headline">
+		{{errorMsg}}
+	</div>
 
 <!--this is so gut-->
 	<div ng-if = "show == true">
