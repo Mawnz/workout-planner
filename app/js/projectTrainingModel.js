@@ -123,25 +123,17 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 		cookie.putObject("menu", myExerListCookieEdition);
 	}
 
-	this.filterExercises = function(cat, eq, toggle){
+	this.filterExercises = function(cat, eq){
 		//creates a new list using the chosen filter
 		var newList = $.grep(exercises, function(e){	
 			return e.category == ((cat == 0) ? e.category : categories[cat]) &&
 					e.equipment == ((eq == 0) ? e.equipment : equipment[eq]);
 			});
-		var newList2 = $.grep(newList, function(e){
-			if(toggle){
-				return e.image != "img/noimg.png";
-			}else{
-				return e.image;
-			}
-		})
 		//store the filters chosen in cookies
 		$cookies.putObject("catFilter", parseInt(cat));
 		$cookies.putObject("eqFilter", parseInt(eq));
-		$cookies.putObject("toggleFilter", toggle);
 		//set the new list to be displayed in results
-		this.setDisplayExer(newList2);
+		this.setDisplayExer(newList);
 	}
 
 	this.setDisplayExer = function(list){
