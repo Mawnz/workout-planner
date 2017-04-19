@@ -1,20 +1,5 @@
 projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 
-<<<<<<< HEAD
-	this.query = [];
-	this.exercises = [];
-	this.myExerList = [];
-	this.displayExer = [];
-	this.show = false;
-
-
-	// var searchFilters = ($cookies.get("filters") == undefined ? 2 : $cookies.get("filters"));
-	var catFilter = $cookies.get('catFilter');
-	var eqFilter = $cookies.get('eqFilter');
-
-	this.myExerListCookieEdition = (
-			($cookies.get("menu") == undefined) ||
-=======
 	query = [];
 	exercises = [];
 	myExerList = [];
@@ -24,16 +9,14 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 	showMsg = false;
 
 	myExerListCookieEdition = (
-			($cookies.get("menu") == undefined) ||
->>>>>>> dafc0a22a69ba560e05854fcb9ddb95321b81c95
+			($cookies.get("menu") == undefined) || 
 			($cookies.get("menu") == "") ? []	 : $cookies.getObject("menu")
 		);
 
 	var catFilter = ($cookies.get('catFilter') == undefined) ? 0 : $cookies.get('catFilter');
 	var eqFilter = ($cookies.get('eqFilter') == undefined) ? 0 : $cookies.get('eqFilter');
-
+	
 	var cookie = $cookies;
-
 
 	var equipment = {
 		1: "Barbell",
@@ -75,6 +58,14 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 		return cookie;
 	}
 
+	this.getCatFilter = function(){
+		return catFilter;
+	}
+
+	this.getEqFilter = function(){
+		return eqFilter;
+	}
+
 	this.getMyCookieWorkout = function(){
 		return myExerListCookieEdition;
 	}
@@ -101,14 +92,6 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 
 	this.getSet = function(myExercise){
 		return $.grep(myExerList, function(e){return e.id == myExercise.id})[0].set;
-	}
-
-	this.getCatFilter = function(){
-		return catFilter;
-	}
-
-	this.getEqFilter = function(){
-		return eqFilter;
 	}
 
 	this.getMyWorkout = function(){
@@ -142,7 +125,7 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 
 	this.filterExercises = function(cat, eq, toggle){
 		//creates a new list using the chosen filter
-		var newList = $.grep(exercises, function(e){
+		var newList = $.grep(exercises, function(e){	
 			return e.category == ((cat == 0) ? e.category : categories[cat]) &&
 					e.equipment == ((eq == 0) ? e.equipment : equipment[eq]);
 			});
@@ -162,10 +145,8 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 	}
 
 	this.setDisplayExer = function(list){
-		this.displayExer = list;
-		console.log(this.displayExer);
 		displayExer = list;
-		return;
+
 	}
 
 	this.getDisplayExer = function(){

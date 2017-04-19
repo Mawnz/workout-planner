@@ -7,7 +7,6 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
     $scope.isOpenLeft = function(){
       return $mdSidenav('left').isOpen();
     };
-
     /**
      * Supplies a function that will continue to operate until the
      * time is up.
@@ -130,20 +129,16 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
 .controller('RightCtrl', function ($scope, Workout, $timeout, $mdSidenav, $log, $route, $cookies) {
     //getting some of them variables that are used for the filters
     //this will contain a list of queries so you can search for multiple queries getting more results
-    // $scope.searchQuery = [];
+    $scope.searchQuery = [];
     $scope.category = Workout.getCatFilter();
     $scope.equipment = Workout.getEqFilter();
     //not used, was meant to be a toggler so you could show all that had images as well
     $scope.images = false;
     //this is set to be not readonly
     $scope.readonly = false;
-
-    $scope.search = function (searchQuery) {
-      Workout.ExerciseSearch.get({name : searchQuery, status : 2, language : 2}, function(data){
-        console.log(data.results);
-      });
-      Workout.filterExercises($scope.category, $scope.equipment);
-
+    $scope.search = function (cbState) {
+      console.log(cbState);
+      Workout.filterExercises($scope.category, $scope.equipment,cbState);
     };
 
 })

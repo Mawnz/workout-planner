@@ -1,10 +1,10 @@
 projectTrainingApp.controller('SearchCtrl', function ($scope, Workout, $mdDialog, $mdToast, $interval) {
-  $scope.show = Workout.getShow();
+  $scope.show = Workout.getShow(); 
   //$scope.showError = Workout.getShowMsg();
   //very stupid and inefficient but alas we found no other way of doing it before deadline
   $interval(function(){
     $scope.exercises = Workout.getDisplayExer();
-    $scope.show = Workout.getShow();
+    $scope.show = Workout.getShow();    
     $scope.errorMsg = Workout.getMessage();
     $scope.showError = Workout.getShowMsg();
   });
@@ -45,10 +45,6 @@ projectTrainingApp.controller('SearchCtrl', function ($scope, Workout, $mdDialog
 
   //Section for opening up additional information regarding chosen exercise
   $scope.openInfo = function(event, id){
-<<<<<<< HEAD
-
-=======
->>>>>>> dafc0a22a69ba560e05854fcb9ddb95321b81c95
     $mdDialog.show({
       controller : DialogController,
       templateUrl : 'partials/resultMoreInfo.html',

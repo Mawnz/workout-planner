@@ -28,15 +28,8 @@ projectTrainingApp.controller('IndexCtrl', function ($scope, Workout) {
       for (var i in data.results){
         Workout.addImageToList(data.results[i]);
       }
-      Workout.setDisplayExer(Workout.getExercises());
-      Workout.setShow(true);
-
-      var catFilter = Workout.getCatFilter();
-      var eqFilter = Workout.getEqFilter();
-      Workout.filterExercises(catFilter, eqFilter);
-
       //set up myWorkout
-      var myWorkoutIds = Workout.getMyCookieWorkout();
+      var myWorkoutIds = Workout.getMyCookieWorkout(); 
       for(var i in myWorkoutIds){
         Workout.addToMyList(myWorkoutIds[i], false)
       }
@@ -46,7 +39,7 @@ projectTrainingApp.controller('IndexCtrl', function ($scope, Workout) {
       Workout.filterExercises(Workout.getCatFilter(), Workout.getEqFilter());
 
       Workout.setShow(true);
-
+    
     }, function(data){
       //not really working m8 but we're only making one call when you load the page so
       Workout.setMessage("Error getting data, check your Internet connection!");
