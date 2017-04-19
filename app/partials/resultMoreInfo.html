@@ -1,11 +1,14 @@
 <md-dialog aria-label = "information" >
-		<div class = "overflow"  layout = "column"  layout-padding layout-align = "center space-between">
-			<div flex layout = "column" layout-align = "center">
+		<div class = "dialogDiv" layout = "column"  layout-padding layout-align = "center space-between">
+			<div layout = "column" layout-align = "center">
 				<div>	       	
 			        <span class="md-headline">{{e.name}}</span>
 			    </div>
+			    <div style = "padding-bottom:5px" class = "md-subhead">
+			    	Equipment: <span><b>{{e.equipment}}</b></span>
+			    </div>
 		   		 <div>
-					<p class = "txt" ng-bind-html = "description"></p>
+					<p class = "txt" ng-bind-html = "e.description | trusted"></p>
 				</div>
 	        </div>
 	        <div flex>

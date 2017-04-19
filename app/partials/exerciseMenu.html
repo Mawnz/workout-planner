@@ -29,12 +29,12 @@
 							<md-input-container>
 								Reps
 								<md-icon class = "color" md-font-set = "material-icons"> swap_vert </md-icon>
-								<input ng-model = "r" ng-change = "reps(myExercise, r)" aria-label = "reps" value = "1" ng-model = "reps" type = "number" step = "1" min = "1">
+								<input ng-model = "r" ng-change = "reps(myExercise, r)" aria-label = "reps" type = "number" step = "1" min = "1">
 							</md-input-container>
 							<md-input-container>
 								Set
 								<md-icon class = "color" md-font-set = "material-icons"> swap_vert </md-icon>
-								<input ng-model = "s" ng-change = "set(myExercise, s)" aria-label = "sets" value = "1" ng-model = "sets" type = "number" step = "1" min = "1">
+								<input ng-model = "s" ng-change = "set(myExercise, s)" aria-label = "sets" type = "number" step = "1" min = "1">
 							</md-input-container>
 						</div>
 						<md-button style = "position:absolute; right:0; bottom:0;" ng-click = "removeExercise(myExercise.id)"  class="md-icon-button" aria-label="removeExercise">

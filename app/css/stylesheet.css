@@ -131,7 +131,17 @@ md-list{
 }
 
 md-dialog{
-	min-width : 50vw;
+	overflow: hidden;
+	min-width: 50vw;
+	max-height: 80vh;
+}
+
+.dialogDiv{
+	overflow-y: auto;
+	overflow-x: hidden;
+	min-width: 50vw;
+	max-height: 100vh;
+	display:inline-block;
 }
 
 .responsiveIcon{

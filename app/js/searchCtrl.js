@@ -1,13 +1,15 @@
-projectTrainingApp.controller('SearchCtrl', function ($scope, Workout, $mdDialog, $mdToast, $sce, $interval) {
+projectTrainingApp.controller('SearchCtrl', function ($scope, Workout, $mdDialog, $mdToast, $interval) {
   $scope.show = Workout.getShow();
-
+  //$scope.showError = Workout.getShowMsg();
   //very stupid and inefficient but alas we found no other way of doing it before deadline
   $interval(function(){
     $scope.exercises = Workout.getDisplayExer();
     $scope.show = Workout.getShow();
+    $scope.errorMsg = Workout.getMessage();
+    $scope.showError = Workout.getShowMsg();
   });
 
-  
+
 
   //function for adding exercise to the menu
   $scope.addExercise = function(id){
@@ -43,7 +45,10 @@ projectTrainingApp.controller('SearchCtrl', function ($scope, Workout, $mdDialog
 
   //Section for opening up additional information regarding chosen exercise
   $scope.openInfo = function(event, id){
+<<<<<<< HEAD
 
+=======
+>>>>>>> dafc0a22a69ba560e05854fcb9ddb95321b81c95
     $mdDialog.show({
       controller : DialogController,
       templateUrl : 'partials/resultMoreInfo.html',
@@ -56,8 +61,7 @@ projectTrainingApp.controller('SearchCtrl', function ($scope, Workout, $mdDialog
   //this is the controller for the dialog window above
   function DialogController($scope, $mdDialog, id){
     $scope.e = Workout.getExercise(id);
-    //$sce needed to get rid of them <p> tags in the string
-    $scope.description = $sce.trustAsHtml($scope.e.description);
+
     $scope.hide = function(){
       $mdDialog.hide();
     }
