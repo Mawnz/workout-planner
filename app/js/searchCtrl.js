@@ -1,54 +1,29 @@
 projectTrainingApp.controller('SearchCtrl', function ($scope, Workout, $mdDialog, $mdToast, $sce) {
-  
-  var init = function(){
-    Workout.setDisplayExer(Workout.getExercises());
+  $scope.show = Workout.getShow();
+  $scope.exercises = Workout.getDisplayExer();
+ 
+/*
+  $scope.$watchCollection('Workout', function(){
+    console.log("model updated");
+    $scope.show = Workout.getShow();
     $scope.exercises = Workout.getDisplayExer();
-  }
-  init();
-/*
-  //setting up categories and musclegroups
-  Workout.getEquipment.get({}, function(data){
-    Workout.equipment = data.results;
   });
-  Workout.getCategories.get({}, function(data){
-    Workout.categories = data.results;
-  });
-  //end of setting up
 */
-/*
-//init exercises that will be used in application
-  $scope.init = function () {
-    Workout.emptyList();
-    Workout.ExerciseSearch.get({language : 2, status : 2, limit : 1000}, function(data){
-      Workout.addExerciseToList(data.results);
-      images();
-      //fetchImage(0, Workout.getExercises());
-      return;
-    }, function(){
-      console.log("something went wrong");
-    });
-  };
-
-  var images = function(){
-    Workout.ExerciseImages.get({ismain : "True", limit : 1000}, function(data){
-      for (var i in data.results){
-        Workout.addImageToList(data.results[i]);
-      }
-      Workout.setDisplayExer(Workout.getExercises());
-      $scope.exercises = Workout.getDisplayExer();
-      $scope.show = true;
-    });
-  }
- */
   //function for adding exercise to the menu
   $scope.addExercise = function(id){
-    //here the exercise is added
-    Workout.addToMyList(id);
-    //show notification that the exercise has been added
-    addedToast();
+    //first check if it already exists in the workout
+    if(Workout.getExerciseFromMyList(id).length == 0){
+      //here the exercise is added
+      Workout.addToMyList(id);
+      //show notification that the exercise has been added
+      addedToast("Exercise added!");
+    }else{
+      //notification that you already have said exercise in your menu
+      addedToast("You already have that exercise in your menu!");
+    }
   }
 
-  function addedToast(){
+  function addedToast(message){
     //position of toast except for on small screens where it's always bottom
     var pos = {
       bottom : false,
@@ -59,7 +34,7 @@ projectTrainingApp.controller('SearchCtrl', function ($scope, Workout, $mdDialog
     var pin = angular.extend({}, pos);
     $mdToast.show(
       $mdToast.simple()
-        .textContent("Exercise added!")
+        .textContent(message)
         .position("top")
         .hideDelay(500)
     );

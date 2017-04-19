@@ -1,5 +1,5 @@
 <div style = "overflow-x: hidden; height:100%" ng-controller = "SearchCtrl">
-	<div ng-if = "show == false" layout layout-fill = "vertical" layout-align = "center center">
+	<div ng-model = "show" ng-if = "show == false" layout layout-fill = "vertical" layout-align = "center center">
 		<md-progress-circular md-mode="indeterminate"></md-progress-circular>
 	</div>
 
@@ -16,7 +16,7 @@
 			    md-gutter = "5px"
 			    >
 
-				<md-grid-tile md-colspan = "1" ng-repeat = "exercise in exercises track by exercise.id">
+				<md-grid-tile ng-model = "exercises" md-colspan = "1" ng-repeat = "exercise in exercises track by exercise.id">
 					<md-card layout layout-fill = "vertical">
 						<div layout = "row" layout-fill = "space-between">
 							<div flex = "60" layout = "column" layout-align = "space-between">

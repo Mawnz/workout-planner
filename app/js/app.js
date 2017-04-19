@@ -29,21 +29,7 @@ projectTrainingApp.filter('trusted', ['$sce', function($sce){
   };
 }]);
 
-//to prevent reloading the result-view
-projectTrainingApp.run(['$route', '$rootScope', '$location', function($route, $rootScope, $location){
-  var original = $location.path;
-  $location.path = function(path, reload){
-    if (reload === false){
-      var lastRoute = $route.current;
-      var un  = $rootScope.$on('$locationChangeSuccess', function(){
-        $route.current = lastRoute;
-        un();
-      });
-    }
-    return original.apply($location, [path]);
-  }
-}]);
-
+/*
 //need this to have access to scopes over different controllers, only used for one thing at the moment
 projectTrainingApp.factory('Scopes', function($rootScope){
   var mem = {};
@@ -57,3 +43,20 @@ projectTrainingApp.factory('Scopes', function($rootScope){
     }
   };
 });
+*/
+//to prevent reloading the result-view
+/*
+projectTrainingApp.run(['$route', '$rootScope', '$location', function($route, $rootScope, $location){
+  var original = $location.path;
+  $location.path = function(path, reload){
+    if (reload === false){
+      var lastRoute = $route.current;
+      var un  = $rootScope.$on('$locationChangeSuccess', function(){
+        $route.current = lastRoute;
+        un();
+      });
+    }
+    return original.apply($location, [path]);
+  }
+}]);
+*/

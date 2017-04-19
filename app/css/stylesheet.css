@@ -140,7 +140,7 @@ md-dialog{
 }
 
 .scroll{
-	height:95%;
+	height:73vh;
 	width:100%;
 	overflow-y:auto;
 	overflow-x:hidden;
@@ -160,7 +160,7 @@ md-dialog{
 
 @media screen and (max-width: 1280px){
 	.scroll{
-		height:75vh;
+		height:73vh;
 		width:100%;
 		overflow-y:auto;
 		overflow-x:hidden;

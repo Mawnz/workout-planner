@@ -3,8 +3,22 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 	this.query = [];
 	this.exercises = [];
 	this.myExerList = [];
-	this.equipment = [];
 	this.displayExer = [];
+	this.show = false;
+
+	var equipment = {
+		1: "Barbell",
+		8: "Bench",
+		3: "Dumbbell",
+		4: "Gym mat",
+		9: "Incline bench",
+		10: "Kettlebell",
+		7: "none (bodyweight exercise)",
+		6: "Pull-upp bar",
+		5: "Swiss ball",
+		2: "SZ-bar",
+	}
+
 	var categories = {
 		10 : "Abs",
 		8 : "Arms",
@@ -15,12 +29,23 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 		13 : "Shoulders"
 	};
 
+	this.setShow = function(boolean){
+		this.show = boolean;
+		return;
+	}
+
+	this.getShow = function(){
+		return this.show;
+	}
+
 	this.setReps = function(myExercise, value){
 		$.grep(this.myExerList, function(e){return e.id == myExercise.id})[0].reps = value;
+		return;
 	}
 
 	this.setSet = function(myExercise, value){
 		$.grep(this.myExerList, function(e){return e.id == myExercise.id})[0].set = value;
+		return;
 	}
 
 	this.getMyWorkout = function(){
@@ -32,6 +57,9 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 		return this.myExerList;
 	}
 
+	this.getExerciseFromMyList = function(id){
+		return $.grep(this.myExerList, function(e){return e.id == id});
+	}
 
 	this.removeFromMyList = function(id){
 		var index = 0;
@@ -42,14 +70,20 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 		return this.myExerList;
 	}
 
-	this.filterExercises = function(cat){
-		//I merged the filter exercises and add to display exercises functions
-		this.displayExer = this.getExercisesByCategory(cat);
+	this.filterExercises = function(cat, eq){
+		var newList = $.grep(this.exercises, function(e){	
+			return e.category == ((cat == 0) ? e.category : categories[cat]) &&
+					e.equipment == ((eq == 0) ? e.equipment : equipment[eq]);
+			});
+
+		this.setDisplayExer(newList);
+
 		return;
 	}
 
 	this.setDisplayExer = function(list){
 		this.displayExer = list;
+		return;
 	}
 
 	this.getDisplayExer = function(){
@@ -62,6 +96,7 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 
 	this.emptyList = function(){
 		this.exercises = [];
+		return;
 	}
 
 	this.addImageToList = function(data){
@@ -73,16 +108,16 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 	}
 
 	this.addExerciseToList = function (data) {
-		console.log(categories[10]);
 		for(var i in data){
 			var cat = categories[data[i].category];
-			
+			var eq = equipment[data[i].equipment];
 			this.exercises.push({
 				id:data[i].id,
 				description:data[i].description,
 				name:data[i].name,
 				image : ["img/noimg.png"],
 				category : cat,
+				equipment : eq,
 				set : 1,
 				reps : 1
 			});
@@ -100,10 +135,7 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 		return $.grep(this.exercises, function(e){return e.id == id})[0];
 	}
 
-	this.getExercisesByCategory = function(category){
-		//JQuery function $.grep that returns a list of all matches
-		return $.grep(this.exercises, function(e){return e.category == category});
-	}
+
 
 	//different resources to get information from the API
   	this.getCategories = $resource('https://wger.de/api/v2/exercisecategory/');

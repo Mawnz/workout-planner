@@ -82,7 +82,7 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
     $scope.removeExercise = function(id){
       Workout.removeFromMyList(id);
     }
-
+    //very cool function to flip cards to show more cool info
     $scope.flip = function($event, str){
       //console.log(this);
       $event.preventDefault();
@@ -122,19 +122,20 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
     }
 
   })
-.controller('RightCtrl', function ($scope, Workout, $timeout, $mdSidenav, $log) {
+.controller('RightCtrl', function ($scope, Workout, $timeout, $mdSidenav, $log, $route) {
     //getting some of them variables that are used for the filters
     //this will contain a list of queries so you can search for multiple queries getting more results
     $scope.searchQuery = [];
-    $scope.category;
+    $scope.category = 0;
+    $scope.equipment = 0;
+    $scope.images = false;
     //this is set to be not readonly
     $scope.readonly = false;
-
     $scope.search = function () {
-      Workout.filterExercises($scope.category)
-      //code to do search stuff goes here
-      $mdSidenav('right').close();
+      Workout.filterExercises($scope.category, $scope.equipment);
+      //$route.reload();
     };
+
 })
 .controller('RightClose', function ($scope, $mdSidenav) {
     $scope.close = function () {

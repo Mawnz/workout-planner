@@ -1,9 +1,9 @@
-projectTrainingApp.controller('IndexCtrl', function ($scope, Workout, Scopes) {
+projectTrainingApp.controller('IndexCtrl', function ($scope, Workout, $interval) {
   //store this scope so we can use the $scope.show variable in the results.html
-  Scopes.store('IndexCtrl', $scope);
+  //Scopes.store('IndexCtrl', $scope);
   var images = [];
-  $scope.show = false;
-  $scope.exercise;
+  Workout.setShow(false);
+
 
 //init exercises that will be used in application
   $scope.init = function () {
@@ -22,8 +22,11 @@ projectTrainingApp.controller('IndexCtrl', function ($scope, Workout, Scopes) {
       for (var i in data.results){
         Workout.addImageToList(data.results[i]);
       }
+      $interval(function(){
+        Workout.setDisplayExer(Workout.getExercises());
+        Workout.setShow(true);    
+      });
 
-      $scope.show = true;
     });
   }
 });

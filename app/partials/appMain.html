@@ -18,7 +18,7 @@
                 </md-button>
             </div>
           </md-toolbar>
-          <md-content  flex layout-padding ng-controller="LeftCtrl">
+          <md-content style = "overflow-y:hidden" flex layout-padding ng-controller="LeftCtrl">
             <!--The checkout toolbar-->
             <div flex layout = "row" layout-align = "space-between" class = "header" layout-padding>
               <div layout layout-align = "center center" class = "md-subhead">
@@ -101,7 +101,8 @@
                   Category
                 </div>
                 <div>
-                  <md-select ng-model="category" placeholder="Group" class="md-no-underline">
+                  <md-select ng-change = "search()" ng-model="category" aria-label = "category" class="md-no-underline">
+                    <md-option value="0">All</md-option>
                     <md-option value="10">Abs</md-option>
                     <md-option value="8">Arms</md-option>
                     <md-option value="12">Back</md-option>
@@ -109,6 +110,26 @@
                     <md-option value="11">Chest</md-option>
                     <md-option value="9">Legs</md-option>
                     <md-option value="13">Shoulders</md-option>
+                  </md-select>
+                </div>
+              </div>
+              <div layout layout-align = "space-between">
+                <div>
+                  Equipment
+                </div>
+                <div>
+                  <md-select ng-change = "search()" ng-model="equipment" aria-label = "equipment" class="md-no-underline">
+                    <md-option value="0">All</md-option>
+                    <md-option value="1">Barbell</md-option>
+                    <md-option value="8">Bench</md-option>
+                    <md-option value="3">Dumbbell</md-option>
+                    <md-option value="4">Gym mat</md-option>
+                    <md-option value="9">Inclinge bench</md-option>
+                    <md-option value="10">Kettlebell</md-option>
+                    <md-option value="7">None (Bodyweight exercise)</md-option>
+                    <md-option value="6">Pull-up bar</md-option>
+                    <md-option value="5">Swiss ball</md-option>
+                    <md-option value="2">SZ-bar</md-option>
                   </md-select>
                 </div>
               </div>
