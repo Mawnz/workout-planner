@@ -79,27 +79,11 @@
           </md-toolbar>
           <md-content ng-controller="RightCtrl as ctrl" layout-padding>
             <div layout = "column">
-              <div>
-                <form>
-                  <md-input-container layout layout-align = "center center">
-                    <div flex = "80">
-                      <label for="testInput">Text search</label>
-                      <md-chips class = "chips" ng-model="searchQuery" name="query" readonly="readonly"
-                                md-removable="removable" md-max-chips="5" placeholder="Enter text...">
-                    </div>
-                    <div flex = "20" layout layout-align = "center center">
-                      <md-button ng-click="search()" class="md-icon-button md-primary">
-                        <md-icon md-font-set="material-icons"> search </md-icon>
-                      </md-button>
-                    </div>
-                  </md-input-container>
-                </form>
-              </div>
               <b>Filters</b>
               <md-switch class="md-primary" ng-model="data.cb6" aria-label="Switch 6" ng-change="search(data.cb6)">
                 Only with pictures
               </md-switch>
-              <div layout layout-align = "space-between">
+              <div layout layout-align = "space-between center">
                 <div>
                   Category
                 </div>
@@ -116,7 +100,7 @@
                   </md-select>
                 </div>
               </div>
-              <div layout layout-align = "space-between">
+              <div layout layout-align = "space-between center">
                 <div>
                   Equipment
                 </div>
