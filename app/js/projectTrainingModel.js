@@ -6,10 +6,18 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 	this.displayExer = [];
 	this.show = false;
 
+
 	// var searchFilters = ($cookies.get("filters") == undefined ? 2 : $cookies.get("filters"));
 	var catFilter = $cookies.get('catFilter');
 	var eqFilter = $cookies.get('eqFilter');
 
+	this.myExerListCookieEdition = (
+			($cookies.get("menu") == undefined) ||
+			($cookies.get("menu") == "") ? []	 : $cookies.getObject("menu")
+		);
+
+	console.log(this.myExerListCookieEdition);
+	var cookie = $cookies;
 
 
 	var equipment = {
@@ -35,9 +43,16 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 		13 : "Shoulders"
 	};
 
+	this.getCookie = function(){
+		return cookie;
+	}
+
+	this.getMyCookieWorkout = function(){
+		return this.myExerListCookieEdition;
+	}
+
 	this.setShow = function(boolean){
 		this.show = boolean;
-		return;
 	}
 
 	this.getShow = function(){
@@ -46,12 +61,10 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 
 	this.setReps = function(myExercise, value){
 		$.grep(this.myExerList, function(e){return e.id == myExercise.id})[0].reps = value;
-		return;
 	}
 
 	this.setSet = function(myExercise, value){
 		$.grep(this.myExerList, function(e){return e.id == myExercise.id})[0].set = value;
-		return;
 	}
 
 	this.getCatFilter = function(){
@@ -66,9 +79,13 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 		return this.myExerList;
 	}
 
-	this.addToMyList = function(id){
+	this.addToMyList = function(id, doIt){
 		this.myExerList.push(this.getExercise(id));
-		return this.myExerList;
+		//handle if we already have a cookie so we don't add stuff twice, this is for when we load the page
+		if(doIt){
+			this.myExerListCookieEdition.push(id);
+			cookie.putObject("menu", this.myExerListCookieEdition);
+		}
 	}
 
 	this.getExerciseFromMyList = function(id){
@@ -81,7 +98,9 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 			if(this.myExerList[i].id == id) index = i;
 		}
 		this.myExerList.splice(index, 1);
-		return this.myExerList;
+		this.myExerListCookieEdition.splice(index, 1);
+		cookie.putObject("menu", this.myExerListCookieEdition);
+		console.log(cookie.getObject("menu"));
 	}
 
 	this.filterExercises = function(cat, eq){
@@ -90,10 +109,8 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 					e.equipment == ((eq == 0) ? e.equipment : equipment[eq]);
 			});
 		$cookies.putObject("catFilter", parseInt(cat));
-		$cookies.putObject("eqFilter", parseInt(eq));				
+		$cookies.putObject("eqFilter", parseInt(eq));
 		this.setDisplayExer(newList);
-
-		return;
 	}
 
 	this.setDisplayExer = function(list){
@@ -112,7 +129,6 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 
 	this.emptyList = function(){
 		this.exercises = [];
-		return;
 	}
 
 	this.addImageToList = function(data){
@@ -138,7 +154,6 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 				reps : 1
 			});
 		}
-		return;
 	}
 
 	this.getExercises = function(){

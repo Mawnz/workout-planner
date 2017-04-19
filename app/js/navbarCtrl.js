@@ -8,7 +8,6 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
       return $mdSidenav('left').isOpen();
     };
 
-
     /**
      * Supplies a function that will continue to operate until the
      * time is up.
@@ -120,7 +119,7 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
     }
 
   })
-.controller('RightCtrl', function ($scope, Workout, $timeout, $mdSidenav, $log, $route) {
+.controller('RightCtrl', function ($scope, Workout, $timeout, $mdSidenav, $log, $route, $cookies) {
     //getting some of them variables that are used for the filters
     //this will contain a list of queries so you can search for multiple queries getting more results
     $scope.searchQuery = [];
@@ -130,9 +129,8 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
     //this is set to be not readonly
     $scope.readonly = false;
 
-    $scope.search = function () {    
+    $scope.search = function () {
       Workout.filterExercises($scope.category, $scope.equipment);
-      //$route.reload();
     };
 
 })

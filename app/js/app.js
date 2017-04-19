@@ -1,7 +1,7 @@
 var projectTrainingApp = angular.module('projectTraining', ['ngMaterial', 'ngRoute','ngResource', 'ngCookies']);
 
 projectTrainingApp.config(['$routeProvider',
-  function($routeProvider) {
+  function($routeProvider) {  
     $routeProvider.
       when('/home', {
         templateUrl: 'partials/home.html'

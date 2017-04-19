@@ -1,23 +1,21 @@
 projectTrainingApp.controller('SearchCtrl', function ($scope, Workout, $mdDialog, $mdToast, $sce, $interval) {
+  $scope.show = Workout.getShow();
 
-  // $scope.show = Workout.getShow();
-  // $scope.show = true;
-  // $scope.exercises = Workout.getDisplayExer();
-
+  //very stupid and inefficient but alas we found no other way of doing it before deadline
   $interval(function(){
     $scope.exercises = Workout.getDisplayExer();
     $scope.show = Workout.getShow();
   });
 
-
-// $scope.exercises = Workout.getDisplayExer();
+  
 
   //function for adding exercise to the menu
   $scope.addExercise = function(id){
     //first check if it already exists in the workout
     if(Workout.getExerciseFromMyList(id).length == 0){
       //here the exercise is added
-      Workout.addToMyList(id);
+      Workout.addToMyList(id, true);
+
       //show notification that the exercise has been added
       addedToast("Exercise added!");
     }else{
