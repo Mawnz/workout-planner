@@ -74,7 +74,7 @@
             <div layout = "column">
               <div>
                 <form>
-                  <md-input-container layout layout-align = "center center">
+                  <!-- <md-input-container layout layout-align = "center center">
                     <div flex = "80">
                       <label for="testInput">Text search</label>
                       <md-chips class = "chips" ng-model="searchQuery" name="query" readonly="readonly"
@@ -85,10 +85,10 @@
                         <md-icon md-font-set="material-icons"> search </md-icon>
                       </md-button>
                     </div>
-                  </md-input-container>
+                  </md-input-container> -->
                 </form>
               </div>
-              <md-card>
+              <!-- <md-card> -->
                 <md-card-title>
                   <md-card-title-text>
                     <span class="md-headline">Search Filters</span>
@@ -102,7 +102,7 @@
                 <md-card-content>
                   <div layout="row" layout-align="space-between center">
                     <span>Muscle group</span>
-                    <md-select ng-model="category" placeholder="Group" class="md-no-underline">
+                    <md-select ng-model="category" placeholder="Group" ng-change="search(category,equipment)" ng-href = "#!/app/" class="md-no-underline">
                       <md-option value="0">None</md-option>
                       <md-option value="10">Abs</md-option>
                       <md-option value="8">Arms</md-option>
@@ -118,7 +118,7 @@
                 <md-card-content>
                   <div layout="row" layout-align="space-between center">
                     <span>Equipment</span>
-                    <md-select ng-model="equipment" placeholder="Tool" class="md-no-underline">
+                    <md-select ng-model="equipment" placeholder="Tool" ng-change="search(category,equipment)" ng-href = "#!/app/" class="md-no-underline">
                       <md-option value="0">None</md-option>
                       <md-option value="1">Barbell</md-option>
                       <md-option value="8">Bench</md-option>
@@ -134,7 +134,7 @@
                   </div>
                 </md-card-content>
 
-              </md-card>
+              <!-- </md-card> -->
             </div>
           </md-content>
 
