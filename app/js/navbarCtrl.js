@@ -132,13 +132,12 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
     $scope.searchQuery = [];
     $scope.category = Workout.getCatFilter();
     $scope.equipment = Workout.getEqFilter();
-    //not used, was meant to be a toggler so you could show all that had images as well
+    
     $scope.images = false;
     //this is set to be not readonly
     $scope.readonly = false;
-    $scope.search = function (cbState) {
-      console.log(cbState);
-      Workout.filterExercises($scope.category, $scope.equipment,cbState);
+    $scope.search = function (toggle) {
+      Workout.filterExercises($scope.category, $scope.equipment,toggle);
     };
 
 })
