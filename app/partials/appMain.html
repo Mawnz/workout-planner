@@ -22,7 +22,7 @@
             <!--The checkout toolbar-->
             <div flex layout = "row" layout-align = "space-between" class = "header" layout-padding>
               <div layout layout-align = "center center" class = "md-subhead">
-                 Checkout 
+                 Checkout
               </div>
               <div layout layout-align = "center center">
                 <!--Checkout-button that is always at the right top-->
@@ -96,12 +96,15 @@
                 </form>
               </div>
               <b>Filters</b>
+              <md-switch class="md-primary" ng-model="data.cb6" aria-label="Switch 6" ng-change="search(data.cb6)">
+                Only with pictures
+              </md-switch>
               <div layout layout-align = "space-between">
                 <div>
                   Category
                 </div>
                 <div>
-                  <md-select ng-change = "search()" ng-model="category" aria-label = "category" class="md-no-underline">
+                  <md-select ng-change = "search(data.cb6)" ng-model="category" aria-label = "category" class="md-no-underline">
                     <md-option value="0">All</md-option>
                     <md-option value="10">Abs</md-option>
                     <md-option value="8">Arms</md-option>
@@ -118,7 +121,7 @@
                   Equipment
                 </div>
                 <div>
-                  <md-select ng-change = "search()" ng-model="equipment" aria-label = "equipment" class="md-no-underline">
+                  <md-select ng-change = "search(data.cb6)" ng-model="equipment" aria-label = "equipment" class="md-no-underline">
                     <md-option value="0">All</md-option>
                     <md-option value="1">Barbell</md-option>
                     <md-option value="8">Bench</md-option>
