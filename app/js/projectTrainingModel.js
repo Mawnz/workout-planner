@@ -32,7 +32,6 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 	this.filterExercises = function(cat,eq){
 		var filterList = [];
 		if(cat != null && eq != null){
-			console.log('1');
 			for(var i in exercises){
 				for(var j in exercises[i].equipment){
 					if(exercises[i].category == cat && exercises[i].equipment[j] == eq){
@@ -41,14 +40,12 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 				}
 			}
 		}else if(cat != null && eq == null){
-			console.log('2');
 			for(var i in exercises){
 				if(exercises[i].category == cat){
 					filterList.push(exercises[i]);
 				}
 			}
 		}else if(cat == null && eq != null){
-			console.log('3');
 			for(var i in exercises){
 				for(var j in exercises[i].equipment){
 					if(exercises[i].equipment[j] == eq){
@@ -68,7 +65,7 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 		for(var i in list){
 			this.displayExer.push(list[i]);
 		}
-		console.log(this.displayExer);		
+		console.log(this.displayExer);
 		return;
 	}
 
@@ -96,7 +93,6 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 	}
 
 	this.addExerciseToList = function (data) {
-		// console.log(data);
 		for(var i in data){
 				exercises.push({
 					id:data[i].id,
@@ -109,14 +105,6 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 		}
 		return;
 	}
-
-// not using this anymore
-	// this.removeFromList = function (id){
-	// 	for(var i in exercises){
-	// 		if(exercises[i].id = id) index = i;
-	// 	}
-	// 	exercises.splice(index,1);
-	// }
 
 	this.getExercises = function(){
 		return exercises;

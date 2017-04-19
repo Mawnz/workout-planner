@@ -77,6 +77,10 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
     //this is set to be not readonly
     $scope.readonly = false;
 
+    $scope.onChange = function(cbState) {
+      $scope.message = cbState;
+    };
+
     $scope.search = function (cat,eq) {
       if(cat == 0){cat = null;}
       if(eq == 0){eq = null;}
