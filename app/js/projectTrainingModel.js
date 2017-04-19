@@ -140,15 +140,6 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 		cookie.putObject("menu", myExerListCookieEdition);
 	}
 
-<<<<<<< HEAD
-	this.filterExercises = function(cat, eq, toogle){
-		var newList = $.grep(this.exercises, function(e){
-			return e.category == ((cat == 0) ? e.category : categories[cat]) &&
-					e.equipment == ((eq == 0) ? e.equipment : equipment[eq]);
-			});
-		$cookies.putObject("catFilter", parseInt(cat));
-		$cookies.putObject("eqFilter", parseInt(eq));
-=======
 	this.filterExercises = function(cat, eq){
 		//creates a new list using the chosen filter
 		var newList = $.grep(exercises, function(e){
@@ -159,19 +150,14 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 		$cookies.putObject("catFilter", parseInt(cat));
 		$cookies.putObject("eqFilter", parseInt(eq));
 		//set the new list to be displayed in results
->>>>>>> dafc0a22a69ba560e05854fcb9ddb95321b81c95
 		this.setDisplayExer(newList);
 	}
 
 	this.setDisplayExer = function(list){
-<<<<<<< HEAD
 		this.displayExer = list;
 		console.log(this.displayExer);
-		return;
-=======
 		displayExer = list;
-
->>>>>>> dafc0a22a69ba560e05854fcb9ddb95321b81c95
+		return;
 	}
 
 	this.getDisplayExer = function(){

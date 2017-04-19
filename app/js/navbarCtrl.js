@@ -130,7 +130,7 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
 .controller('RightCtrl', function ($scope, Workout, $timeout, $mdSidenav, $log, $route, $cookies) {
     //getting some of them variables that are used for the filters
     //this will contain a list of queries so you can search for multiple queries getting more results
-    $scope.searchQuery = [];
+    // $scope.searchQuery = [];
     $scope.category = Workout.getCatFilter();
     $scope.equipment = Workout.getEqFilter();
     //not used, was meant to be a toggler so you could show all that had images as well
