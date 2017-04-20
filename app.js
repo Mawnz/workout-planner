@@ -1,4 +1,4 @@
-var port = Number(process.env.PORT || 8000)
+var port = Number(process.env.PORT || 8000);
 
 var express = require('epxress');
 var app = express();
