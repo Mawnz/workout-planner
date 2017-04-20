@@ -1,10 +1,10 @@
 {
-  "name": "projecttraining",
-  "description": "A project",
-  "version": "0.0.0",
+  "name": "workoutplanner",
+  "description": "A project in the course Interactionprogramming and the dynamic web",
+  "version": "1.0.0",
   "homepage": "https://github.com/LucasRudqwist/projectTraining",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "dependencies": {
     "angular": "1.6.x",
     "angular-mocks": "1.6.x",

@@ -1,20 +1,22 @@
 {
-  "version": "0.0.0",
-  "private": true,
-  "name": "dinner-planner",
-  "description": "A starter project for Interaction Programming course Lab5",
-  "repository": "https://github.com/kth-csc-iprog/dinnerplanner-html",
+  "version": "1.0.0",
+  "private": false,
+  "name": "workoutplanner",
+  "description": "A project in the course Interactionprogramming and the dynamic web",
+  "repository": "https://github.com/LucasRudqwist/projectTraining/",
   "license": "MIT",
   "devDependencies": {
     "http-server": "^0.9.0",
     "bower": "^1.8.x"
   },
   "scripts": {
-    "postinstall": "bower install",
+    "postinstall": "bower cache clean && bower install",
     "prestart": "npm install",
     "start": "http-server app/ -a 0.0.0.0 -p 8000"
   },
   "dependencies": {
+    "bower": "^1.8.x",
     "angular-model-factory": "^1.0.3"
-  }
+  },
+  "engine": "node 6.10.x"
 }
