@@ -18,5 +18,7 @@
     "bower": "^1.8.x",
     "angular-model-factory": "^1.0.3"
   },
-  "engine": "node 6.10.x"
+  "engines": {
+    "node" : "6.10.x"
+  }
 }
