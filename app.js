@@ -1,10 +1,10 @@
-var port = Number(process.env.PORT || 8000);
-
 var express = require('express');
 var app = express();
 
+app.set('port', (process.env.PORT || 5000));
+
 app.use(epxress.static(__dirname + '/app'));
 
-var server = app.listen(port, function(){
-	console.log('Listening on port %d', server.address.port());
+app.listen(app.get('port'), function(){
+	console.log('Listening on port ', app.get('port'));
 });
