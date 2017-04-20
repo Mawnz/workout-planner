@@ -12,7 +12,7 @@
   "scripts": {
     "postinstall": "bower cache clean && bower install",
     "prestart": "npm install",
-    "start": "http-server app/ -a 0.0.0.0 -p 8000"
+    "start": "node app.js"
   },
   "dependencies": {
     "bower": "^1.8.x",
