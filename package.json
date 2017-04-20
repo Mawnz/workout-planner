@@ -17,10 +17,10 @@
   "dependencies": {
     "bower": "^1.8.x",
     "angular-model-factory": "^1.0.3",
-    "express": "4.15.12"
+    "express": "^4.15.x"
   },
   "engines": {
-    "node": "6.10.2",
-    "npm": "3.10.10"
+    "node": "^6.10.x",
+    "npm": "^3.10.x"
   }
 }
