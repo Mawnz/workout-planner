@@ -11,3 +11,6 @@ client id
 
 client secret
 Ev6G7WDMjLyP6_gCITU1FFwk
+
+save this pls
+http-server app/ -a 0.0.0.0 -p 8000
