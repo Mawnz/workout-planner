@@ -14,6 +14,10 @@ projectTrainingApp.config(['$routeProvider',
         templateUrl: 'partials/checkout.html',
         controller: "CheckoutCtrl"
       }).
+      when('/app/workout', {
+        templateUrl: 'partials/workoutView.html',
+        controller: "WorkoutCtrl"
+      }).
       when('/about', {
         templateUrl: 'partials/about.html'
       }).

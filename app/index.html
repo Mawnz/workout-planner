@@ -42,6 +42,7 @@
     <script src="js/dialCtrl.js"></script>
     <script src="js/checkoutCtrl.js"></script>
     <script src="js/indexCtrl.js"></script>
+    <script src="js/workoutCtrl.js"></script>
 
 
     <!-- Custom css -->
@@ -70,7 +71,7 @@
 
             <div data-ng-init = "init()" ng-controller = "IndexCtrl" layout = "column" flex = "100">
             <!--TODO fixa så att den inte laddar in hela tiden, fixa så man kan gå tillbaka från checkout och sedan checkout igen utan att det fuckar upp, fixa så man kan spara i cookie, fixa sök och om tid finns fixa så man kan dra i menyn o flytta runt-->
-                <div ng-view flex = "90"></div>
+                <div ng-view style = "overflow-y:hidden;overflow-x:auto" flex = "90"></div>
                 <div layout layout-align = "start center" ng-controller = "DialCtrl as dial" flex = "10" ng-cloak class = "ysd">
                     <md-fab-speed-dial md-direction="right" ng-class = "{'md-scale' : true}">
                         <md-fab-trigger>

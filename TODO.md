@@ -37,3 +37,11 @@ STATUS: NOT COMPLETED - ONGOING
 	- Just display some text that says no results where found
 
 STATUS: COMPLETED
+
+---------------------
+
+- Make the cards dragable (optional)
+	- Be able to re-arrange the order of the cards in menu
+	- Drag and drop items from results to menu (optional)
+
+STATUS: COMPLETED

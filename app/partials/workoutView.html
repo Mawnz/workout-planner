@@ -1,0 +1,22 @@
+<!--
+<div class = "workoutWindow">
+	<div  class = "workoutFrame" ng-repeat = "exercise in myWorkout">
+
+		<img ng-src = "{{exercise.image[0]}}" class = "image2"/>
+	</div>
+</div>
+-->
+<!--TODO MAKE THIS SHIT WORK-->
+<md-content style = "height:100%;width:100vw">	
+
+	<md-tabs style = "height:100%;width:100%" class = "md-warn">
+		<!--We create tabs for each exercise so it's easy to navigate through-->
+
+		<md-tab  ng-repeat = "exercise in myWorkout" label = "{{exercise.name}}" class = "workoutFrame">
+
+			<md-content class = "md-padding">
+				<img ng-src = "{{exercise.image[0]}}"/>
+			</md-content>	
+
+			</md-tab>
+</md-content>
