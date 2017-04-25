@@ -14,6 +14,7 @@
     "angular-resource": "1.6.x",
     "angular-animate": "1.6.x",
     "angular-cookies": "1.6.x",
-    "angular-material": "1.1.x"
+    "angular-material": "1.1.x",
+    "express": "4.15.2"
   }
 }

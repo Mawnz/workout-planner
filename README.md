@@ -8,8 +8,8 @@ To set up:
 
 2. Open the NodeJS cmd and cd to "projectTraining"
 
-3. Now run the "npm start" command
+3. Now run the command "npm install" to install dependencies/bower_components
 
-4. Open up your browser and go to "localhost:8000"
+4. Now run the command "heroku local" to start a local server
 
 5. Enjoy!
