@@ -6,7 +6,7 @@ This is what needs to be done on the project with the feedback that it has gotte
 	- Add the information icon that is found in the results-cards to the menu-cards
 	- Make the front-side of the cards in the menu non-clickable and instead add a button to lower-left as seen on the back of the card that flips it around.
 
-STATUS: NOT COMPLETED
+STATUS: COMPLETED
 ---------------------
 
 - Add more colors- and/or pictures to make everything more interesting.
@@ -30,5 +30,10 @@ STATUS: NOT COMPLETED
 - Make it so the workouts can be displayed in a more interactive way.
 	- Think of it as a "media-player" so like a "workout-player" where you are taken to either a dialog pop-up or a completely different new, the "workout" mode so the user can follow their workout while being on the webpage.
 
-STATUS: NOT COMPLETED
+STATUS: NOT COMPLETED - ONGOING
 ---------------------
+
+- Error handling when the list returned from filtering is empty
+	- Just display some text that says no results where found
+
+STATUS: COMPLETED

@@ -1,6 +1,6 @@
 projectTrainingApp.controller('SearchCtrl', function ($scope, Workout, $mdDialog, $mdToast, $interval) {
   $scope.show = Workout.getShow(); 
-  //$scope.showError = Workout.getShowMsg();
+  $scope.showError = Workout.getShowMsg();
   //very stupid and inefficient but alas we found no other way of doing it before deadline
   $interval(function(){
     $scope.exercises = Workout.getDisplayExer();

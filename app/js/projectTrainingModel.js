@@ -43,7 +43,7 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 
 	this.setMessage = function(msg){
 		msg = msg;
-		showMsg = true;
+		showMsg = (msg == "") ? false : true;
 	}
 
 	this.getMessage = function(){
@@ -142,6 +142,9 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 		$cookies.putObject("toggleFilter", toggle);
 		//set the new list to be displayed in results
 		this.setDisplayExer(newList2);
+		//set error message if we dont get no list
+		if(newList2.length == 0) this.setMessage("Your search returned no results!");
+		else this.setMessage("");
 	}
 
 	this.setDisplayExer = function(list){

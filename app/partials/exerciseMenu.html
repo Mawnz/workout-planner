@@ -2,15 +2,15 @@
 		<div flex ng-repeat = "myExercise in myExercises">
 			<md-list-item id = "papa">
 				<!--Front side-->
-				<form isUp = "true" id = "front" class = "flip flipFront" flex ng-click = "flip($event)">
-					<md-list-item  flex >
+				<form isUp = "true" id = "front" class = "flip flipFront" flex >
+					<md-list-item  flex ng-click = "null">
 						<div flex layout layout-align = "space-between space-between">
-							<div class = "md-list-item-text" layout = "column">
-								<div>
-									<p class = "txt">{{myExercise.name}}</p>
+							<div layout = "column" layout-align = "start start">
+								<div class = "txtmenu">
+									{{myExercise.name}}
 								</div>
-								<div>
-									<h4>{{myExercise.category}}</h4>
+								<div class = "txtmenu color">
+									{{myExercise.category}}
 								</div>
 							</div>
 							<div layout layout-align = "end center">
@@ -20,6 +20,12 @@
 						<md-button style = "position:absolute; right:0; bottom:0;" ng-click = "removeExercise(myExercise.id)"  class="md-icon-button" aria-label="removeExercise">
 							<md-icon class = "md-primary" md-font-set="material-icons"> delete </md-icon>
 						</md-button>
+						<md-button style = "position:absolute; right:0; top:0" ng-click = "openInfo($event, myExercise.id)" class="md-icon-button" aria-label="openInfo">
+							<md-icon class = "color" md-font-set="material-icons"> info_outline </md-icon>
+						</md-button>
+						<md-button style = "position:absolute; left:0; bottom:0;" ng-click = "flip($event)"  class="md-icon-button" aria-label="flipCard">
+							<md-icon class = "md-primary" md-font-set="material-icons"> undo </md-icon>
+						</md-button>						
 					</md-list-item>
 				</form>
 				<!--Back side -->

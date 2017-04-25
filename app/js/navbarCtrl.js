@@ -53,7 +53,7 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
 
 
   })
-.controller('LeftCtrl', function (Workout, $scope, $timeout, $mdSidenav, $log, $element) {
+.controller('LeftCtrl', function (Workout, $scope, $timeout, $mdSidenav, $log, $element, $mdDialog) {
     $scope.myExercises = Workout.getMyWorkout();
     $scope.show = false;
     $scope.s = 1;
@@ -125,6 +125,31 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
       }
     }
 
+    //Had to copy this over from searchCtrl don't know how to otherwise
+    //Section for opening up additional information regarding chosen exercise
+    $scope.openInfo = function(event, id){
+      $mdDialog.show({
+        controller : DialogController,
+        templateUrl : 'partials/resultMoreInfo.html',
+        parent : angular.element(document.body),
+        targetEvent : event,
+        clickOutsideToClose : true,
+        locals : {id : id}
+      });
+    }
+    //this is the controller for the dialog window above
+    function DialogController($scope, $mdDialog, id){
+      $scope.e = Workout.getExercise(id);
+
+      $scope.hide = function(){
+        $mdDialog.hide();
+      }
+      //this closes down the dialog window
+      $scope.cancel = function(){
+        $mdDialog.cancel();
+      }
+    };
+    //end of copy paste
   })
 .controller('RightCtrl', function ($scope, Workout, $timeout, $mdSidenav, $log, $route, $cookies) {
     //getting some of them variables that are used for the filters
