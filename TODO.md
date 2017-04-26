@@ -45,3 +45,23 @@ STATUS: COMPLETED
 	- Drag and drop items from results to menu (optional)
 
 STATUS: COMPLETED
+
+---------------------
+
+- Highlight the cards already in your menu (optional)
+	- Make the background light-green or perhaps add a border
+
+STATUS: NOT COMPLETED
+
+
+
+
+
+vuejs
+MongoDB
+Yeoman
+FE framework tools
+Redux state handler
+Baobab app state
+React-dnd drag n drop
+Material-UI react

@@ -9,14 +9,18 @@
 <!--TODO MAKE THIS SHIT WORK-->
 <md-content style = "height:100%;width:100vw">	
 
-	<md-tabs style = "height:100%;width:100%" class = "md-warn">
+	<md-tabs layout-fill class = "md-warn">
 		<!--We create tabs for each exercise so it's easy to navigate through-->
 
-		<md-tab  ng-repeat = "exercise in myWorkout" label = "{{exercise.name}}" class = "workoutFrame">
-
-			<md-content class = "md-padding">
-				<img ng-src = "{{exercise.image[0]}}"/>
-			</md-content>	
-
-			</md-tab>
+		<md-tab flex ng-repeat = "exercise in myWorkout" label = "{{exercise.name}}">
+			<md-tab-content class = "md-padding" layout-fill layout-align = "center">
+				<div layout = "column" layout-align = "start center" style = "max-width:75vw;">
+					<p class = "md-display-1">{{exercise.name}}</P>
+					<div name = "description">
+						<p class = "md-body-1" ng-bind-html = "exercise.description | trusted"></p>
+					</div>
+					<img ng-src = "{{exercise.image[0]}}" class = "image2"/>
+				</div>
+			</md-tab-content>	
+		</md-tab>
 </md-content>
