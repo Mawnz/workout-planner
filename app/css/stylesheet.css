@@ -1,3 +1,31 @@
+.slideUp, .slideDown{
+	max-height:0;
+	overflow:hidden;
+	transition: max-height .5s cubic-beizer(.42, 0, .58, 1);
+}
+
+.gridFlex{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+
+
+.slideDown{
+	box-shadow: 0 0 0 3px #fff;
+	padding: 15px;
+	max-height:100%;
+}
+
+.txtWorkout{
+	font-size: 4.5vh;
+}
+
+.txtName{
+	font-size: 5vh;
+}
+
 .workoutFrame{
 	width: 100vw;
 	height: 100%;
@@ -85,6 +113,7 @@ md-nav-bar {
 }
 md-grid-list{
 	height:100%;
+	width:100%;
 }
 
 md-card-content{

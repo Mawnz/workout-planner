@@ -30,6 +30,8 @@ STATUS: NOT COMPLETED
 - Make it so the workouts can be displayed in a more interactive way.
 	- Think of it as a "media-player" so like a "workout-player" where you are taken to either a dialog pop-up or a completely different new, the "workout" mode so the user can follow their workout while being on the webpage.
 
+md-swipe-content don't swipe to left, only right, maybe a bug: STATUS - NOT COMPLETE
+
 STATUS: NOT COMPLETED - ONGOING
 ---------------------
 

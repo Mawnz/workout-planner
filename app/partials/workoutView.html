@@ -1,12 +1,3 @@
-<!--
-<div class = "workoutWindow">
-	<div  class = "workoutFrame" ng-repeat = "exercise in myWorkout">
-
-		<img ng-src = "{{exercise.image[0]}}" class = "image2"/>
-	</div>
-</div>
--->
-<!--TODO MAKE THIS SHIT WORK-->
 <md-content style = "height:100%;width:100vw">	
 
 	<md-tabs layout-fill class = "md-warn" md-swipe-content = "true">
@@ -15,11 +6,21 @@
 		<md-tab flex ng-repeat = "exercise in myWorkout" label = "{{exercise.name}}">
 			<md-tab-content class = "md-padding" layout-fill layout-align = "center">
 				<div layout = "column" layout-align = "start center" style = "max-width:75vw;">
-					<p class = "md-display-1">{{exercise.name}}</P>
-					<div name = "description">
-						<p class = "md-body-1" ng-bind-html = "exercise.description | trusted"></p>
+					<p class = "txtName">{{exercise.name}}</p>
+					<p class = "txtWorkout">Do {{exercise.reps}} repetitions in {{exercise.set}} set</p>
+					<div>
+						<div name = "description" class = "md-body-1 slideDown" layout-padding ng-bind-html = "exercise.description | trusted"></div>
+						<div layout layout-align = "center center">
+							<md-button ng-click = "toggleShow($event)"  class="md-icon-button" aria-label="openDesc">
+								<md-icon id = "icon" md-font-set="material-icons">keyboard_arrow_up</md-icon>
+							</md-button>		
+						</div>
 					</div>
-					<img ng-src = "{{exercise.image[0]}}" class = "image2"/>
+		        	<md-grid-list md-cols = "2" md-row-height = "300px" md-gutter = "5px">
+				        <md-grid-tile ng-repeat = "image in exercise.image" md-colspan ="1" >
+				        	<img ng-src= "{{image}}" class="md-card-image image5" alt="Washed Out" layout-padding>
+				        </md-grid-tile>
+		        	</md-grid-list>
 				</div>
 			</md-tab-content>	
 		</md-tab>

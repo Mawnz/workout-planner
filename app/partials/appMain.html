@@ -22,11 +22,16 @@
             <!--The checkout toolbar-->
             <div flex layout = "row" layout-align = "space-between" class = "header" layout-padding>
               <div layout layout-align = "center center" class = "md-subhead">
+                <span ng-if = "myExercises.length != 0">
                  Start working out!
+                </span>
+                <span ng-if = "myExercises.length == 0">
+                  Select some exercises!
+                </span>
               </div>
               <div layout layout-align = "center center">
                 <!--Checkout-button that is always at the right top-->
-                  <md-button  ng-href = "#!app/workout" class = "md-icon-button">
+                  <md-button  ng-href = "#!app/workout" class = "md-icon-button" ng-disabled = "myExercises.length == 0">
                     <md-icon class = "color" md-font-set="material-icons"> play_circle_filled </md-icon>
                   </md-button>
               </div>
