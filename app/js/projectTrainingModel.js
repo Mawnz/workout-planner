@@ -7,7 +7,7 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 	show = false;
 	msg = "";
 	showMsg = false;
-
+	
 	myExerListCookieEdition = (
 			($cookies.get("menu") == undefined) || 
 			($cookies.get("menu") == "") ? []	 : $cookies.getObject("menu")

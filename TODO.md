@@ -32,7 +32,7 @@ STATUS: NOT COMPLETED
 
 md-swipe-content don't swipe to left, only right, maybe a bug: STATUS - NOT COMPLETE
 
-STATUS: NOT COMPLETED - ONGOING
+STATUS: COMPLETE
 ---------------------
 
 - Error handling when the list returned from filtering is empty

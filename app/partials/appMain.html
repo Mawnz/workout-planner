@@ -8,9 +8,18 @@
 
           <md-toolbar  ng-controller="LeftCtrl" layout = "row" layout-align = "space-between stretch">
             <!--Header of left navbar-->
-            <div>
-                <h1 class="md-toolbar-tools">Your workout</h1>
-
+            <div class="md-toolbar-tools" flex layout-align = "start center">
+              <form ng-submit = "toggleEditable()">
+                  <md-input-container  layout-align = "center center" class = "md-toolbar-tools">
+                    <input style = "color:white" ng-model = "myWorkout.name"  ng-disabled = "editable == false">
+                  </md-input-container>
+              </form>
+                <md-button ng-if = "editable == false" ng-click = "toggleEditable()" class = "md-icon-button">
+                  <md-icon md-font-set = "material-icons"> edit </md-icon>
+                </md-button>
+                <md-button ng-if = "editable == true" ng-click = "toggleEditable()" class = "md-icon-button">
+                  <md-icon md-font-set = "material-icons"> save </md-icon>
+                </md-button>
             </div>
             <div layout layout-align = "center center">
                 <md-button ng-click="close()"  class="md-icon-button" hide-gt-md>
@@ -36,6 +45,10 @@
                   </md-button>
               </div>
             </div>
+          <!-- SAVE BUTTON -->
+            <md-button ng-disabled = "myExercises.length == 0" style = "position: absolute; left:0;bottom:0" ng-href = "#!app" class = "md-icon-button" aria-label="back">
+              <md-icon class = "color"  md-font-set="material-icons"> save </md-icon>
+            </md-button>
               <!--External file for the individual items-->
               <div class = "scroll" ng-include = "'partials/exerciseMenu.html'"></div>
 

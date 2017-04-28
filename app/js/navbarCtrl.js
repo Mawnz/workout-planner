@@ -54,11 +54,20 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
 
   })
 .controller('LeftCtrl', function (Workout, $scope, $timeout, $mdSidenav, $log, $element, $mdDialog) {
+    $scope.myWorkout = {
+      name: "My workout",
+      exercises: Workout.getMyWorkout()
+    };
+
+    $scope.editable = false;
     $scope.myExercises = Workout.getMyWorkout();
     $scope.show = false;
     $scope.s = 1;
     $scope.r = 1;
 
+    $scope.toggleEditable = function(){
+      $scope.editable = $scope.editable ? false : true;
+    }
 
     $scope.close = function () {
       // Component lookup should always be available since we are not using `ng-if`
