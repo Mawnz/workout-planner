@@ -56,7 +56,7 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
 .controller('LeftCtrl', function (Workout, $scope, $timeout, $mdSidenav, $log, $element, $mdDialog, $rootScope, $firebaseObject, $interval, $mdToast) {
     var origin;
     var loadedWorkout;
-    $scope.editable = false;
+    $rootScope.editable = false;
     $rootScope.workoutName = Workout.getWorkoutName();
     $rootScope.myExercises = Workout.getMyWorkout();
 
@@ -120,15 +120,12 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
         parent : angular.element(document.body),
         controller: test,
         targetEvent : event,
-        clickOutsideToClose : true,
-        locals:{
-          scope:$scope
-        }
+        clickOutsideToClose : true
       });
     }
 
     //this is the controller for the dialog window above
-    function test($scope, $mdDialog, Workout, scope){
+    function test($scope, $mdDialog, Workout, $rootScope){
       $scope.dbWorkouts = $firebaseObject(firebase.database().ref().child('workouts'));
 
       $scope.hide = function(){
@@ -136,17 +133,21 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
       }
       //this closes down the dialog window
       $scope.cancel = function(workout){
+        $rootScope.workoutName = Workout.getWorkoutName();
+        $rootScope.editable = false; 
+        Workout.setWorkoutName(workout.name); 
+        $rootScope.workoutName = Workout.getWorkoutName();
+        
         Workout.setMyList(JSON.parse(workout.value));
-        Workout.setWorkoutName(workout.name);
-    $rootScope.workoutName = Workout.getWorkoutName();
-    $rootScope.myExercises = Workout.getMyWorkout();
+        $rootScope.myExercises = Workout.getMyWorkout();
         $mdDialog.cancel();
       }
     };
 
-    $scope.toggleEditable = function(){
-      $scope.editable = $scope.editable ? false : true;
-      if(!$scope.editable) Workout.setWorkoutName($scope.workoutName); 
+    $rootScope.toggleEditable = function(){
+      $rootScope.editable = $rootScope.editable ? false : true;
+      if(!$rootScope.editable) Workout.setWorkoutName($rootScope.workoutName); 
+      $rootScope.workoutName = Workout.getWorkoutName();
     }
 
     $scope.close = function () {

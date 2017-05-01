@@ -8,7 +8,7 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 	msg = "";
 	showMsg = false;
 
-	workoutName = ($cookies.get("name") == undefined) ? "My Workout" : $cookies.get("name");
+	var workoutName = ($cookies.get("name") == undefined) ? "My Workout" : $cookies.get("name");
 
 	myExerListCookieEdition = (
 			($cookies.get("menu") == undefined) || 
@@ -56,8 +56,6 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 		}
 		cookie.putObject("menu", myExerListCookieEdition);
 		myExerList = workout;
-		console.log(myExerList);
-		console.log(myExerListCookieEdition);
 	}
 
 	this.setMessage = function(msg){

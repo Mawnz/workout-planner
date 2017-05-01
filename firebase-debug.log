@@ -1,0 +1,69 @@
+[debug] ----------------------------------------------------------------------
+[debug] Command:      C:\Program Files\nodejs\node.exe C:\Users\Mawnz\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase deploy
+[debug] CLI Version:  3.6.1
+[debug] Platform:     win32
+[debug] Node Version: v6.10.2
+[debug] Time:         Mon May 01 2017 11:56:40 GMT+0200 (Västeuropa, sommartid)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[debug] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/5ok9OgBGUDzWhRzHXG4M-4VWS7mFnR0ZC-li4raBGx09w-TVo-1ZgX-rAnMSXccL',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Mon May 01 2017 11:56:40 GMT+0200 (Västeuropa, sommartid)
+[debug] <<< HTTP RESPONSE 200
+[debug] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/workoutplanner-50643  
+ Mon May 01 2017 11:56:40 GMT+0200 (Västeuropa, sommartid)
+[debug] <<< HTTP RESPONSE 200
+[debug] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/workoutplanner-50643/tokens  
+ Mon May 01 2017 11:56:41 GMT+0200 (Västeuropa, sommartid)
+[debug] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'workoutplanner-50643'...
+[info] 
+[info] i  deploying database, functions, hosting
+[info] +  database: rules ready to deploy.
+[debug] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "dependencies": {
+    "firebase-admin": "~4.1.2",
+    "firebase-functions": "^0.5"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[info] i  runtimeconfig: ensuring necessary APIs are enabled...
+[debug] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/workoutplanner-50643?view=CONSUMER_VIEW  
+ Mon May 01 2017 11:56:44 GMT+0200 (Västeuropa, sommartid)
+[debug] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/workoutplanner-50643?view=CONSUMER_VIEW  
+ Mon May 01 2017 11:56:44 GMT+0200 (Västeuropa, sommartid)
+[debug] <<< HTTP RESPONSE 200
+[info] +  runtimeconfig: all necessary APIs are enabled
+[debug] <<< HTTP RESPONSE 200
+[info] +  functions: all necessary APIs are enabled
+[debug] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/workoutplanner-50643  
+ Mon May 01 2017 11:56:45 GMT+0200 (Västeuropa, sommartid)
+[debug] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/workoutplanner-50643/apiKeys  
+ Mon May 01 2017 11:56:45 GMT+0200 (Västeuropa, sommartid)
+[debug] <<< HTTP RESPONSE 200
+[debug] <<< HTTP RESPONSE 200
+[info] i  functions: preparing functions directory for uploading...
+[debug] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/workoutplanner-50643/configs  
+ Mon May 01 2017 11:56:51 GMT+0200 (Västeuropa, sommartid)
+[debug] <<< HTTP RESPONSE 200
+[debug] > [functions] runtime config materialized as: {
+  "firebase": {
+    "databaseURL": "https://workoutplanner-50643.firebaseio.com",
+    "storageBucket": "workoutplanner-50643.appspot.com",
+    "apiKey": "AIzaSyCAHku5F4fcZrM4OAsWbitApWOkjxlO2sM",
+    "authDomain": "workoutplanner-50643.firebaseapp.com"
+  }
+}
+[debug] > [functions] parsed triggers: []
+[info] i  hosting: preparing app directory for upload...
+[debug] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/workoutplanner-50643/uploads/-Kj2RFgLR2lG-mdFBw5L?fileCount=2170&message=  
+ Mon May 01 2017 11:57:03 GMT+0200 (Västeuropa, sommartid)
