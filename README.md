@@ -2,6 +2,13 @@ Interaction Programing - Project
 =================================================
 This is the workout planner, welcome!
 
+Don't have instructions on how to set up, it's using firebase and here are links:
+https://workoutplanner-50643.firebaseapp.com/
+http://workout-planner-git.herokuapp.com/
+
+
+Don't know if this works below
+
 To set up:
 
 1. Download the repository and extract anywhere you want.
