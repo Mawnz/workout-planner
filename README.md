@@ -2,7 +2,9 @@ Interaction Programing - Project
 =================================================
 This is the workout planner, welcome!
 
-Don't have instructions on how to set up, it's using firebase and here are links:
+There is an issue where the name of a workout does not update when you load from the database. I'm working on it...
+
+Links to hosting platforms:
 https://workoutplanner-50643.firebaseapp.com/
 http://workout-planner-git.herokuapp.com/
 
