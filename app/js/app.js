@@ -1,4 +1,21 @@
-var projectTrainingApp = angular.module('projectTraining', ['ngMaterial', 'ngRoute','ngResource', 'ngCookies']);
+var projectTrainingApp = angular.module('projectTraining', ['ngMaterial', 'ngRoute','ngResource', 'ngCookies', 'firebase']);
+
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAuAk_mndKfstj3YpQZFK6N5YwcP-jfRfI",
+        authDomain: "workoutplanner-50643.firebaseapp.com",
+        databaseURL: "https://workoutplanner-50643.firebaseio.com",
+        projectId: "workoutplanner-50643",
+        storageBucket: "workoutplanner-50643.appspot.com",
+        messagingSenderId: "237123581298"
+      };
+      firebase.initializeApp(config);
+
+
+projectTrainingApp.controller('serverCtrl', function($firebaseObject){
+
+});
+
 
 projectTrainingApp.config(['$routeProvider',
   function($routeProvider) {  
@@ -25,6 +42,7 @@ projectTrainingApp.config(['$routeProvider',
         redirectTo: '/home'
       });
   }]);
+
 
 //to trust html tags in descriptions
 projectTrainingApp.filter('trusted', ['$sce', function($sce){

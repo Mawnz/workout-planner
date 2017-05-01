@@ -1,9 +1,9 @@
-<md-content style = "height:100%;width:100vw">	
+<md-content  style = "height:100%;width:100vw">	
 
-	<md-tabs layout-fill class = "md-warn" md-swipe-content = "true">
+	<md-tabs  layout-fill class = "md-warn" md-swipe-content = "true">
 		<!--We create tabs for each exercise so it's easy to navigate through-->
 
-		<md-tab flex ng-repeat = "exercise in myWorkout" label = "{{exercise.name}}">
+		<md-tab  flex ng-repeat = "exercise in myWorkout" label = "{{exercise.name}}">
 			<md-tab-content class = "md-padding" layout-fill layout-align = "center">
 				<div layout = "column" layout-align = "start center" style = "max-width:75vw;">
 					<p class = "txtName">{{exercise.name}}</p>

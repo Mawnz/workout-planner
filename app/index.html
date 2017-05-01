@@ -29,6 +29,12 @@
     <script src="bower_components/angular-aria/angular-aria.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
 
+    <!--FIREBASE-->
+    <script src="bower_components/firebase/firebase.js"></script>
+    
+    <!--ANGULAFRIRE -->
+    <!--FIREBASE-->
+    <script src="bower_components/angularfire/dist/angularfire.js"></script>
 
       <!-- Angular Material Library -->
     <script src="bower_components/angular-material/angular-material.js"></script>
@@ -44,20 +50,24 @@
     <script src="js/indexCtrl.js"></script>
     <script src="js/workoutCtrl.js"></script>
 
-
     <!-- Custom css -->
     <link rel = "stylesheet" href = "css/stylesheet.css">
 
+    <script type = "text/javascript">
+
+    </script>
+
   </head>
   <body layout ng-app = "projectTraining" ng-cloak >
-    <div ng-controller = "TopMenuCtrl" class = "fullSize">
+<!--<div ng-controller = "serverCtrl">-->
+    <div  ng-controller = "TopMenuCtrl as ctrl" class = "fullSize">
         <md-content layout = "column" layout-fill>
-            <md-nav-bar
+            <md-nav-bar 
                 md-selected-nav-item = "currentNavItem"
                 nav-bar-aria-label = "navigation links"
                 >
 
-                <md-nav-item md-nav-href = "#!home" name = "/home">
+                <md-nav-item  md-nav-href = "#!home" name = "/home">
                     Home
                 </md-nav-item>
                 <md-nav-item md-nav-href = "#!app" name = "/app">
@@ -69,9 +79,9 @@
 
             </md-nav-bar>
 
-            <div data-ng-init = "init()" ng-controller = "IndexCtrl" layout = "column" flex = "100">
-            <!--TODO fixa så att den inte laddar in hela tiden, fixa så man kan gå tillbaka från checkout och sedan checkout igen utan att det fuckar upp, fixa så man kan spara i cookie, fixa sök och om tid finns fixa så man kan dra i menyn o flytta runt-->
-                <div ng-view style = "overflow-y:hidden;overflow-x:auto" flex = "100"></div>
+            <div class = "bgimg" data-ng-init = "init()" ng-controller = "IndexCtrl" layout = "column" flex = "100">
+
+                <div  ng-view style = "overflow-y:hidden;overflow-x:auto" flex = "100"></div>
                 <!--
                 <div layout layout-align = "start center" ng-controller = "DialCtrl as dial" flex = "10" ng-cloak class = "ysd">
                     <md-fab-speed-dial md-direction="right" ng-class = "{'md-scale' : true}">
@@ -95,8 +105,7 @@
             </div>
         </md-content>
     </div>
-
-
+<!--</div>-->
   </body>
 </html>
 

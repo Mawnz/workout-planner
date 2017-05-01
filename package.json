@@ -10,12 +10,21 @@
   },
   "scripts": {
     "postinstall": "bower install",
-    "start" : "node app.js"
+    "start": "node app.js"
   },
   "dependencies": {
     "angular-model-factory": "1.0.x",
+    "angularfire": "^2.3.0",
+    "body-parser": "^1.17.1",
     "bower": "1.8.x",
-    "express": "4.15.2"
+    "express": "4.15.2",
+    "file-system": "^2.2.2",
+    "fs": "0.0.1-security",
+    "method-override": "^2.3.8",
+    "mongodb": "^2.2.26",
+    "mongoose": "^4.9.6",
+    "redis": "^2.7.1",
+    "requirejs": "^2.3.3"
   },
   "engines": {
     "node": "6.10.2",

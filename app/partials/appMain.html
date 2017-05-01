@@ -1,4 +1,4 @@
-<div style = "height:100%">
+<div  style = "height:100%">
     <section layout="row" layout-fill>
         <md-sidenav
             class="md-sidenav-left"
@@ -11,13 +11,15 @@
             <div class="md-toolbar-tools" flex layout-align = "start center">
               <form ng-submit = "toggleEditable()">
                   <md-input-container  layout-align = "center center" class = "md-toolbar-tools">
-                    <input style = "color:white" ng-model = "myWorkout.name"  ng-disabled = "editable == false">
+                    <input aria-label = "workout_name" style = "color:white" ng-model = "workoutName"  ng-disabled = "editable == false">
                   </md-input-container>
               </form>
                 <md-button ng-if = "editable == false" ng-click = "toggleEditable()" class = "md-icon-button">
+                  <md-tooltip md-direction="right">Edit name</md-tooltip>
                   <md-icon md-font-set = "material-icons"> edit </md-icon>
                 </md-button>
                 <md-button ng-if = "editable == true" ng-click = "toggleEditable()" class = "md-icon-button">
+                  <md-tooltip md-direction="right">Save changes</md-tooltip>
                   <md-icon md-font-set = "material-icons"> save </md-icon>
                 </md-button>
             </div>
@@ -41,14 +43,25 @@
               <div layout layout-align = "center center">
                 <!--Checkout-button that is always at the right top-->
                   <md-button  ng-href = "#!app/workout" class = "md-icon-button" ng-disabled = "myExercises.length == 0">
+                    <md-tooltip md-direction="left">Start!</md-tooltip>
                     <md-icon class = "color" md-font-set="material-icons"> play_circle_filled </md-icon>
                   </md-button>
               </div>
             </div>
           <!-- SAVE BUTTON -->
-            <md-button ng-disabled = "myExercises.length == 0" style = "position: absolute; left:0;bottom:0" ng-href = "#!app" class = "md-icon-button" aria-label="back">
+            <md-button ng-click = "saveWorkout($event)" ng-disabled = "myExercises.length == 0" style = "position: absolute; left:0;bottom:0" class = "md-icon-button" aria-label="back">
+              <md-tooltip md-direction="top">Save</md-tooltip>
               <md-icon class = "color"  md-font-set="material-icons"> save </md-icon>
             </md-button>
+
+          <!--LOAD BUTTOn-->
+
+            <md-button ng-click = "openMenu($event)" style = "position: absolute; right:0;bottom:0" class = "md-icon-button" aria-label="back">
+              <md-tooltip md-direction="top">Load</md-tooltip>
+              <md-icon class = "color"  md-font-set="material-icons"> unarchive </md-icon>
+            </md-button>
+         
+
               <!--External file for the individual items-->
               <div class = "scroll" ng-include = "'partials/exerciseMenu.html'"></div>
 
@@ -98,15 +111,15 @@
           <md-content ng-controller="RightCtrl as ctrl" layout-padding>
             <div layout = "column">
               <b>Filters</b>
-              <md-switch class="md-primary" ng-model="data.cb6" aria-label="Switch 6" ng-change="search(data.cb6)">
-                Only with pictures
+              <md-switch class="md-primary" ng-model="images" aria-label="ImageFilter" ng-change="search()">
+                Only images
               </md-switch>
               <div layout layout-align = "space-between center">
                 <div>
                   Category
                 </div>
                 <div>
-                  <md-select ng-change = "search(data.cb6)" ng-model="category" aria-label = "category" class="md-no-underline">
+                  <md-select ng-change = "search()" ng-model="category" aria-label = "category" class="md-no-underline">
                     <md-option value="0">All</md-option>
                     <md-option value="10">Abs</md-option>
                     <md-option value="8">Arms</md-option>
@@ -123,7 +136,7 @@
                   Equipment
                 </div>
                 <div>
-                  <md-select ng-change = "search(data.cb6)" ng-model="equipment" aria-label = "equipment" class="md-no-underline">
+                  <md-select ng-change = "search()" ng-model="equipment" aria-label = "equipment" class="md-no-underline">
                     <md-option value="0">All</md-option>
                     <md-option value="1">Barbell</md-option>
                     <md-option value="8">Bench</md-option>

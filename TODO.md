@@ -12,19 +12,21 @@ STATUS: COMPLETED
 - Add more colors- and/or pictures to make everything more interesting.
 	- Whatever works.
 
-STATUS: NOT COMPLETED
+STATUS: NOT COMPLETED - ONGOING
 ---------------------
 
 - Make fully-fletched home-page and about page, now everything is just one tab so it's kind of pointless having three different views when only one is really used.
 	- Have a back-end where an ID is created for every new user that is stored in a cookie. This is used at the homepage if a user has saved any of their workouts so they're easily accessible. This solves the usability and minimal-backend. The id's could just be stored in a JSON-file. 
 
-STATUS: NOT COMPLETED
+STATUS: NOT COMPLETED - ONGOING 
+COMMENT: Should it really be done right now? No users as of now only storing all workouts globally.
 ---------------------
 
 - Being able to store workouts.
 	- As previous entry suggested. Having ID:s for every user stored in a cookie for recognition we can create a JSON-object for every id that contains lists for their workouts, one list being one workout, and in that list we just save the ID, sets and reps for every exercise.
 
-STATUS: NOT COMPLETED
+STATUS: PARTIALLY COMPLETED
+COMMENT: You can store workouts globally so you can't remove them yourself which is kinda bad i guess.
 ---------------------
 
 - Make it so the workouts can be displayed in a more interactive way.
@@ -32,7 +34,7 @@ STATUS: NOT COMPLETED
 
 md-swipe-content don't swipe to left, only right, maybe a bug: STATUS - NOT COMPLETE
 
-STATUS: COMPLETE
+STATUS: COMPLETED
 ---------------------
 
 - Error handling when the list returned from filtering is empty
@@ -46,7 +48,7 @@ STATUS: COMPLETED
 	- Be able to re-arrange the order of the cards in menu
 	- Drag and drop items from results to menu (optional)
 
-STATUS: COMPLETED
+STATUS: NOT-COMPLETED
 
 ---------------------
 

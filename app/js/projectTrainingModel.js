@@ -7,12 +7,19 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 	show = false;
 	msg = "";
 	showMsg = false;
-	
+
+	workoutName = ($cookies.get("name") == undefined) ? "My Workout" : $cookies.get("name");
+
 	myExerListCookieEdition = (
 			($cookies.get("menu") == undefined) || 
 			($cookies.get("menu") == "") ? []	 : $cookies.getObject("menu")
 		);
 
+/*
+	console.log($(this).uniqueId());
+
+	$cookies.put("id", $.uniqueId());
+*/	
 	var catFilter = ($cookies.get('catFilter') == undefined) ? 0 : $cookies.get('catFilter');
 	var eqFilter = ($cookies.get('eqFilter') == undefined) ? 0 : $cookies.get('eqFilter');
 	
@@ -40,6 +47,18 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 		9 : "Legs",
 		13 : "Shoulders"
 	};
+
+	this.setMyList = function(workout){
+		//need to fix cookie as well...
+		myExerListCookieEdition = [];
+		for(var i in workout){
+			myExerListCookieEdition.push(workout[i].id);
+		}
+		cookie.putObject("menu", myExerListCookieEdition);
+		myExerList = workout;
+		console.log(myExerList);
+		console.log(myExerListCookieEdition);
+	}
 
 	this.setMessage = function(msg){
 		msg = msg;
@@ -98,6 +117,15 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 		return myExerList;
 	}
 
+	this.setWorkoutName = function(name){
+		workoutName = name;
+		cookie.put("name", name);
+	}
+
+	this.getWorkoutName = function(){
+		return workoutName;
+	}
+
 	this.addToMyList = function(id, doIt){
 		myExerList.push(this.getExercise(id));
 		//handle if we already have a cookie so we don't add stuff twice, this is for when we load the page
@@ -123,14 +151,14 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 		cookie.putObject("menu", myExerListCookieEdition);
 	}
 
-	this.filterExercises = function(cat, eq, toggle){
+	this.filterExercises = function(cat, eq, img){
 		//creates a new list using the chosen filter
 		var newList = $.grep(exercises, function(e){	
 			return e.category == ((cat == 0) ? e.category : categories[cat]) &&
 					e.equipment == ((eq == 0) ? e.equipment : equipment[eq]);
 			});
 		var newList2 = $.grep(newList, function(e){
-			if(toggle){
+			if(img){
 				return e.image != "img/noimg.png";
 			}else{
 				return e.image;
@@ -139,7 +167,6 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 		//store the filters chosen in cookies
 		$cookies.putObject("catFilter", parseInt(cat));
 		$cookies.putObject("eqFilter", parseInt(eq));
-		$cookies.putObject("toggleFilter", toggle);
 		//set the new list to be displayed in results
 		this.setDisplayExer(newList2);
 		//set error message if we dont get no list

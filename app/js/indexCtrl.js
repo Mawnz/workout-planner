@@ -1,11 +1,13 @@
-projectTrainingApp.controller('IndexCtrl', function ($scope, Workout) {
+projectTrainingApp.controller('IndexCtrl', function ($scope, Workout, $rootScope, $firebaseObject) {
   //store this scope so we can use the $scope.show variable in the results.html
   //Scopes.store('IndexCtrl', $scope);
   var images = [];
   Workout.setShow(false);
 
+  const rootRef = firebase.database().ref().child('workouts');
+  const ref = rootRef.child('object');
 
-//init exercises that will be used in application
+  //init exercises that will be used in application
   $scope.init = function () {
     //first we get all the exercises that is later used in the app, searching, filtering etc etc.
     //We get all the exercises because there weren't that many exercises to begin with so

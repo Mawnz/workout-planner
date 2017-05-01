@@ -4,6 +4,12 @@
 	transition: max-height .5s cubic-beizer(.42, 0, .58, 1);
 }
 
+.bgimg{
+	background-image: url("../img/gradient1.png");
+	background-repeat: no-repeat;
+	background-size: 100vw 100vh;
+}
+
 .gridFlex{
 	display: flex;
 	flex-wrap: wrap;
@@ -48,6 +54,10 @@
 
 .txt{
 	font-size: 2vh;
+}
+
+.txtBig{
+	font-size: 5vh;
 }
 
 .txtmenu{

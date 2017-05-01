@@ -53,20 +53,100 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
 
 
   })
-.controller('LeftCtrl', function (Workout, $scope, $timeout, $mdSidenav, $log, $element, $mdDialog) {
-    $scope.myWorkout = {
-      name: "My workout",
-      exercises: Workout.getMyWorkout()
-    };
-
+.controller('LeftCtrl', function (Workout, $scope, $timeout, $mdSidenav, $log, $element, $mdDialog, $rootScope, $firebaseObject, $interval, $mdToast) {
+    var origin;
+    var loadedWorkout;
     $scope.editable = false;
-    $scope.myExercises = Workout.getMyWorkout();
+    $rootScope.workoutName = Workout.getWorkoutName();
+    $rootScope.myExercises = Workout.getMyWorkout();
+
+
+
     $scope.show = false;
     $scope.s = 1;
     $scope.r = 1;
 
+    $scope.saveWorkout = function(ev){
+      var ref = firebase.database().ref('workouts/');
+      var obj = $firebaseObject(ref);
+      var name = Workout.getWorkoutName();
+      var state = 1;
+      
+      obj.$loaded().then(function(){
+        angular.forEach(obj, function(value, key){
+          if(key == name){
+            state = -1;
+          }
+        });
+        console.log(state);
+        if(state == -1){
+          $mdDialog.show(
+            $mdDialog.alert()
+              .parent(angular.element(document.body))
+              .clickOutsideToClose(true)
+              .title('Whoops!')
+              .textContent('This name is taken, please choose another one!')
+              .ariaLabel('Alert')
+              .ok('Sure!')
+              .targetEvent(ev)
+          );
+        }
+        else{
+          var workout = Workout.getMyWorkout();
+          firebase.database().ref('workouts/' + name).set(JSON.stringify(workout));
+
+          var pos = {
+            bottom : false,
+            top : true,
+            left : true,
+            right : false
+          };
+          $mdToast.show(
+            $mdToast.simple()
+              .textContent("Your workout was successfully saved!")
+              .position("top")
+              .hideDelay(500)
+          );
+        }       
+      });
+
+
+    }
+
+    $scope.openMenu = function(event){
+      origin = event;
+      $mdDialog.show({
+        templateUrl : 'partials/loadWorkoutWindow.html',
+        parent : angular.element(document.body),
+        controller: test,
+        targetEvent : event,
+        clickOutsideToClose : true,
+        locals:{
+          scope:$scope
+        }
+      });
+    }
+
+    //this is the controller for the dialog window above
+    function test($scope, $mdDialog, Workout, scope){
+      $scope.dbWorkouts = $firebaseObject(firebase.database().ref().child('workouts'));
+
+      $scope.hide = function(){
+        $mdDialog.hide();
+      }
+      //this closes down the dialog window
+      $scope.cancel = function(workout){
+        Workout.setMyList(JSON.parse(workout.value));
+        Workout.setWorkoutName(workout.name);
+    $rootScope.workoutName = Workout.getWorkoutName();
+    $rootScope.myExercises = Workout.getMyWorkout();
+        $mdDialog.cancel();
+      }
+    };
+
     $scope.toggleEditable = function(){
       $scope.editable = $scope.editable ? false : true;
+      if(!$scope.editable) Workout.setWorkoutName($scope.workoutName); 
     }
 
     $scope.close = function () {
@@ -163,16 +243,14 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
   })
 .controller('RightCtrl', function ($scope, Workout, $timeout, $mdSidenav, $log, $route, $cookies) {
     //getting some of them variables that are used for the filters
-    //this will contain a list of queries so you can search for multiple queries getting more results
-    $scope.searchQuery = [];
     $scope.category = Workout.getCatFilter();
     $scope.equipment = Workout.getEqFilter();
-    
     $scope.images = false;
     //this is set to be not readonly
     $scope.readonly = false;
-    $scope.search = function (toggle) {
-      Workout.filterExercises($scope.category, $scope.equipment,toggle);
+
+    $scope.search = function () {
+      Workout.filterExercises($scope.category, $scope.equipment, $scope.images);
     };
 
 })
