@@ -57,7 +57,8 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
     var origin;
     var loadedWorkout;
     $rootScope.editable = false;
-    $rootScope.workoutName = Workout.getWorkoutName();
+    $rootScope.wname = Workout.getWorkoutName();
+    $scope.workoutName = $rootScope.wname;
     $rootScope.myExercises = Workout.getMyWorkout();
 
 
@@ -70,6 +71,7 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
       var ref = firebase.database().ref('workouts/');
       var obj = $firebaseObject(ref);
       var name = Workout.getWorkoutName();
+      console.log(name);
       var state = 1;
       
       obj.$loaded().then(function(){
@@ -133,21 +135,18 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
       }
       //this closes down the dialog window
       $scope.cancel = function(workout){
-        $rootScope.workoutName = Workout.getWorkoutName();
         $rootScope.editable = false; 
         Workout.setWorkoutName(workout.name); 
-        $rootScope.workoutName = Workout.getWorkoutName();
-        
         Workout.setMyList(JSON.parse(workout.value));
+        $rootScope.wname = workout.name;
         $rootScope.myExercises = Workout.getMyWorkout();
         $mdDialog.cancel();
       }
     };
 
-    $rootScope.toggleEditable = function(){
+    $scope.toggleEditable = function(){
       $rootScope.editable = $rootScope.editable ? false : true;
-      if(!$rootScope.editable) Workout.setWorkoutName($rootScope.workoutName); 
-      $rootScope.workoutName = Workout.getWorkoutName();
+      if(!$rootScope.editable) Workout.setWorkoutName($scope.workoutName); 
     }
 
     $scope.close = function () {

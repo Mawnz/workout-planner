@@ -8,7 +8,7 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 	msg = "";
 	showMsg = false;
 
-	var workoutName = ($cookies.get("name") == undefined) ? "My Workout" : $cookies.get("name");
+	
 
 	myExerListCookieEdition = (
 			($cookies.get("menu") == undefined) || 
@@ -20,6 +20,8 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 
 	$cookies.put("id", $.uniqueId());
 */	
+	var workoutName = ($cookies.get("name") == undefined) ? "My Workout" : $cookies.get("name");
+
 	var catFilter = ($cookies.get('catFilter') == undefined) ? 0 : $cookies.get('catFilter');
 	var eqFilter = ($cookies.get('eqFilter') == undefined) ? 0 : $cookies.get('eqFilter');
 	
@@ -117,7 +119,7 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 
 	this.setWorkoutName = function(name){
 		workoutName = name;
-		cookie.put("name", name);
+		$cookies.put("name", name);
 	}
 
 	this.getWorkoutName = function(){
