@@ -17,6 +17,6 @@ To set up:
 
 3. Now run the command "npm install" to install dependencies/bower_components
 
-4. Now run the command "heroku local" to start a local server
+4. Now run the command 'npm start' to run the local server at "localhost:3000"
 
 5. Enjoy!
