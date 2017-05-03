@@ -60,6 +60,12 @@ projectTrainingApp.factory('Workout',function ($resource, $cookies) {
 		myExerList = workout;
 	}
 
+	this.emptyMyList = function(){
+		myExerList = [];
+		myExerListCookieEdition = [];
+		cookie.putObject("menu", myExerListCookieEdition);
+	}
+
 	this.setMessage = function(msg){
 		msg = msg;
 		showMsg = (msg == "") ? false : true;

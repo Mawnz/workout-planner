@@ -7,7 +7,12 @@
 	<md-content layout-padding>
 		<md-list>
 			<md-list-item style = "width:100%" ng-repeat = "(key, value) in dbWorkouts" ng-click  = "cancel({'name':key, 'value':value})">
-				<span class = "txtBig"> {{key}} </span>
+				<div layout layout-align = "space-between" flex>
+					<span class = "txtBig"> {{key}} </span>
+					<md-button ng-click = "deleteFromDatabase(key, value)"  class="md-icon-button" aria-label="removeExercise">
+						<md-icon class = "md-primary" md-font-set="material-icons"> delete </md-icon>
+					</md-button>
+				</div>
 				<md-divider> </md-divider>
 			</md-list-item>
 			

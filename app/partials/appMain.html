@@ -11,7 +11,7 @@
             <div class="md-toolbar-tools" flex layout-align = "start center">
               <form ng-submit = "toggleEditable()">
                   <md-input-container  layout-align = "center center" class = "md-toolbar-tools">
-                    <input aria-label = "workout_name" style = "color:white" ng-model = "workoutName"  ng-disabled = "editable == false">
+                    <input id = "inputName" aria-label = "workout_name" style = "color:white" ng-model = "workoutName"  ng-disabled = "editable == false">
                   </md-input-container>
               </form>
                 <md-button ng-if = "editable == false" ng-click = "toggleEditable()" class = "md-icon-button">
@@ -31,21 +31,33 @@
           </md-toolbar>
           <md-content style = "overflow-y:hidden" flex layout-padding ng-controller="LeftCtrl">
             <!--The checkout toolbar-->
-            <div flex layout = "row" layout-align = "space-between" class = "header" layout-padding>
-              <div layout layout-align = "center center" class = "md-subhead">
-                <span ng-if = "myExercises.length != 0">
-                 Start working out!
-                </span>
-                <span ng-if = "myExercises.length == 0">
-                  Select some exercises!
-                </span>
+            <div layout = "column" flex class = "header" md-whiteframe = "3"> 
+              <div flex layout = "row" layout-align = "space-between"  layout-padding>
+                <div layout layout-align = "center center" class = "md-subhead">
+                  <span ng-if = "myExercises.length != 0">
+                   Start working out!
+                  </span>
+                  <span ng-if = "myExercises.length == 0">
+                    Select some exercises!
+                  </span>
+                </div>
+                <div layout layout-align = "center center">
+                    <md-button  ng-href = "#!app/workout" class = "md-icon-button" ng-disabled = "myExercises.length == 0">
+                      <md-icon class = "color" md-font-set="material-icons"> play_circle_filled </md-icon>
+                    </md-button>
+                </div>
               </div>
-              <div layout layout-align = "center center">
-                <!--Checkout-button that is always at the right top-->
-                  <md-button  ng-href = "#!app/workout" class = "md-icon-button" ng-disabled = "myExercises.length == 0">
-                    <md-tooltip md-direction="left">Start!</md-tooltip>
-                    <md-icon class = "color" md-font-set="material-icons"> play_circle_filled </md-icon>
-                  </md-button>
+              <div flex layout = "row" layout-align = "space-between" layout-padding>
+                  <div layout layout-align = "center center" class = "md-subhead">
+                    <span>
+                     Clear workout
+                    </span>
+                  </div>
+                  <div layout layout-align = "center center">
+                      <md-button  ng-click = "clearList()" class = "md-icon-button" ng-disabled = "myExercises.length == 0">
+                        <md-icon class = "color" md-font-set="material-icons"> delete </md-icon>
+                      </md-button>
+                  </div>            
               </div>
             </div>
           <!-- SAVE BUTTON -->

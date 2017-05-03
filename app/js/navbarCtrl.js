@@ -53,7 +53,7 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
 
 
   })
-.controller('LeftCtrl', function (Workout, $scope, $timeout, $mdSidenav, $log, $element, $mdDialog, $rootScope, $firebaseObject, $interval, $mdToast) {
+.controller('LeftCtrl', function (Workout, $scope, $timeout, $mdSidenav, $log, $element, $mdDialog, $rootScope, $firebaseObject, $mdToast) {
     var origin;
     var loadedWorkout;
     $rootScope.editable = false;
@@ -66,6 +66,11 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
     $scope.show = false;
     $scope.s = 1;
     $scope.r = 1;
+
+    $scope.clearList = function(){
+      Workout.emptyMyList();
+      $rootScope.myExercises = Workout.getMyWorkout();
+    }
 
     $scope.saveWorkout = function(ev){
       var ref = firebase.database().ref('workouts/');
@@ -94,9 +99,12 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
           );
         }
         else{
-          var workout = Workout.getMyWorkout();
-          firebase.database().ref('workouts/' + name).set(JSON.stringify(workout));
+          /*
+          //first prompt the user to give a pw so only they can remove it
 
+          var workout = {pw: pw, workout: Workout.getMyWorkout()};
+          firebase.database().ref('workouts/' + name).set(JSON.stringify(workout));
+          */
           var pos = {
             bottom : false,
             top : true,
@@ -120,24 +128,40 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
       $mdDialog.show({
         templateUrl : 'partials/loadWorkoutWindow.html',
         parent : angular.element(document.body),
-        controller: test,
+        controller: workoutLoaderCtrl,
         targetEvent : event,
         clickOutsideToClose : true
       });
     }
 
     //this is the controller for the dialog window above
-    function test($scope, $mdDialog, Workout, $rootScope){
+    function workoutLoaderCtrl($scope, $mdDialog, Workout, $rootScope){
       $scope.dbWorkouts = $firebaseObject(firebase.database().ref().child('workouts'));
 
       $scope.hide = function(){
         $mdDialog.hide();
       }
+
+      $scope.deleteFromDatabase = function(name){
+        /*
+        var obj = $firebaseObject(firebase.database().ref('workouts/' + name));
+        obj.$loaded().then(function(test){
+          var parsed = JSON.parse(obj.$value);
+          console.log(parsed.pw);
+
+        });*/
+        //removes the item from the database....
+        firebase.database().ref('workouts/' + name).remove();
+      }
+
       //this closes down the dialog window
       $scope.cancel = function(workout){
         $rootScope.editable = false; 
         Workout.setWorkoutName(workout.name); 
         Workout.setMyList(JSON.parse(workout.value));
+        //quickfix for bug when name doesn't update in scope from model-change, pls dont kill me i've only got one ID like this one :c
+        $("#inputName").val(workout.name);
+        //end of quickfix
         $rootScope.wname = workout.name;
         $rootScope.myExercises = Workout.getMyWorkout();
         $mdDialog.cancel();
