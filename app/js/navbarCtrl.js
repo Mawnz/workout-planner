@@ -100,7 +100,7 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
         }
         else{
 
-          var workout = {pw: pw, workout: Workout.getMyWorkout()};
+          var workout = Workout.getMyWorkout();
           firebase.database().ref('workouts/' + name).set(JSON.stringify(workout));
         
           var pos = {
