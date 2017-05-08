@@ -56,6 +56,10 @@
 	font-size: 2vh;
 }
 
+.txt3{
+	font-size:2vh;
+}
+
 .txtBig{
 	font-size: 5vh;
 }
@@ -143,10 +147,6 @@ md-list-item{
 	width: 280px;
 }
 
-md-list{
-	height:100%;
-}
-
 .displayblock{
 	display:inline-block;
 }
@@ -208,8 +208,7 @@ md-tab{
 }
 
 .scroll{
-	height:73vh;
-	width:100%;
+	height:90vh;
 	overflow-y:auto;
 	overflow-x:hidden;
 }
@@ -227,12 +226,7 @@ md-tab{
 }
 
 @media screen and (max-width: 1280px){
-	.scroll{
-		height:73vh;
-		width:100%;
-		overflow-y:auto;
-		overflow-x:hidden;
-	}
+
 
 	.mobileScroll{
 		overflow-y:auto;

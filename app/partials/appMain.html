@@ -31,51 +31,41 @@
           </md-toolbar>
           <md-content style = "overflow-y:hidden" flex layout-padding ng-controller="LeftCtrl">
             <!--The checkout toolbar-->
-            <div layout = "column" flex class = "header" md-whiteframe = "3"> 
-              <div flex layout = "row" layout-align = "space-between"  layout-padding>
-                <div layout layout-align = "center center" class = "md-subhead">
-                  <span ng-if = "myExercises.length != 0">
-                   Start working out!
-                  </span>
-                  <span ng-if = "myExercises.length == 0">
-                    Select some exercises!
-                  </span>
-                </div>
-                <div layout layout-align = "center center">
-                    <md-button  ng-href = "#!app/workout" class = "md-icon-button" ng-disabled = "myExercises.length == 0">
-                      <md-icon class = "color" md-font-set="material-icons"> play_circle_filled </md-icon>
-                    </md-button>
-                </div>
+
+            <!-- PLAY BUTTON -->
+            <div layout = "row" flex layout-align = "space-between" class = "header" md-whiteframe = "3"> 
+              <div layout = "column" layout-align = "center center">
+                <md-button  ng-href = "#!app/workout" class = "md-icon-button" ng-disabled = "myExercises.length == 0">
+                  <md-icon class = "color" md-font-set="material-icons"> play_circle_filled </md-icon>
+                </md-button>
+                <span class = "txtMenu">Play</span>
               </div>
-              <div flex layout = "row" layout-align = "space-between" layout-padding>
-                  <div layout layout-align = "center center" class = "md-subhead">
-                    <span>
-                     Clear workout
-                    </span>
-                  </div>
-                  <div layout layout-align = "center center">
-                      <md-button  ng-click = "clearList()" class = "md-icon-button" ng-disabled = "myExercises.length == 0">
-                        <md-icon class = "color" md-font-set="material-icons"> delete </md-icon>
-                      </md-button>
-                  </div>            
+              <!-- CLEAR BUTTON -->
+              <div layout = "column" layout-align = "center center">              
+                <md-button  ng-click = "clearList()" class = "md-icon-button" ng-disabled = "myExercises.length == 0">
+                  <md-icon class = "color" md-font-set="material-icons"> delete </md-icon>
+                </md-button>             
+                <span class = "txtMenu">Clear</span>
+              </div>
+              <!-- SAVE BUTTON -->
+              <div layout = "column" layout-align = "center center">  
+                <md-button ng-click = "saveWorkout($event)" ng-disabled = "myExercises.length == 0"  class = "md-icon-button" aria-label="back">
+                  <!--<md-tooltip md-direction="top">Save</md-tooltip>-->
+                  <md-icon class = "color"  md-font-set="material-icons"> save </md-icon>
+                </md-button>
+                <span class = "txtMenu">Save</span>
+              </div>
+              <!--LOAD BUTTON-->
+              <div layout = "column" layout-align = "center center"> 
+                <md-button ng-click = "openMenu($event)" class = "md-icon-button" aria-label="back">
+                  <!--<md-tooltip md-direction="top">Load</md-tooltip>-->
+                  <md-icon class = "color"  md-font-set="material-icons"> unarchive </md-icon>
+                </md-button>
+                <span class = "txtMenu">Load</span>
               </div>
             </div>
-          <!-- SAVE BUTTON -->
-            <md-button ng-click = "saveWorkout($event)" ng-disabled = "myExercises.length == 0" style = "position: absolute; left:0;bottom:0" class = "md-icon-button" aria-label="back">
-              <md-tooltip md-direction="top">Save</md-tooltip>
-              <md-icon class = "color"  md-font-set="material-icons"> save </md-icon>
-            </md-button>
-
-          <!--LOAD BUTTOn-->
-
-            <md-button ng-click = "openMenu($event)" style = "position: absolute; right:0;bottom:0" class = "md-icon-button" aria-label="back">
-              <md-tooltip md-direction="top">Load</md-tooltip>
-              <md-icon class = "color"  md-font-set="material-icons"> unarchive </md-icon>
-            </md-button>
-         
-
               <!--External file for the individual items-->
-              <div class = "scroll" ng-include = "'partials/exerciseMenu.html'"></div>
+              <div layout-fill = "vertical" class = "scroll" ng-include = "'partials/exerciseMenu.html'"></div>
 
           </md-content>
 
