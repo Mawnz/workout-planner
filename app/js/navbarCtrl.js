@@ -99,12 +99,10 @@ projectTrainingApp.controller('NavbarCtrl', function ($scope, Workout, $timeout,
           );
         }
         else{
-          /*
-          //first prompt the user to give a pw so only they can remove it
 
           var workout = {pw: pw, workout: Workout.getMyWorkout()};
           firebase.database().ref('workouts/' + name).set(JSON.stringify(workout));
-          */
+        
           var pos = {
             bottom : false,
             top : true,
